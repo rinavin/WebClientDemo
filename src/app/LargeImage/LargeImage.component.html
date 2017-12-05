@@ -1,0 +1,39 @@
+<form
+    novalidate
+    [formGroup]="screenFormGroup"
+>
+    <div
+        class="magic-container"
+        magic="LargeImage"
+        class="LargeImage"
+    >
+        <div *ngIf="isImageExists('image1')">
+            <img
+                magic="image1"
+                class="image1"
+                [src]="getImage('image1')"
+            />
+        </div>
+        <div *ngIf="isImageExists('image2')">
+            <img
+                magic="image2"
+                class="image2"
+                [src]="getImage('image2')"
+            />
+        </div>
+        <div *ngIf="isImageExists('image3')">
+            <img
+                magic="image3"
+                class="image3"
+                [src]="getImage('image3')"
+            />
+        </div>
+        <div *ngIf="isImageExists('image4')">
+            <img
+                magic="image4"
+                class="image4"
+                [src]="getImage('image4')"
+            />
+        </div>
+        </div>
+        </form>

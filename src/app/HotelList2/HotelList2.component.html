@@ -1,0 +1,108 @@
+<form
+    novalidate
+    [formGroup]="screenFormGroup"
+>
+    <div
+        class="magic-container"
+        magic="HotelList2"
+        class="HotelList2"
+    >
+        <label
+            magic="LBlankLabel"
+            class="LBlankLabel"
+        >
+            </label>
+            <input
+                type="text"
+                formControlName="LDays"
+                magic="LDays"
+                class="LDays"
+            />
+            <ul style="list-style: none;padding: 0">
+                <li *ngFor="let row of task.Records.list">
+                    <div
+                        *ngIf="ifRowCreated(row.rowId)"
+                        id="row"
+                    >
+                        <form [formGroup]="getFormGroupByRow(row.rowId)">
+                            <div *ngIf="isImageExists('flightLogo')">
+                                <img
+                                    magic="flightLogo"
+                                    class="flightLogo"
+                                    [rowId]="row.rowId"
+                                    [title]="getTitle('flightLogo', row.rowId)"
+                                    [src]="getImage('flightLogo', row.rowId)"
+                                />
+                            </div>
+                            <label
+                                magic="City"
+                                class="City"
+                                [rowId]="row.rowId"
+                            >
+                                {{getValue('City', row.rowId)}}
+                                </label>
+                                <div *ngIf="isImageExists('flight')">
+                                    <img
+                                        magic="flight"
+                                        class="flight"
+                                        [rowId]="row.rowId"
+                                        [src]="getImage('flight', row.rowId)"
+                                    />
+                                </div>
+                                <label
+                                    magic="RDescription"
+                                    class="RDescription"
+                                    [rowId]="row.rowId"
+                                >
+                                    {{getValue('RDescription', row.rowId)}}
+                                    </label>
+                                    <label
+                                        magic="AddressEdit"
+                                        class="AddressEdit"
+                                        [rowId]="row.rowId"
+                                    >
+                                        {{getValue('AddressEdit', row.rowId)}}
+                                        </label>
+                                        <div *ngIf="isImageExists('EditImg')">
+                                            <img
+                                                magic="EditImg"
+                                                class="EditImg"
+                                                [rowId]="row.rowId"
+                                                [src]="getImage('EditImg', row.rowId)"
+                                            />
+                                        </div>
+                                        <div *ngIf="isImageExists('DeleteImg')">
+                                            <img
+                                                magic="DeleteImg"
+                                                class="DeleteImg"
+                                                [rowId]="row.rowId"
+                                                [src]="getImage('DeleteImg', row.rowId)"
+                                            />
+                                        </div>
+                        </form>
+                        </div>
+                </li>
+            </ul>
+            <a
+                href="#"
+                magic="BAdd"
+                class="BAdd"
+            >
+                {{getValue('BAdd')}}
+                </a>
+                <a
+                    href="#"
+                    magic="BEdit"
+                    class="BEdit"
+                >
+                    {{getValue('BEdit')}}
+                    </a>
+                    <a
+                        href="#"
+                        magic="BDelete"
+                        class="BDelete"
+                    >
+                        {{getValue('BDelete')}}
+                        </a>
+                        </div>
+                        </form>

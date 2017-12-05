@@ -1,0 +1,84 @@
+<form
+    novalidate
+    [formGroup]="screenFormGroup"
+>
+    <div
+        class="magic-container"
+        magic="Rest"
+        class="Rest"
+    >
+        <div *ngIf="isImageExists('AddFlightImg')">
+            <img
+                magic="AddFlightImg"
+                class="AddFlightImg"
+                [src]="getImage('AddFlightImg')"
+            />
+        </div>
+        <label
+            magic="SelectFlightL"
+            class="SelectFlightL"
+        >
+            Restaurant Details
+            </label>
+            <div *ngIf="isImageExists('classImg')">
+                <img
+                    magic="classImg"
+                    class="classImg"
+                    [style.visibility]="getVisible('classImg')"
+                    [src]="getImage('classImg')"
+                />
+            </div>
+            <input
+                type="text"
+                formControlName="serviceAddress"
+                magic="serviceAddress"
+                class="serviceAddress"
+            />
+            <label
+                magic="ReservationL"
+                class="ReservationL"
+            >
+                Reservation:
+                </label>
+                <input
+                    type="text"
+                    formControlName="RestoFromTime"
+                    magic="RestoFromTime"
+                    class="RestoFromTime"
+                />
+                <input
+                    type="text"
+                    formControlName="fromdateEdit"
+                    magic="fromdateEdit"
+                    class="fromdateEdit"
+                />
+                <select
+                    (change)="onselectionchanged($event,'fromairportCmb')"
+                    value="getSelectedValue('fromairportCmb')"
+                    magic="fromairportCmb"
+                    class="fromairportCmb"
+                >
+                    <option
+                        *ngFor="let o of getListboxValues('fromairportCmb');"
+                        [selected]="o.index == getSelectedValue('fromairportCmb')"
+                        value="o.index"
+                    >
+                        {{o.realString}}
+                        </option>
+                        </select>
+                        <ndc-dynamic
+                            magic="RestoImgSubform"
+                            class="RestoImgSubform"
+                            [ndcDynamicComponent]="getComp('RestoImgSubform')"
+                            [ndcDynamicInputs]="getParameters('RestoImgSubform')"
+                        >
+                            </ndc-dynamic>
+                            <input
+                                type="button"
+                                magic="BSave"
+                                class="BSave"
+                                [attr.disabled]="isDisabled('BSave')"
+                                value=Ok
+                            />
+                            </div>
+                            </form>

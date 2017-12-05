@@ -1,0 +1,71 @@
+<form
+    novalidate
+    [formGroup]="screenFormGroup"
+>
+    <div
+        class="magic-container"
+        magic="Hotellist3"
+        class="Hotellist3"
+    >
+        <ul style="list-style: none;padding: 0">
+            <li *ngFor="let row of task.Records.list">
+                <div
+                    *ngIf="ifRowCreated(row.rowId)"
+                    id="row"
+                >
+                    <form [formGroup]="getFormGroupByRow(row.rowId)">
+                        <label
+                            magic="RDescription"
+                            class="RDescription"
+                            [rowId]="row.rowId"
+                        >
+                            {{getValue('RDescription', row.rowId)}}
+                            </label>
+                            <label
+                                magic="City"
+                                class="City"
+                                [rowId]="row.rowId"
+                            >
+                                {{getValue('City', row.rowId)}}
+                                </label>
+                                <label
+                                    magic="Country"
+                                    class="Country"
+                                    [rowId]="row.rowId"
+                                >
+                                    {{getValue('Country', row.rowId)}}
+                                    </label>
+                                    <label
+                                        magic="AddressEdit"
+                                        class="AddressEdit"
+                                        [rowId]="row.rowId"
+                                    >
+                                        {{getValue('AddressEdit', row.rowId)}}
+                                        </label>
+                    </form>
+                    </div>
+            </li>
+        </ul>
+        <input
+            type="button"
+            magic="BAdd"
+            class="BAdd"
+            [style.visibility]="getVisible('BAdd')"
+            value=Add
+        />
+        <input
+            type="button"
+            magic="BEdit"
+            class="BEdit"
+            [style.visibility]="getVisible('BEdit')"
+            value=Edit
+        />
+        <input
+            type="button"
+            magic="BDelete"
+            class="BDelete"
+            [style.visibility]="getVisible('BDelete')"
+            value=Delete
+        />
+        </div>
+        </form>

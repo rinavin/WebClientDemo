@@ -1,0 +1,36 @@
+<form
+    novalidate
+    [formGroup]="screenFormGroup"
+>
+    <div
+        class="magic-container"
+        magic="RestaurantsList"
+        class="RestaurantsList"
+    >
+        <ul style="list-style: none;padding: 0">
+            <li *ngFor="let row of task.Records.list">
+                <div
+                    *ngIf="ifRowCreated(row.rowId)"
+                    id="row"
+                >
+                    <form [formGroup]="getFormGroupByRow(row.rowId)">
+                        <label
+                            magic="R_description"
+                            class="R_description"
+                            [rowId]="row.rowId"
+                        >
+                            {{getValue('R_description', row.rowId)}}
+                            </label>
+                            <label
+                                magic="Address_0001"
+                                class="Address_0001"
+                                [rowId]="row.rowId"
+                            >
+                                {{getValue('Address_0001', row.rowId)}}
+                                </label>
+                    </form>
+                    </div>
+            </li>
+        </ul>
+        </div>
+        </form>
