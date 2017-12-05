@@ -3,121 +3,144 @@ export const stubData = {
     "data": {
       "0": {
         "values": {
-          "BckPckImg": "assets/images/Travel/Package190356-9046.png",
-          "DescriptionScreen": "Visit to Israel",
-          "DepartureDateScreen": "01 Dec",
-          "ArrivalDateScreen": "01 Jan",
-          "Ldays": "32 Days",
-          "AddFlightImg": "assets/images/Travel/flight.png",
-          "AddHotelImg": "assets/images/Travel/hotel.png",
-          "AddCarImg": "assets/images/Travel/car.png",
-          "AddRestoImg": "assets/images/Travel/restaurant.png",
-          "flightLogo": "assets/images/Travel/hotel-ritz.png",
-          "EditImg": "assets/images/Travel/edit.png",
-          "flight": "assets/images/Travel/hotel.png",
-          "RDescription": "01Jan-03Jan Blue",
-          "DeleteImg": "assets/images/Travel/remove.png",
-          "BBack": "<< Back",
+          "DescriptionEdit": "Visit to Israel",
+          "backgroundImage": "assets/images/Travel/Package190356-9046.png",
+          "takeoff": "assets/images/Travel/depart.png",
+          "land": "assets/images/Travel/arrive.png",
+          "DepartureDate": "01 Dec",
+          "ArrivalDate": "01 Jan",
+          "Ellipse": "assets/images/Travel/Ellipse 3.png",
+          "FlightImg": "assets/images/Travel/flight.png",
+          "HotelImg": "assets/images/Travel/hotel.png",
+          "CarImg": "assets/images/Travel/car.png",
+          "RestoImg": "assets/images/Travel/restaurant.png",
+          "BAdd": "Add",
+          "BEditDetails": "Edit Details",
           "BEdit": "Edit",
-          "BDelete": "Delete",
-          "BAddFlight": "Add Flight",
-          "BAddRestaurant": "Add Restaurant",
-          "BAddHotel": "Add Hotel",
-          "BAddCar": "Add Car Rental"
+          "BDelete": "Delete"
         },
         "ControlsProperties": {
-          "BckPckImg": {
+          "backgroundImage": {
             "properties": {
               "image": "assets/images/Travel/Package190356-9046.png",
               "tabindex": "8"
             }, "classesMap": {}, "stylesMap": {}
           },
-          "AddFlightImg": {
-            "properties": {"image": "assets/images/Travel/flight.png", "tabindex": "13"},
+          "takeoff": {
+            "properties": {"image": "assets/images/Travel/depart.png", "tabindex": "9"},
             "classesMap": {},
             "stylesMap": {}
           },
-          "AddHotelImg": {
-            "properties": {"image": "assets/images/Travel/hotel.png", "tabindex": "14"},
+          "land": {
+            "properties": {"image": "assets/images/Travel/arrive.png", "tabindex": "10"},
             "classesMap": {},
             "stylesMap": {}
           },
-          "AddCarImg": {
-            "properties": {"image": "assets/images/Travel/car.png", "tabindex": "15"},
+          "Ellipse": {
+            "properties": {"image": "assets/images/Travel/Ellipse 3.png", "tabindex": "13"},
             "classesMap": {},
             "stylesMap": {}
           },
-          "AddRestoImg": {
-            "properties": {"image": "assets/images/Travel/restaurant.png", "tabindex": "16"},
+          "FlightImg": {
+            "properties": {"image": "assets/images/Travel/flight.png", "visible": "1", "tabindex": "14"},
             "classesMap": {},
             "stylesMap": {}
           },
-          "flightLogo": {
-            "properties": {
-              "image": "assets/images/Travel/hotel-ritz.png",
-              "tooltip": "assets/images/Travel",
-              "tabindex": "32"
-            }, "classesMap": {}, "stylesMap": {}
-          },
-          "EditImg": {
-            "properties": {"image": "assets/images/Travel/edit.png", "tabindex": "33"},
+          "HotelImg": {
+            "properties": {"image": "assets/images/Travel/hotel.png", "visible": "1", "tabindex": "15"},
             "classesMap": {},
             "stylesMap": {}
           },
-          "flight": {
-            "properties": {"image": "assets/images/Travel/hotel.png", "tabindex": "30"},
+          "CarImg": {
+            "properties": {"image": "assets/images/Travel/car.png", "visible": "1", "tabindex": "17"},
             "classesMap": {},
             "stylesMap": {}
           },
-          "DeleteImg": {
-            "properties": {"image": "assets/images/Travel/remove.png", "tabindex": "34"},
+          "RestoImg": {
+            "properties": {"image": "assets/images/Travel/restaurant.png", "visible": "1", "tabindex": "18"},
             "classesMap": {},
             "stylesMap": {}
           },
-          "BEdit": {"properties": {"enabled": "1", "tabindex": "36"}, "classesMap": {}, "stylesMap": {}},
-          "DescriptionScreen": {"properties": {"tabindex": "9"}, "classesMap": {}, "stylesMap": {}},
-          "DepartureDateScreen": {"properties": {"tabindex": "10"}, "classesMap": {}, "stylesMap": {}},
-          "ArrivalDateScreen": {"properties": {"tabindex": "11"}, "classesMap": {}, "stylesMap": {}},
-          "Ldays": {"properties": {"tabindex": "12"}, "classesMap": {}, "stylesMap": {}},
-          "BBack": {"properties": {"tabindex": "35"}, "classesMap": {}, "stylesMap": {}},
-          "BDelete": {"properties": {"tabindex": "37"}, "classesMap": {}, "stylesMap": {}},
-          "BAddFlight": {"properties": {"tabindex": "38"}, "classesMap": {}, "stylesMap": {}},
-          "BAddRestaurant": {"properties": {"tabindex": "39"}, "classesMap": {}, "stylesMap": {}},
-          "BAddHotel": {"properties": {"tabindex": "40"}, "classesMap": {}, "stylesMap": {}},
-          "BAddCar": {"properties": {"tabindex": "41"}, "classesMap": {}, "stylesMap": {}},
-          "RDescription": {"properties": {"tabindex": "31"}, "classesMap": {}, "stylesMap": {}}
+          "BAdd": {"properties": {"tabindex": "21"}, "classesMap": {}, "stylesMap": {}},
+          "BEditDetails": {"properties": {"tabindex": "22"}, "classesMap": {}, "stylesMap": {}},
+          "DescriptionText": {
+            "properties": {"text": "Visit to Israel                                                                                                                                                                                         "},
+            "classesMap": {},
+            "stylesMap": {}
+          },
+          "DepartureDate": {"properties": {"tabindex": "11"}, "classesMap": {}, "stylesMap": {}},
+          "ArrivalDate": {"properties": {"tabindex": "12"}, "classesMap": {}, "stylesMap": {}},
+          "BEdit": {"properties": {"tabindex": "16"}, "classesMap": {}, "stylesMap": {}},
+          "BDelete": {"properties": {"tabindex": "19"}, "classesMap": {}, "stylesMap": {}},
+          "DescriptionEdit": {"properties": {"tabindex": "20"}, "classesMap": {}, "stylesMap": {}}
         },
         "rowId": "0"
       },
       "1": {
         "values": {
-          "flightLogo": "assets/images/Travel/resta-Food110709_0.png",
-          "EditImg": "assets/images/Travel/edit.png",
-          "flight": "assets/images/Travel/restaurant.png",
-          "RDescription": "12:30-00:00 BB House",
-          "DeleteImg": "assets/images/Travel/remove.png"
+          "DescriptionEdit": "Contract signing in Bangkok",
+          "backgroundImage": "assets/images/Travel/Package190505-9043.png",
+          "takeoff": "assets/images/Travel/depart.png",
+          "land": "assets/images/Travel/arrive.png",
+          "DepartureDate": "15 Jan",
+          "ArrivalDate": "16 Jan",
+          "Ellipse": "assets/images/Travel/Ellipse 3.png",
+          "FlightImg": "assets/images/Travel/flight.png",
+          "HotelImg": "assets/images/Travel/hotel.png",
+          "CarImg": "assets/images/Travel/car.png",
+          "RestoImg": "assets/images/Travel/restaurant.png",
+          "BEdit": "Edit",
+          "BDelete": "Delete"
         },
         "ControlsProperties": {
-          "flight": {
-            "properties": {"tabindex": "30", "image": "assets/images/Travel/restaurant.png"},
-            "classesMap": {},
-            "stylesMap": {}
-          },
-          "RDescription": {"properties": {"tabindex": "31"}, "classesMap": {}, "stylesMap": {}},
-          "flightLogo": {
+          "backgroundImage": {
             "properties": {
-              "tabindex": "32",
-              "tooltip": "assets/images/Travel",
-              "image": "assets/images/Travel/resta-Food110709_0.png"
+              "tabindex": "8",
+              "image": "assets/images/Travel/Package190505-9043.png"
             }, "classesMap": {}, "stylesMap": {}
           },
-          "EditImg": {
-            "properties": {"tabindex": "33", "image": "assets/images/Travel/edit.png"},
+          "takeoff": {
+            "properties": {"tabindex": "9", "image": "assets/images/Travel/depart.png"},
             "classesMap": {},
             "stylesMap": {}
           },
-          "DeleteImg": {
-            "properties": {"tabindex": "34", "image": "assets/images/Travel/remove.png"},
+          "land": {
+            "properties": {"tabindex": "10", "image": "assets/images/Travel/arrive.png"},
+            "classesMap": {},
+            "stylesMap": {}
+          },
+          "DepartureDate": {"properties": {"tabindex": "11"}, "classesMap": {}, "stylesMap": {}},
+          "ArrivalDate": {"properties": {"tabindex": "12"}, "classesMap": {}, "stylesMap": {}},
+          "Ellipse": {
+            "properties": {"tabindex": "13", "image": "assets/images/Travel/Ellipse 3.png"},
+            "classesMap": {},
+            "stylesMap": {}
+          },
+          "FlightImg": {
+            "properties": {"tabindex": "14", "visible": "1", "image": "assets/images/Travel/flight.png"},
+            "classesMap": {},
+            "stylesMap": {}
+          },
+          "HotelImg": {
+            "properties": {"tabindex": "15", "visible": "1", "image": "assets/images/Travel/hotel.png"},
+            "classesMap": {},
+            "stylesMap": {}
+          },
+          "BEdit": {"properties": {"tabindex": "16"}, "classesMap": {}, "stylesMap": {}},
+          "CarImg": {
+            "properties": {"tabindex": "17", "visible": "0", "image": "assets/images/Travel/car.png"},
+            "classesMap": {},
+            "stylesMap": {}
+          },
+          "RestoImg": {
+            "properties": {"tabindex": "18", "visible": "0", "image": "assets/images/Travel/restaurant.png"},
+            "classesMap": {},
+            "stylesMap": {}
+          },
+          "BDelete": {"properties": {"tabindex": "19"}, "classesMap": {}, "stylesMap": {}},
+          "DescriptionEdit": {"properties": {"tabindex": "20"}, "classesMap": {}, "stylesMap": {}},
+          "DescriptionText": {
+            "properties": {"text": "Contract signing in Bangkok                                                                                                                                                                             "},
             "classesMap": {},
             "stylesMap": {}
           }
@@ -126,33 +149,69 @@ export const stubData = {
       },
       "2": {
         "values": {
-          "flightLogo": "assets/images/Travel/car-Ola120509_0.png",
-          "EditImg": "assets/images/Travel/edit.png",
-          "flight": "assets/images/Travel/car.png",
-          "RDescription": "01Jan-01Jan Pune,",
-          "DeleteImg": "assets/images/Travel/remove.png"
+          "DescriptionEdit": "Branch opening in Sydney",
+          "backgroundImage": "assets/images/Travel/Package170633-9042.png",
+          "takeoff": "assets/images/Travel/depart.png",
+          "land": "assets/images/Travel/arrive.png",
+          "DepartureDate": "14 Nov",
+          "ArrivalDate": "26 Nov",
+          "Ellipse": "assets/images/Travel/Ellipse 3.png",
+          "FlightImg": "assets/images/Travel/flight.png",
+          "HotelImg": "assets/images/Travel/hotel.png",
+          "CarImg": "assets/images/Travel/car.png",
+          "RestoImg": "assets/images/Travel/restaurant.png",
+          "BEdit": "Edit",
+          "BDelete": "Delete"
         },
         "ControlsProperties": {
-          "flight": {
-            "properties": {"tabindex": "30", "image": "assets/images/Travel/car.png"},
-            "classesMap": {},
-            "stylesMap": {}
-          },
-          "RDescription": {"properties": {"tabindex": "31"}, "classesMap": {}, "stylesMap": {}},
-          "flightLogo": {
+          "backgroundImage": {
             "properties": {
-              "tabindex": "32",
-              "tooltip": "assets/images/Travel",
-              "image": "assets/images/Travel/car-Ola120509_0.png"
+              "tabindex": "8",
+              "image": "assets/images/Travel/Package170633-9042.png"
             }, "classesMap": {}, "stylesMap": {}
           },
-          "EditImg": {
-            "properties": {"tabindex": "33", "image": "assets/images/Travel/edit.png"},
+          "takeoff": {
+            "properties": {"tabindex": "9", "image": "assets/images/Travel/depart.png"},
             "classesMap": {},
             "stylesMap": {}
           },
-          "DeleteImg": {
-            "properties": {"tabindex": "34", "image": "assets/images/Travel/remove.png"},
+          "land": {
+            "properties": {"tabindex": "10", "image": "assets/images/Travel/arrive.png"},
+            "classesMap": {},
+            "stylesMap": {}
+          },
+          "DepartureDate": {"properties": {"tabindex": "11"}, "classesMap": {}, "stylesMap": {}},
+          "ArrivalDate": {"properties": {"tabindex": "12"}, "classesMap": {}, "stylesMap": {}},
+          "Ellipse": {
+            "properties": {"tabindex": "13", "image": "assets/images/Travel/Ellipse 3.png"},
+            "classesMap": {},
+            "stylesMap": {}
+          },
+          "FlightImg": {
+            "properties": {"tabindex": "14", "visible": "1", "image": "assets/images/Travel/flight.png"},
+            "classesMap": {},
+            "stylesMap": {}
+          },
+          "HotelImg": {
+            "properties": {"tabindex": "15", "visible": "1", "image": "assets/images/Travel/hotel.png"},
+            "classesMap": {},
+            "stylesMap": {}
+          },
+          "BEdit": {"properties": {"tabindex": "16"}, "classesMap": {}, "stylesMap": {}},
+          "CarImg": {
+            "properties": {"tabindex": "17", "visible": "0", "image": "assets/images/Travel/car.png"},
+            "classesMap": {},
+            "stylesMap": {}
+          },
+          "RestoImg": {
+            "properties": {"tabindex": "18", "visible": "0", "image": "assets/images/Travel/restaurant.png"},
+            "classesMap": {},
+            "stylesMap": {}
+          },
+          "BDelete": {"properties": {"tabindex": "19"}, "classesMap": {}, "stylesMap": {}},
+          "DescriptionEdit": {"properties": {"tabindex": "20"}, "classesMap": {}, "stylesMap": {}},
+          "DescriptionText": {
+            "properties": {"text": "Branch opening in Sydney                                                                                                                                                                                "},
             "classesMap": {},
             "stylesMap": {}
           }
@@ -161,33 +220,69 @@ export const stubData = {
       },
       "3": {
         "values": {
-          "flightLogo": "assets/images/Travel/airline-qf.gif",
-          "EditImg": "assets/images/Travel/edit.png",
-          "flight": "assets/images/Travel/flight.png",
-          "RDescription": "01Jan SYD-BOM QF/",
-          "DeleteImg": "assets/images/Travel/remove.png"
+          "DescriptionEdit": "Budget review meetings in Boston",
+          "backgroundImage": "assets/images/Travel/Package190651-9041.png",
+          "takeoff": "assets/images/Travel/depart.png",
+          "land": "assets/images/Travel/arrive.png",
+          "DepartureDate": "05 Sep",
+          "ArrivalDate": "08 Sep",
+          "Ellipse": "assets/images/Travel/Ellipse 3.png",
+          "FlightImg": "assets/images/Travel/flight.png",
+          "HotelImg": "assets/images/Travel/hotel.png",
+          "CarImg": "assets/images/Travel/car.png",
+          "RestoImg": "assets/images/Travel/restaurant.png",
+          "BEdit": "Edit",
+          "BDelete": "Delete"
         },
         "ControlsProperties": {
-          "flight": {
-            "properties": {"tabindex": "30", "image": "assets/images/Travel/flight.png"},
-            "classesMap": {},
-            "stylesMap": {}
-          },
-          "RDescription": {"properties": {"tabindex": "31"}, "classesMap": {}, "stylesMap": {}},
-          "flightLogo": {
+          "backgroundImage": {
             "properties": {
-              "tabindex": "32",
-              "tooltip": "assets/images/Travel",
-              "image": "assets/images/Travel/airline-qf.gif"
+              "tabindex": "8",
+              "image": "assets/images/Travel/Package190651-9041.png"
             }, "classesMap": {}, "stylesMap": {}
           },
-          "EditImg": {
-            "properties": {"tabindex": "33", "image": "assets/images/Travel/edit.png"},
+          "takeoff": {
+            "properties": {"tabindex": "9", "image": "assets/images/Travel/depart.png"},
             "classesMap": {},
             "stylesMap": {}
           },
-          "DeleteImg": {
-            "properties": {"tabindex": "34", "image": "assets/images/Travel/remove.png"},
+          "land": {
+            "properties": {"tabindex": "10", "image": "assets/images/Travel/arrive.png"},
+            "classesMap": {},
+            "stylesMap": {}
+          },
+          "DepartureDate": {"properties": {"tabindex": "11"}, "classesMap": {}, "stylesMap": {}},
+          "ArrivalDate": {"properties": {"tabindex": "12"}, "classesMap": {}, "stylesMap": {}},
+          "Ellipse": {
+            "properties": {"tabindex": "13", "image": "assets/images/Travel/Ellipse 3.png"},
+            "classesMap": {},
+            "stylesMap": {}
+          },
+          "FlightImg": {
+            "properties": {"tabindex": "14", "visible": "1", "image": "assets/images/Travel/flight.png"},
+            "classesMap": {},
+            "stylesMap": {}
+          },
+          "HotelImg": {
+            "properties": {"tabindex": "15", "visible": "1", "image": "assets/images/Travel/hotel.png"},
+            "classesMap": {},
+            "stylesMap": {}
+          },
+          "BEdit": {"properties": {"tabindex": "16"}, "classesMap": {}, "stylesMap": {}},
+          "CarImg": {
+            "properties": {"tabindex": "17", "visible": "0", "image": "assets/images/Travel/car.png"},
+            "classesMap": {},
+            "stylesMap": {}
+          },
+          "RestoImg": {
+            "properties": {"tabindex": "18", "visible": "1", "image": "assets/images/Travel/restaurant.png"},
+            "classesMap": {},
+            "stylesMap": {}
+          },
+          "BDelete": {"properties": {"tabindex": "19"}, "classesMap": {}, "stylesMap": {}},
+          "DescriptionEdit": {"properties": {"tabindex": "20"}, "classesMap": {}, "stylesMap": {}},
+          "DescriptionText": {
+            "properties": {"text": "Budget review meetings in Boston                                                                                                                                                                        "},
             "classesMap": {},
             "stylesMap": {}
           }
@@ -196,156 +291,357 @@ export const stubData = {
       },
       "4": {
         "values": {
-          "flightLogo": "assets/images/Travel/hotel-ritz.png",
-          "EditImg": "assets/images/Travel/edit.png",
-          "flight": "assets/images/Travel/hotel.png",
-          "RDescription": "01Jan-01Jan",
-          "DeleteImg": "assets/images/Travel/remove.png"
+          "DescriptionEdit": "Gartner conference in LA",
+          "backgroundImage": "assets/images/Travel/Package190741-9040.png",
+          "takeoff": "assets/images/Travel/depart.png",
+          "land": "assets/images/Travel/arrive.png",
+          "DepartureDate": "21 Jul",
+          "ArrivalDate": "24 Jul",
+          "Ellipse": "assets/images/Travel/Ellipse 3.png",
+          "FlightImg": "assets/images/Travel/flight.png",
+          "HotelImg": "assets/images/Travel/hotel.png",
+          "CarImg": "assets/images/Travel/car.png",
+          "RestoImg": "assets/images/Travel/restaurant.png",
+          "BEdit": "Edit",
+          "BDelete": "Delete"
         },
         "ControlsProperties": {
-          "flight": {
-            "properties": {"tabindex": "30", "image": "assets/images/Travel/hotel.png"},
-            "classesMap": {},
-            "stylesMap": {}
-          },
-          "RDescription": {"properties": {"tabindex": "31"}, "classesMap": {}, "stylesMap": {}},
-          "flightLogo": {
+          "backgroundImage": {
             "properties": {
-              "tabindex": "32",
-              "tooltip": "assets/images/Travel",
-              "image": "assets/images/Travel/hotel-ritz.png"
+              "tabindex": "8",
+              "image": "assets/images/Travel/Package190741-9040.png"
             }, "classesMap": {}, "stylesMap": {}
           },
-          "EditImg": {
-            "properties": {"tabindex": "33", "image": "assets/images/Travel/edit.png"},
+          "takeoff": {
+            "properties": {"tabindex": "9", "image": "assets/images/Travel/depart.png"},
             "classesMap": {},
             "stylesMap": {}
           },
-          "DeleteImg": {
-            "properties": {"tabindex": "34", "image": "assets/images/Travel/remove.png"},
+          "land": {
+            "properties": {"tabindex": "10", "image": "assets/images/Travel/arrive.png"},
+            "classesMap": {},
+            "stylesMap": {}
+          },
+          "DepartureDate": {"properties": {"tabindex": "11"}, "classesMap": {}, "stylesMap": {}},
+          "ArrivalDate": {"properties": {"tabindex": "12"}, "classesMap": {}, "stylesMap": {}},
+          "Ellipse": {
+            "properties": {"tabindex": "13", "image": "assets/images/Travel/Ellipse 3.png"},
+            "classesMap": {},
+            "stylesMap": {}
+          },
+          "FlightImg": {
+            "properties": {"tabindex": "14", "visible": "1", "image": "assets/images/Travel/flight.png"},
+            "classesMap": {},
+            "stylesMap": {}
+          },
+          "HotelImg": {
+            "properties": {"tabindex": "15", "visible": "1", "image": "assets/images/Travel/hotel.png"},
+            "classesMap": {},
+            "stylesMap": {}
+          },
+          "BEdit": {"properties": {"tabindex": "16"}, "classesMap": {}, "stylesMap": {}},
+          "CarImg": {
+            "properties": {"tabindex": "17", "visible": "1", "image": "assets/images/Travel/car.png"},
+            "classesMap": {},
+            "stylesMap": {}
+          },
+          "RestoImg": {
+            "properties": {"tabindex": "18", "visible": "0", "image": "assets/images/Travel/restaurant.png"},
+            "classesMap": {},
+            "stylesMap": {}
+          },
+          "BDelete": {"properties": {"tabindex": "19"}, "classesMap": {}, "stylesMap": {}},
+          "DescriptionEdit": {"properties": {"tabindex": "20"}, "classesMap": {}, "stylesMap": {}},
+          "DescriptionText": {
+            "properties": {"text": "Gartner conference in LA                                                                                                                                                                                "},
             "classesMap": {},
             "stylesMap": {}
           }
         },
         "rowId": "4"
+      },
+      "5": {
+        "values": {
+          "DescriptionEdit": "Customer meetings in London",
+          "backgroundImage": "assets/images/Travel/Package191112-9044.png",
+          "takeoff": "assets/images/Travel/depart.png",
+          "land": "assets/images/Travel/arrive.png",
+          "DepartureDate": "01 Jun",
+          "ArrivalDate": "03 Jun",
+          "Ellipse": "assets/images/Travel/Ellipse 3.png",
+          "FlightImg": "assets/images/Travel/flight.png",
+          "HotelImg": "assets/images/Travel/hotel.png",
+          "CarImg": "assets/images/Travel/car.png",
+          "RestoImg": "assets/images/Travel/restaurant.png",
+          "BEdit": "Edit",
+          "BDelete": "Delete"
+        },
+        "ControlsProperties": {
+          "backgroundImage": {
+            "properties": {
+              "tabindex": "8",
+              "image": "assets/images/Travel/Package191112-9044.png"
+            }, "classesMap": {}, "stylesMap": {}
+          },
+          "takeoff": {
+            "properties": {"tabindex": "9", "image": "assets/images/Travel/depart.png"},
+            "classesMap": {},
+            "stylesMap": {}
+          },
+          "land": {
+            "properties": {"tabindex": "10", "image": "assets/images/Travel/arrive.png"},
+            "classesMap": {},
+            "stylesMap": {}
+          },
+          "DepartureDate": {"properties": {"tabindex": "11"}, "classesMap": {}, "stylesMap": {}},
+          "ArrivalDate": {"properties": {"tabindex": "12"}, "classesMap": {}, "stylesMap": {}},
+          "Ellipse": {
+            "properties": {"tabindex": "13", "image": "assets/images/Travel/Ellipse 3.png"},
+            "classesMap": {},
+            "stylesMap": {}
+          },
+          "FlightImg": {
+            "properties": {"tabindex": "14", "visible": "1", "image": "assets/images/Travel/flight.png"},
+            "classesMap": {},
+            "stylesMap": {}
+          },
+          "HotelImg": {
+            "properties": {"tabindex": "15", "visible": "1", "image": "assets/images/Travel/hotel.png"},
+            "classesMap": {},
+            "stylesMap": {}
+          },
+          "BEdit": {"properties": {"tabindex": "16"}, "classesMap": {}, "stylesMap": {}},
+          "CarImg": {
+            "properties": {"tabindex": "17", "visible": "0", "image": "assets/images/Travel/car.png"},
+            "classesMap": {},
+            "stylesMap": {}
+          },
+          "RestoImg": {
+            "properties": {"tabindex": "18", "visible": "1", "image": "assets/images/Travel/restaurant.png"},
+            "classesMap": {},
+            "stylesMap": {}
+          },
+          "BDelete": {"properties": {"tabindex": "19"}, "classesMap": {}, "stylesMap": {}},
+          "DescriptionEdit": {"properties": {"tabindex": "20"}, "classesMap": {}, "stylesMap": {}},
+          "DescriptionText": {
+            "properties": {"text": "Customer meetings in London                                                                                                                                                                             "},
+            "classesMap": {},
+            "stylesMap": {}
+          }
+        },
+        "rowId": "5"
+      },
+      "6": {
+        "values": {
+          "DescriptionEdit": "Google DevCon Las Vegas",
+          "backgroundImage": "assets/images/Travel/Package191410-9045.png",
+          "takeoff": "assets/images/Travel/depart.png",
+          "land": "assets/images/Travel/arrive.png",
+          "DepartureDate": "07 May",
+          "ArrivalDate": "11 May",
+          "Ellipse": "assets/images/Travel/Ellipse 3.png",
+          "FlightImg": "assets/images/Travel/flight.png",
+          "HotelImg": "assets/images/Travel/hotel.png",
+          "CarImg": "assets/images/Travel/car.png",
+          "RestoImg": "assets/images/Travel/restaurant.png",
+          "BEdit": "Edit",
+          "BDelete": "Delete"
+        },
+        "ControlsProperties": {
+          "backgroundImage": {
+            "properties": {
+              "tabindex": "8",
+              "image": "assets/images/Travel/Package191410-9045.png"
+            }, "classesMap": {}, "stylesMap": {}
+          },
+          "takeoff": {
+            "properties": {"tabindex": "9", "image": "assets/images/Travel/depart.png"},
+            "classesMap": {},
+            "stylesMap": {}
+          },
+          "land": {
+            "properties": {"tabindex": "10", "image": "assets/images/Travel/arrive.png"},
+            "classesMap": {},
+            "stylesMap": {}
+          },
+          "DepartureDate": {"properties": {"tabindex": "11"}, "classesMap": {}, "stylesMap": {}},
+          "ArrivalDate": {"properties": {"tabindex": "12"}, "classesMap": {}, "stylesMap": {}},
+          "Ellipse": {
+            "properties": {"tabindex": "13", "image": "assets/images/Travel/Ellipse 3.png"},
+            "classesMap": {},
+            "stylesMap": {}
+          },
+          "FlightImg": {
+            "properties": {"tabindex": "14", "visible": "1", "image": "assets/images/Travel/flight.png"},
+            "classesMap": {},
+            "stylesMap": {}
+          },
+          "HotelImg": {
+            "properties": {"tabindex": "15", "visible": "1", "image": "assets/images/Travel/hotel.png"},
+            "classesMap": {},
+            "stylesMap": {}
+          },
+          "BEdit": {"properties": {"tabindex": "16"}, "classesMap": {}, "stylesMap": {}},
+          "CarImg": {
+            "properties": {"tabindex": "17", "visible": "1", "image": "assets/images/Travel/car.png"},
+            "classesMap": {},
+            "stylesMap": {}
+          },
+          "RestoImg": {
+            "properties": {"tabindex": "18", "visible": "1", "image": "assets/images/Travel/restaurant.png"},
+            "classesMap": {},
+            "stylesMap": {}
+          },
+          "BDelete": {"properties": {"tabindex": "19"}, "classesMap": {}, "stylesMap": {}},
+          "DescriptionEdit": {"properties": {"tabindex": "20"}, "classesMap": {}, "stylesMap": {}},
+          "DescriptionText": {
+            "properties": {"text": "Google DevCon Las Vegas                                                                                                                                                                                 "},
+            "classesMap": {},
+            "stylesMap": {}
+          }
+        },
+        "rowId": "6"
       }
     },
     "list": [{
       "values": {
-        "BckPckImg": "assets/images/Travel/Package190356-9046.png",
-        "DescriptionScreen": "Visit to Israel",
-        "DepartureDateScreen": "01 Dec",
-        "ArrivalDateScreen": "01 Jan",
-        "Ldays": "32 Days",
-        "AddFlightImg": "assets/images/Travel/flight.png",
-        "AddHotelImg": "assets/images/Travel/hotel.png",
-        "AddCarImg": "assets/images/Travel/car.png",
-        "AddRestoImg": "assets/images/Travel/restaurant.png",
-        "flightLogo": "assets/images/Travel/hotel-ritz.png",
-        "EditImg": "assets/images/Travel/edit.png",
-        "flight": "assets/images/Travel/hotel.png",
-        "RDescription": "01Jan-03Jan Blue",
-        "DeleteImg": "assets/images/Travel/remove.png",
-        "BBack": "<< Back",
+        "DescriptionEdit": "Visit to Israel",
+        "backgroundImage": "assets/images/Travel/Package190356-9046.png",
+        "takeoff": "assets/images/Travel/depart.png",
+        "land": "assets/images/Travel/arrive.png",
+        "DepartureDate": "01 Dec",
+        "ArrivalDate": "01 Jan",
+        "Ellipse": "assets/images/Travel/Ellipse 3.png",
+        "FlightImg": "assets/images/Travel/flight.png",
+        "HotelImg": "assets/images/Travel/hotel.png",
+        "CarImg": "assets/images/Travel/car.png",
+        "RestoImg": "assets/images/Travel/restaurant.png",
+        "BAdd": "Add",
+        "BEditDetails": "Edit Details",
         "BEdit": "Edit",
-        "BDelete": "Delete",
-        "BAddFlight": "Add Flight",
-        "BAddRestaurant": "Add Restaurant",
-        "BAddHotel": "Add Hotel",
-        "BAddCar": "Add Car Rental"
+        "BDelete": "Delete"
       },
       "ControlsProperties": {
-        "BckPckImg": {
+        "backgroundImage": {
           "properties": {
             "image": "assets/images/Travel/Package190356-9046.png",
             "tabindex": "8"
           }, "classesMap": {}, "stylesMap": {}
         },
-        "AddFlightImg": {
-          "properties": {"image": "assets/images/Travel/flight.png", "tabindex": "13"},
+        "takeoff": {
+          "properties": {"image": "assets/images/Travel/depart.png", "tabindex": "9"},
           "classesMap": {},
           "stylesMap": {}
         },
-        "AddHotelImg": {
-          "properties": {"image": "assets/images/Travel/hotel.png", "tabindex": "14"},
+        "land": {
+          "properties": {"image": "assets/images/Travel/arrive.png", "tabindex": "10"},
           "classesMap": {},
           "stylesMap": {}
         },
-        "AddCarImg": {
-          "properties": {"image": "assets/images/Travel/car.png", "tabindex": "15"},
+        "Ellipse": {
+          "properties": {"image": "assets/images/Travel/Ellipse 3.png", "tabindex": "13"},
           "classesMap": {},
           "stylesMap": {}
         },
-        "AddRestoImg": {
-          "properties": {"image": "assets/images/Travel/restaurant.png", "tabindex": "16"},
+        "FlightImg": {
+          "properties": {"image": "assets/images/Travel/flight.png", "visible": "1", "tabindex": "14"},
           "classesMap": {},
           "stylesMap": {}
         },
-        "flightLogo": {
-          "properties": {
-            "image": "assets/images/Travel/hotel-ritz.png",
-            "tooltip": "assets/images/Travel",
-            "tabindex": "32"
-          }, "classesMap": {}, "stylesMap": {}
-        },
-        "EditImg": {
-          "properties": {"image": "assets/images/Travel/edit.png", "tabindex": "33"},
+        "HotelImg": {
+          "properties": {"image": "assets/images/Travel/hotel.png", "visible": "1", "tabindex": "15"},
           "classesMap": {},
           "stylesMap": {}
         },
-        "flight": {
-          "properties": {"image": "assets/images/Travel/hotel.png", "tabindex": "30"},
+        "CarImg": {
+          "properties": {"image": "assets/images/Travel/car.png", "visible": "1", "tabindex": "17"},
           "classesMap": {},
           "stylesMap": {}
         },
-        "DeleteImg": {
-          "properties": {"image": "assets/images/Travel/remove.png", "tabindex": "34"},
+        "RestoImg": {
+          "properties": {"image": "assets/images/Travel/restaurant.png", "visible": "1", "tabindex": "18"},
           "classesMap": {},
           "stylesMap": {}
         },
-        "BEdit": {"properties": {"enabled": "1", "tabindex": "36"}, "classesMap": {}, "stylesMap": {}},
-        "DescriptionScreen": {"properties": {"tabindex": "9"}, "classesMap": {}, "stylesMap": {}},
-        "DepartureDateScreen": {"properties": {"tabindex": "10"}, "classesMap": {}, "stylesMap": {}},
-        "ArrivalDateScreen": {"properties": {"tabindex": "11"}, "classesMap": {}, "stylesMap": {}},
-        "Ldays": {"properties": {"tabindex": "12"}, "classesMap": {}, "stylesMap": {}},
-        "BBack": {"properties": {"tabindex": "35"}, "classesMap": {}, "stylesMap": {}},
-        "BDelete": {"properties": {"tabindex": "37"}, "classesMap": {}, "stylesMap": {}},
-        "BAddFlight": {"properties": {"tabindex": "38"}, "classesMap": {}, "stylesMap": {}},
-        "BAddRestaurant": {"properties": {"tabindex": "39"}, "classesMap": {}, "stylesMap": {}},
-        "BAddHotel": {"properties": {"tabindex": "40"}, "classesMap": {}, "stylesMap": {}},
-        "BAddCar": {"properties": {"tabindex": "41"}, "classesMap": {}, "stylesMap": {}},
-        "RDescription": {"properties": {"tabindex": "31"}, "classesMap": {}, "stylesMap": {}}
+        "BAdd": {"properties": {"tabindex": "21"}, "classesMap": {}, "stylesMap": {}},
+        "BEditDetails": {"properties": {"tabindex": "22"}, "classesMap": {}, "stylesMap": {}},
+        "DescriptionText": {
+          "properties": {"text": "Visit to Israel                                                                                                                                                                                         "},
+          "classesMap": {},
+          "stylesMap": {}
+        },
+        "DepartureDate": {"properties": {"tabindex": "11"}, "classesMap": {}, "stylesMap": {}},
+        "ArrivalDate": {"properties": {"tabindex": "12"}, "classesMap": {}, "stylesMap": {}},
+        "BEdit": {"properties": {"tabindex": "16"}, "classesMap": {}, "stylesMap": {}},
+        "BDelete": {"properties": {"tabindex": "19"}, "classesMap": {}, "stylesMap": {}},
+        "DescriptionEdit": {"properties": {"tabindex": "20"}, "classesMap": {}, "stylesMap": {}}
       },
       "rowId": "0"
     }, {
       "values": {
-        "flightLogo": "assets/images/Travel/resta-Food110709_0.png",
-        "EditImg": "assets/images/Travel/edit.png",
-        "flight": "assets/images/Travel/restaurant.png",
-        "RDescription": "12:30-00:00 BB House",
-        "DeleteImg": "assets/images/Travel/remove.png"
+        "DescriptionEdit": "Contract signing in Bangkok",
+        "backgroundImage": "assets/images/Travel/Package190505-9043.png",
+        "takeoff": "assets/images/Travel/depart.png",
+        "land": "assets/images/Travel/arrive.png",
+        "DepartureDate": "15 Jan",
+        "ArrivalDate": "16 Jan",
+        "Ellipse": "assets/images/Travel/Ellipse 3.png",
+        "FlightImg": "assets/images/Travel/flight.png",
+        "HotelImg": "assets/images/Travel/hotel.png",
+        "CarImg": "assets/images/Travel/car.png",
+        "RestoImg": "assets/images/Travel/restaurant.png",
+        "BEdit": "Edit",
+        "BDelete": "Delete"
       },
       "ControlsProperties": {
-        "flight": {
-          "properties": {"tabindex": "30", "image": "assets/images/Travel/restaurant.png"},
-          "classesMap": {},
-          "stylesMap": {}
-        },
-        "RDescription": {"properties": {"tabindex": "31"}, "classesMap": {}, "stylesMap": {}},
-        "flightLogo": {
+        "backgroundImage": {
           "properties": {
-            "tabindex": "32",
-            "tooltip": "assets/images/Travel",
-            "image": "assets/images/Travel/resta-Food110709_0.png"
+            "tabindex": "8",
+            "image": "assets/images/Travel/Package190505-9043.png"
           }, "classesMap": {}, "stylesMap": {}
         },
-        "EditImg": {
-          "properties": {"tabindex": "33", "image": "assets/images/Travel/edit.png"},
+        "takeoff": {
+          "properties": {"tabindex": "9", "image": "assets/images/Travel/depart.png"},
           "classesMap": {},
           "stylesMap": {}
         },
-        "DeleteImg": {
-          "properties": {"tabindex": "34", "image": "assets/images/Travel/remove.png"},
+        "land": {
+          "properties": {"tabindex": "10", "image": "assets/images/Travel/arrive.png"},
+          "classesMap": {},
+          "stylesMap": {}
+        },
+        "DepartureDate": {"properties": {"tabindex": "11"}, "classesMap": {}, "stylesMap": {}},
+        "ArrivalDate": {"properties": {"tabindex": "12"}, "classesMap": {}, "stylesMap": {}},
+        "Ellipse": {
+          "properties": {"tabindex": "13", "image": "assets/images/Travel/Ellipse 3.png"},
+          "classesMap": {},
+          "stylesMap": {}
+        },
+        "FlightImg": {
+          "properties": {"tabindex": "14", "visible": "1", "image": "assets/images/Travel/flight.png"},
+          "classesMap": {},
+          "stylesMap": {}
+        },
+        "HotelImg": {
+          "properties": {"tabindex": "15", "visible": "1", "image": "assets/images/Travel/hotel.png"},
+          "classesMap": {},
+          "stylesMap": {}
+        },
+        "BEdit": {"properties": {"tabindex": "16"}, "classesMap": {}, "stylesMap": {}},
+        "CarImg": {
+          "properties": {"tabindex": "17", "visible": "0", "image": "assets/images/Travel/car.png"},
+          "classesMap": {},
+          "stylesMap": {}
+        },
+        "RestoImg": {
+          "properties": {"tabindex": "18", "visible": "0", "image": "assets/images/Travel/restaurant.png"},
+          "classesMap": {},
+          "stylesMap": {}
+        },
+        "BDelete": {"properties": {"tabindex": "19"}, "classesMap": {}, "stylesMap": {}},
+        "DescriptionEdit": {"properties": {"tabindex": "20"}, "classesMap": {}, "stylesMap": {}},
+        "DescriptionText": {
+          "properties": {"text": "Contract signing in Bangkok                                                                                                                                                                             "},
           "classesMap": {},
           "stylesMap": {}
         }
@@ -353,33 +649,69 @@ export const stubData = {
       "rowId": "1"
     }, {
       "values": {
-        "flightLogo": "assets/images/Travel/car-Ola120509_0.png",
-        "EditImg": "assets/images/Travel/edit.png",
-        "flight": "assets/images/Travel/car.png",
-        "RDescription": "01Jan-01Jan Pune,",
-        "DeleteImg": "assets/images/Travel/remove.png"
+        "DescriptionEdit": "Branch opening in Sydney",
+        "backgroundImage": "assets/images/Travel/Package170633-9042.png",
+        "takeoff": "assets/images/Travel/depart.png",
+        "land": "assets/images/Travel/arrive.png",
+        "DepartureDate": "14 Nov",
+        "ArrivalDate": "26 Nov",
+        "Ellipse": "assets/images/Travel/Ellipse 3.png",
+        "FlightImg": "assets/images/Travel/flight.png",
+        "HotelImg": "assets/images/Travel/hotel.png",
+        "CarImg": "assets/images/Travel/car.png",
+        "RestoImg": "assets/images/Travel/restaurant.png",
+        "BEdit": "Edit",
+        "BDelete": "Delete"
       },
       "ControlsProperties": {
-        "flight": {
-          "properties": {"tabindex": "30", "image": "assets/images/Travel/car.png"},
-          "classesMap": {},
-          "stylesMap": {}
-        },
-        "RDescription": {"properties": {"tabindex": "31"}, "classesMap": {}, "stylesMap": {}},
-        "flightLogo": {
+        "backgroundImage": {
           "properties": {
-            "tabindex": "32",
-            "tooltip": "assets/images/Travel",
-            "image": "assets/images/Travel/car-Ola120509_0.png"
+            "tabindex": "8",
+            "image": "assets/images/Travel/Package170633-9042.png"
           }, "classesMap": {}, "stylesMap": {}
         },
-        "EditImg": {
-          "properties": {"tabindex": "33", "image": "assets/images/Travel/edit.png"},
+        "takeoff": {
+          "properties": {"tabindex": "9", "image": "assets/images/Travel/depart.png"},
           "classesMap": {},
           "stylesMap": {}
         },
-        "DeleteImg": {
-          "properties": {"tabindex": "34", "image": "assets/images/Travel/remove.png"},
+        "land": {
+          "properties": {"tabindex": "10", "image": "assets/images/Travel/arrive.png"},
+          "classesMap": {},
+          "stylesMap": {}
+        },
+        "DepartureDate": {"properties": {"tabindex": "11"}, "classesMap": {}, "stylesMap": {}},
+        "ArrivalDate": {"properties": {"tabindex": "12"}, "classesMap": {}, "stylesMap": {}},
+        "Ellipse": {
+          "properties": {"tabindex": "13", "image": "assets/images/Travel/Ellipse 3.png"},
+          "classesMap": {},
+          "stylesMap": {}
+        },
+        "FlightImg": {
+          "properties": {"tabindex": "14", "visible": "1", "image": "assets/images/Travel/flight.png"},
+          "classesMap": {},
+          "stylesMap": {}
+        },
+        "HotelImg": {
+          "properties": {"tabindex": "15", "visible": "1", "image": "assets/images/Travel/hotel.png"},
+          "classesMap": {},
+          "stylesMap": {}
+        },
+        "BEdit": {"properties": {"tabindex": "16"}, "classesMap": {}, "stylesMap": {}},
+        "CarImg": {
+          "properties": {"tabindex": "17", "visible": "0", "image": "assets/images/Travel/car.png"},
+          "classesMap": {},
+          "stylesMap": {}
+        },
+        "RestoImg": {
+          "properties": {"tabindex": "18", "visible": "0", "image": "assets/images/Travel/restaurant.png"},
+          "classesMap": {},
+          "stylesMap": {}
+        },
+        "BDelete": {"properties": {"tabindex": "19"}, "classesMap": {}, "stylesMap": {}},
+        "DescriptionEdit": {"properties": {"tabindex": "20"}, "classesMap": {}, "stylesMap": {}},
+        "DescriptionText": {
+          "properties": {"text": "Branch opening in Sydney                                                                                                                                                                                "},
           "classesMap": {},
           "stylesMap": {}
         }
@@ -387,33 +719,69 @@ export const stubData = {
       "rowId": "2"
     }, {
       "values": {
-        "flightLogo": "assets/images/Travel/airline-qf.gif",
-        "EditImg": "assets/images/Travel/edit.png",
-        "flight": "assets/images/Travel/flight.png",
-        "RDescription": "01Jan SYD-BOM QF/",
-        "DeleteImg": "assets/images/Travel/remove.png"
+        "DescriptionEdit": "Budget review meetings in Boston",
+        "backgroundImage": "assets/images/Travel/Package190651-9041.png",
+        "takeoff": "assets/images/Travel/depart.png",
+        "land": "assets/images/Travel/arrive.png",
+        "DepartureDate": "05 Sep",
+        "ArrivalDate": "08 Sep",
+        "Ellipse": "assets/images/Travel/Ellipse 3.png",
+        "FlightImg": "assets/images/Travel/flight.png",
+        "HotelImg": "assets/images/Travel/hotel.png",
+        "CarImg": "assets/images/Travel/car.png",
+        "RestoImg": "assets/images/Travel/restaurant.png",
+        "BEdit": "Edit",
+        "BDelete": "Delete"
       },
       "ControlsProperties": {
-        "flight": {
-          "properties": {"tabindex": "30", "image": "assets/images/Travel/flight.png"},
-          "classesMap": {},
-          "stylesMap": {}
-        },
-        "RDescription": {"properties": {"tabindex": "31"}, "classesMap": {}, "stylesMap": {}},
-        "flightLogo": {
+        "backgroundImage": {
           "properties": {
-            "tabindex": "32",
-            "tooltip": "assets/images/Travel",
-            "image": "assets/images/Travel/airline-qf.gif"
+            "tabindex": "8",
+            "image": "assets/images/Travel/Package190651-9041.png"
           }, "classesMap": {}, "stylesMap": {}
         },
-        "EditImg": {
-          "properties": {"tabindex": "33", "image": "assets/images/Travel/edit.png"},
+        "takeoff": {
+          "properties": {"tabindex": "9", "image": "assets/images/Travel/depart.png"},
           "classesMap": {},
           "stylesMap": {}
         },
-        "DeleteImg": {
-          "properties": {"tabindex": "34", "image": "assets/images/Travel/remove.png"},
+        "land": {
+          "properties": {"tabindex": "10", "image": "assets/images/Travel/arrive.png"},
+          "classesMap": {},
+          "stylesMap": {}
+        },
+        "DepartureDate": {"properties": {"tabindex": "11"}, "classesMap": {}, "stylesMap": {}},
+        "ArrivalDate": {"properties": {"tabindex": "12"}, "classesMap": {}, "stylesMap": {}},
+        "Ellipse": {
+          "properties": {"tabindex": "13", "image": "assets/images/Travel/Ellipse 3.png"},
+          "classesMap": {},
+          "stylesMap": {}
+        },
+        "FlightImg": {
+          "properties": {"tabindex": "14", "visible": "1", "image": "assets/images/Travel/flight.png"},
+          "classesMap": {},
+          "stylesMap": {}
+        },
+        "HotelImg": {
+          "properties": {"tabindex": "15", "visible": "1", "image": "assets/images/Travel/hotel.png"},
+          "classesMap": {},
+          "stylesMap": {}
+        },
+        "BEdit": {"properties": {"tabindex": "16"}, "classesMap": {}, "stylesMap": {}},
+        "CarImg": {
+          "properties": {"tabindex": "17", "visible": "0", "image": "assets/images/Travel/car.png"},
+          "classesMap": {},
+          "stylesMap": {}
+        },
+        "RestoImg": {
+          "properties": {"tabindex": "18", "visible": "1", "image": "assets/images/Travel/restaurant.png"},
+          "classesMap": {},
+          "stylesMap": {}
+        },
+        "BDelete": {"properties": {"tabindex": "19"}, "classesMap": {}, "stylesMap": {}},
+        "DescriptionEdit": {"properties": {"tabindex": "20"}, "classesMap": {}, "stylesMap": {}},
+        "DescriptionText": {
+          "properties": {"text": "Budget review meetings in Boston                                                                                                                                                                        "},
           "classesMap": {},
           "stylesMap": {}
         }
@@ -421,52 +789,214 @@ export const stubData = {
       "rowId": "3"
     }, {
       "values": {
-        "flightLogo": "assets/images/Travel/hotel-ritz.png",
-        "EditImg": "assets/images/Travel/edit.png",
-        "flight": "assets/images/Travel/hotel.png",
-        "RDescription": "01Jan-01Jan",
-        "DeleteImg": "assets/images/Travel/remove.png"
+        "DescriptionEdit": "Gartner conference in LA",
+        "backgroundImage": "assets/images/Travel/Package190741-9040.png",
+        "takeoff": "assets/images/Travel/depart.png",
+        "land": "assets/images/Travel/arrive.png",
+        "DepartureDate": "21 Jul",
+        "ArrivalDate": "24 Jul",
+        "Ellipse": "assets/images/Travel/Ellipse 3.png",
+        "FlightImg": "assets/images/Travel/flight.png",
+        "HotelImg": "assets/images/Travel/hotel.png",
+        "CarImg": "assets/images/Travel/car.png",
+        "RestoImg": "assets/images/Travel/restaurant.png",
+        "BEdit": "Edit",
+        "BDelete": "Delete"
       },
       "ControlsProperties": {
-        "flight": {
-          "properties": {"tabindex": "30", "image": "assets/images/Travel/hotel.png"},
-          "classesMap": {},
-          "stylesMap": {}
-        },
-        "RDescription": {"properties": {"tabindex": "31"}, "classesMap": {}, "stylesMap": {}},
-        "flightLogo": {
+        "backgroundImage": {
           "properties": {
-            "tabindex": "32",
-            "tooltip": "assets/images/Travel",
-            "image": "assets/images/Travel/hotel-ritz.png"
+            "tabindex": "8",
+            "image": "assets/images/Travel/Package190741-9040.png"
           }, "classesMap": {}, "stylesMap": {}
         },
-        "EditImg": {
-          "properties": {"tabindex": "33", "image": "assets/images/Travel/edit.png"},
+        "takeoff": {
+          "properties": {"tabindex": "9", "image": "assets/images/Travel/depart.png"},
           "classesMap": {},
           "stylesMap": {}
         },
-        "DeleteImg": {
-          "properties": {"tabindex": "34", "image": "assets/images/Travel/remove.png"},
+        "land": {
+          "properties": {"tabindex": "10", "image": "assets/images/Travel/arrive.png"},
+          "classesMap": {},
+          "stylesMap": {}
+        },
+        "DepartureDate": {"properties": {"tabindex": "11"}, "classesMap": {}, "stylesMap": {}},
+        "ArrivalDate": {"properties": {"tabindex": "12"}, "classesMap": {}, "stylesMap": {}},
+        "Ellipse": {
+          "properties": {"tabindex": "13", "image": "assets/images/Travel/Ellipse 3.png"},
+          "classesMap": {},
+          "stylesMap": {}
+        },
+        "FlightImg": {
+          "properties": {"tabindex": "14", "visible": "1", "image": "assets/images/Travel/flight.png"},
+          "classesMap": {},
+          "stylesMap": {}
+        },
+        "HotelImg": {
+          "properties": {"tabindex": "15", "visible": "1", "image": "assets/images/Travel/hotel.png"},
+          "classesMap": {},
+          "stylesMap": {}
+        },
+        "BEdit": {"properties": {"tabindex": "16"}, "classesMap": {}, "stylesMap": {}},
+        "CarImg": {
+          "properties": {"tabindex": "17", "visible": "1", "image": "assets/images/Travel/car.png"},
+          "classesMap": {},
+          "stylesMap": {}
+        },
+        "RestoImg": {
+          "properties": {"tabindex": "18", "visible": "0", "image": "assets/images/Travel/restaurant.png"},
+          "classesMap": {},
+          "stylesMap": {}
+        },
+        "BDelete": {"properties": {"tabindex": "19"}, "classesMap": {}, "stylesMap": {}},
+        "DescriptionEdit": {"properties": {"tabindex": "20"}, "classesMap": {}, "stylesMap": {}},
+        "DescriptionText": {
+          "properties": {"text": "Gartner conference in LA                                                                                                                                                                                "},
           "classesMap": {},
           "stylesMap": {}
         }
       },
       "rowId": "4"
+    }, {
+      "values": {
+        "DescriptionEdit": "Customer meetings in London",
+        "backgroundImage": "assets/images/Travel/Package191112-9044.png",
+        "takeoff": "assets/images/Travel/depart.png",
+        "land": "assets/images/Travel/arrive.png",
+        "DepartureDate": "01 Jun",
+        "ArrivalDate": "03 Jun",
+        "Ellipse": "assets/images/Travel/Ellipse 3.png",
+        "FlightImg": "assets/images/Travel/flight.png",
+        "HotelImg": "assets/images/Travel/hotel.png",
+        "CarImg": "assets/images/Travel/car.png",
+        "RestoImg": "assets/images/Travel/restaurant.png",
+        "BEdit": "Edit",
+        "BDelete": "Delete"
+      },
+      "ControlsProperties": {
+        "backgroundImage": {
+          "properties": {
+            "tabindex": "8",
+            "image": "assets/images/Travel/Package191112-9044.png"
+          }, "classesMap": {}, "stylesMap": {}
+        },
+        "takeoff": {
+          "properties": {"tabindex": "9", "image": "assets/images/Travel/depart.png"},
+          "classesMap": {},
+          "stylesMap": {}
+        },
+        "land": {
+          "properties": {"tabindex": "10", "image": "assets/images/Travel/arrive.png"},
+          "classesMap": {},
+          "stylesMap": {}
+        },
+        "DepartureDate": {"properties": {"tabindex": "11"}, "classesMap": {}, "stylesMap": {}},
+        "ArrivalDate": {"properties": {"tabindex": "12"}, "classesMap": {}, "stylesMap": {}},
+        "Ellipse": {
+          "properties": {"tabindex": "13", "image": "assets/images/Travel/Ellipse 3.png"},
+          "classesMap": {},
+          "stylesMap": {}
+        },
+        "FlightImg": {
+          "properties": {"tabindex": "14", "visible": "1", "image": "assets/images/Travel/flight.png"},
+          "classesMap": {},
+          "stylesMap": {}
+        },
+        "HotelImg": {
+          "properties": {"tabindex": "15", "visible": "1", "image": "assets/images/Travel/hotel.png"},
+          "classesMap": {},
+          "stylesMap": {}
+        },
+        "BEdit": {"properties": {"tabindex": "16"}, "classesMap": {}, "stylesMap": {}},
+        "CarImg": {
+          "properties": {"tabindex": "17", "visible": "0", "image": "assets/images/Travel/car.png"},
+          "classesMap": {},
+          "stylesMap": {}
+        },
+        "RestoImg": {
+          "properties": {"tabindex": "18", "visible": "1", "image": "assets/images/Travel/restaurant.png"},
+          "classesMap": {},
+          "stylesMap": {}
+        },
+        "BDelete": {"properties": {"tabindex": "19"}, "classesMap": {}, "stylesMap": {}},
+        "DescriptionEdit": {"properties": {"tabindex": "20"}, "classesMap": {}, "stylesMap": {}},
+        "DescriptionText": {
+          "properties": {"text": "Customer meetings in London                                                                                                                                                                             "},
+          "classesMap": {},
+          "stylesMap": {}
+        }
+      },
+      "rowId": "5"
+    }, {
+      "values": {
+        "DescriptionEdit": "Google DevCon Las Vegas",
+        "backgroundImage": "assets/images/Travel/Package191410-9045.png",
+        "takeoff": "assets/images/Travel/depart.png",
+        "land": "assets/images/Travel/arrive.png",
+        "DepartureDate": "07 May",
+        "ArrivalDate": "11 May",
+        "Ellipse": "assets/images/Travel/Ellipse 3.png",
+        "FlightImg": "assets/images/Travel/flight.png",
+        "HotelImg": "assets/images/Travel/hotel.png",
+        "CarImg": "assets/images/Travel/car.png",
+        "RestoImg": "assets/images/Travel/restaurant.png",
+        "BEdit": "Edit",
+        "BDelete": "Delete"
+      },
+      "ControlsProperties": {
+        "backgroundImage": {
+          "properties": {
+            "tabindex": "8",
+            "image": "assets/images/Travel/Package191410-9045.png"
+          }, "classesMap": {}, "stylesMap": {}
+        },
+        "takeoff": {
+          "properties": {"tabindex": "9", "image": "assets/images/Travel/depart.png"},
+          "classesMap": {},
+          "stylesMap": {}
+        },
+        "land": {
+          "properties": {"tabindex": "10", "image": "assets/images/Travel/arrive.png"},
+          "classesMap": {},
+          "stylesMap": {}
+        },
+        "DepartureDate": {"properties": {"tabindex": "11"}, "classesMap": {}, "stylesMap": {}},
+        "ArrivalDate": {"properties": {"tabindex": "12"}, "classesMap": {}, "stylesMap": {}},
+        "Ellipse": {
+          "properties": {"tabindex": "13", "image": "assets/images/Travel/Ellipse 3.png"},
+          "classesMap": {},
+          "stylesMap": {}
+        },
+        "FlightImg": {
+          "properties": {"tabindex": "14", "visible": "1", "image": "assets/images/Travel/flight.png"},
+          "classesMap": {},
+          "stylesMap": {}
+        },
+        "HotelImg": {
+          "properties": {"tabindex": "15", "visible": "1", "image": "assets/images/Travel/hotel.png"},
+          "classesMap": {},
+          "stylesMap": {}
+        },
+        "BEdit": {"properties": {"tabindex": "16"}, "classesMap": {}, "stylesMap": {}},
+        "CarImg": {
+          "properties": {"tabindex": "17", "visible": "1", "image": "assets/images/Travel/car.png"},
+          "classesMap": {},
+          "stylesMap": {}
+        },
+        "RestoImg": {
+          "properties": {"tabindex": "18", "visible": "1", "image": "assets/images/Travel/restaurant.png"},
+          "classesMap": {},
+          "stylesMap": {}
+        },
+        "BDelete": {"properties": {"tabindex": "19"}, "classesMap": {}, "stylesMap": {}},
+        "DescriptionEdit": {"properties": {"tabindex": "20"}, "classesMap": {}, "stylesMap": {}},
+        "DescriptionText": {
+          "properties": {"text": "Google DevCon Las Vegas                                                                                                                                                                                 "},
+          "classesMap": {},
+          "stylesMap": {}
+        }
+      },
+      "rowId": "6"
     }]
-  },
-  "template": {
-    "DescriptionScreen": "0",
-    "DepartureDateScreen": "0",
-    "ArrivalDateScreen": "0",
-    "Ldays": "0",
-    "RDescription": "1",
-    "BBack": "0",
-    "BEdit": "0",
-    "BDelete": "0",
-    "BAddFlight": "0",
-    "BAddRestaurant": "0",
-    "BAddHotel": "0",
-    "BAddCar": "0"
-  }
+  }, "template": {"DescriptionEdit": "1", "DepartureDate": "1", "ArrivalDate": "1", "BAdd": "0", "BEditDetails": "0"}
 }

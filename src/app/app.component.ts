@@ -8,6 +8,7 @@ declare let myExtObject: any;
 @Component({
   selector: 'app-root',
   template: `
+    <mga-YourTravelRequests></mga-YourTravelRequests>
 
  `
 })
@@ -16,23 +17,23 @@ export class AppComponent
 	constructor(protected magic: MagicEngine,
 	            private componentFactoryResolver: ComponentFactoryResolver,
 	            private viewContainerRef: ViewContainerRef) {
-		
+
 		this.initializeMagic();
 		BaseTaskMagicComponent.componentListBase = new ComponentsList();
-		
+
 		magic.startMagic();
 	}
-	
+
 	initializeMagic() {
 		this.magic.registerOpenFormCallback(formName => {
 			this.InjectComponent(formName);
 		});
-		
+
 		this.magic.registerShowMessageBox(msg => {
 			alert(msg);
 		});
 	}
-	
+
 	private InjectComponent(formName: string) {
 		const factory = this.componentFactoryResolver.resolveComponentFactory(ComponentsList.compHash[formName]);
 		const ref     = this.viewContainerRef.createComponent(factory);
