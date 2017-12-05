@@ -77,7 +77,7 @@ export class MagicDirectiveDirective implements OnInit {
   }
 
   ngOnInit(): void {
-    //this.htmlElement.id = this.id;
+    this.htmlElement.id = this.id;
     this.regEvents();
     this.regUpdatesUI();
   }
