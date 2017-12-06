@@ -18,31 +18,29 @@
         <label
             magic="DescriptionScreen"
             class="DescriptionScreen"
+            class="mgFont20 mgColor30"
         >
             {{getValue('DescriptionScreen')}}
             </label>
             <label
                 magic="DepartureDateScreen"
                 class="DepartureDateScreen"
+                class="mgFont21 mgColor30"
             >
                 {{getValue('DepartureDateScreen')}}
                 </label>
                 <label
                     magic="ArrivalDateScreen"
                     class="ArrivalDateScreen"
+                    class="mgFont21 mgColor30"
                 >
                     {{getValue('ArrivalDateScreen')}}
                     </label>
-                    <input
-                        type="text"
-                        formControlName="Ldays"
-                        magic="Ldays"
-                        class="Ldays"
-                    />
                     <div *ngIf="isImageExists('AddFlightImg')">
                         <img
                             magic="AddFlightImg"
                             class="AddFlightImg"
+                            class="mgColor14"
                             [src]="getImage('AddFlightImg')"
                         />
                     </div>
@@ -50,6 +48,7 @@
                         <img
                             magic="AddHotelImg"
                             class="AddHotelImg"
+                            class="mgColor14"
                             [src]="getImage('AddHotelImg')"
                         />
                     </div>
@@ -57,6 +56,7 @@
                         <img
                             magic="AddCarImg"
                             class="AddCarImg"
+                            class="mgColor14"
                             [src]="getImage('AddCarImg')"
                         />
                     </div>
@@ -64,16 +64,17 @@
                         <img
                             magic="AddRestoImg"
                             class="AddRestoImg"
+                            class="mgColor14"
                             [src]="getImage('AddRestoImg')"
                         />
                     </div>
                     <div
-                        magic="tmpID3"
-                        class="tmpID3"
+                        magic="tmpID33"
+                        class="tmpID33"
                     >
                         <div
-                            magic="tmpID4"
-                            class="tmpID4"
+                            magic="tmpID34"
+                            class="tmpID34"
                         >
                             </div>
                             <ul style="list-style: none;padding: 0">
@@ -83,23 +84,6 @@
                                         id="row"
                                     >
                                         <form [formGroup]="getFormGroupByRow(row.rowId)">
-                                            <div *ngIf="isImageExists('flightLogo')">
-                                                <img
-                                                    magic="flightLogo"
-                                                    class="flightLogo"
-                                                    [rowId]="row.rowId"
-                                                    [title]="getTitle('flightLogo', row.rowId)"
-                                                    [src]="getImage('flightLogo', row.rowId)"
-                                                />
-                                            </div>
-                                            <div *ngIf="isImageExists('EditImg')">
-                                                <img
-                                                    magic="EditImg"
-                                                    class="EditImg"
-                                                    [rowId]="row.rowId"
-                                                    [src]="getImage('EditImg', row.rowId)"
-                                                />
-                                            </div>
                                             <div *ngIf="isImageExists('flight')">
                                                 <img
                                                     magic="flight"
@@ -115,14 +99,39 @@
                                             >
                                                 {{getValue('RDescription', row.rowId)}}
                                                 </label>
-                                                <div *ngIf="isImageExists('DeleteImg')">
+                                                <div *ngIf="isImageExists('flightLogo')">
                                                     <img
-                                                        magic="DeleteImg"
-                                                        class="DeleteImg"
+                                                        magic="flightLogo"
+                                                        class="flightLogo"
                                                         [rowId]="row.rowId"
-                                                        [src]="getImage('DeleteImg', row.rowId)"
+                                                        [title]="getTitle('flightLogo', row.rowId)"
+                                                        [src]="getImage('flightLogo', row.rowId)"
                                                     />
                                                 </div>
+                                                <label
+                                                    magic="bottomlabel"
+                                                    class="bottomlabel"
+                                                    [rowId]="row.rowId"
+                                                >
+                                                    {{gettext('bottomlabel', row.rowId)}}
+                                                    </label>
+                                                    <a
+                                                        href="#"
+                                                        magic="BEdit"
+                                                        class="BEdit"
+                                                        [rowId]="row.rowId"
+                                                        [attr.disabled]="isDisabled('BEdit', row.rowId)"
+                                                    >
+                                                        {{getValue('BEdit', row.rowId)}}
+                                                        </a>
+                                                        <a
+                                                            href="#"
+                                                            magic="BDelete"
+                                                            class="BDelete"
+                                                            [rowId]="row.rowId"
+                                                        >
+                                                            {{getValue('BDelete', row.rowId)}}
+                                                            </a>
                                         </form>
                                         </div>
                                 </li>
@@ -141,19 +150,6 @@
                                     class="BBack"
                                     value=&lt;&lt;
                                     Back
-                                />
-                                <input
-                                    type="button"
-                                    magic="BEdit"
-                                    class="BEdit"
-                                    [attr.disabled]="isDisabled('BEdit')"
-                                    value=Edit
-                                />
-                                <input
-                                    type="button"
-                                    magic="BDelete"
-                                    class="BDelete"
-                                    value=Delete
                                 />
                                 <input
                                     type="button"
