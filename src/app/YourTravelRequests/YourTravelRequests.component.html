@@ -1,144 +1,197 @@
 <form
-    novalidate
-    [formGroup]="screenFormGroup"
+  novalidate
+  [formGroup]="screenFormGroup"
 >
-    <div
-        class="magic-container"
-        magic="YourTravelRequests"
-        class="YourTravelRequests"
-    >
-        <ul style="list-style: none;padding: 0">
-            <li *ngFor="let row of task.Records.list">
-                <div
-                    *ngIf="ifRowCreated(row.rowId)"
-                    id="row"
+  <div
+    class="magic-container"
+    magic="YourTravelRequests"
+    class="YourTravelRequests"
+  >
+
+    <div class="cards-wrapper">
+
+      <mat-card class="add-card">
+        <button
+          magic="BAdd"
+          class="BAdd"
+          mat-fab>
+          <mat-icon
+            class="md-24"
+            aria-label="Example icon-button with a heart icon">
+            add
+          </mat-icon>
+        </button>
+          <span>Add new package</span>
+      </mat-card>
+
+
+      <div *ngFor="let row of task.Records.list">
+        <form [formGroup]="getFormGroupByRow(row.rowId)" *ngIf="ifRowCreated(row.rowId)">
+          <input
+            hidden
+            type="text"
+            formControlName="DescriptionEdit"
+            magic="DescriptionEdit"
+            class="DescriptionEdit"
+            [rowId]="row.rowId"
+          />
+          <mat-card>
+            <label
+              magic="DescriptionText"
+              class="DescriptionText"
+              [rowId]="row.rowId"
+            >
+              {{gettext('DescriptionText', row.rowId)}}
+            </label>
+
+            <div class="menu-wrapper">
+              <button mat-icon-button [matMenuTriggerFor]="menu">
+                <mat-icon>more_vert</mat-icon>
+              </button>
+              <mat-menu #menu="matMenu">
+
+                <button mat-menu-item>
+                  <mat-icon>edit</mat-icon>
+                  <span>
+          <a
+            href="#"
+            magic="BEdit"
+            class="BEdit"
+            [rowId]="row.rowId"
+          >
+            {{getValue('BEdit', row.rowId)}}
+          </a>
+                  </span>
+                </button>
+
+                <button mat-menu-item>
+                  <mat-icon>delete</mat-icon>
+                  <span>
+                      <a
+                        href="#"
+                        magic="BDelete"
+                        class="BDelete"
+                        [rowId]="row.rowId"
+                      >
+                          {{getValue('BDelete', row.rowId)}}
+                      </a>
+
+                  </span>
+                </button>
+              </mat-menu>
+            </div>
+            <div
+              *ngIf="isImageExists('backgroundImage')"
+              [ngStyle]="{
+                'background-image':'url('+ getImage('backgroundImage', row.rowId) + ')'}"
+              magic="backgroundImage"
+              class="backgroundImage md-card-image"
+              [rowId]="row.rowId"
+            ></div>
+
+            <div class="details-wrapper">
+              <div class="flight-details">
+                <div *ngIf="isImageExists('takeoff')">
+                  <img
+                    magic="takeoff"
+                    class="takeoff"
+                    [rowId]="row.rowId"
+                    [src]="getImage('takeoff', row.rowId)"
+                  />
+                </div>
+                <label
+                  magic="DepartureDate"
+                  class="DepartureDate"
+                  [rowId]="row.rowId"
                 >
-                    <form [formGroup]="getFormGroupByRow(row.rowId)">
-                        <input
-                            type="text"
-                            formControlName="DescriptionEdit"
-                            magic="DescriptionEdit"
-                            class="DescriptionEdit"
-                            [rowId]="row.rowId"
-                        />
-                        <div *ngIf="isImageExists('backgroundImage')">
-                            <img
-                                magic="backgroundImage"
-                                class="backgroundImage"
-                                [rowId]="row.rowId"
-                                [src]="getImage('backgroundImage', row.rowId)"
-                            />
-                        </div>
-                        <label
-                            magic="DescriptionText"
-                            class="DescriptionText"
-                            [rowId]="row.rowId"
-                        >
-                            {{gettext('DescriptionText', row.rowId)}}
-                            </label>
-                            <div *ngIf="isImageExists('takeoff')">
-                                <img
-                                    magic="takeoff"
-                                    class="takeoff"
-                                    [rowId]="row.rowId"
-                                    [src]="getImage('takeoff', row.rowId)"
-                                />
-                            </div>
-                            <div *ngIf="isImageExists('land')">
-                                <img
-                                    magic="land"
-                                    class="land"
-                                    [rowId]="row.rowId"
-                                    [src]="getImage('land', row.rowId)"
-                                />
-                            </div>
-                            <label
-                                magic="DepartureDate"
-                                class="DepartureDate"
-                                [rowId]="row.rowId"
-                            >
-                                {{getValue('DepartureDate', row.rowId)}}
-                                </label>
-                                <label
-                                    magic="ArrivalDate"
-                                    class="ArrivalDate"
-                                    [rowId]="row.rowId"
-                                >
-                                    {{getValue('ArrivalDate', row.rowId)}}
-                                    </label>
-                                    <div *ngIf="isImageExists('Ellipse')">
-                                        <img
-                                            magic="Ellipse"
-                                            class="Ellipse"
-                                            [rowId]="row.rowId"
-                                            [src]="getImage('Ellipse', row.rowId)"
-                                        />
-                                    </div>
-                                    <div *ngIf="isImageExists('FlightImg')">
-                                        <img
-                                            magic="FlightImg"
-                                            class="FlightImg"
-                                            [rowId]="row.rowId"
-                                            [style.visibility]="getVisible('FlightImg', row.rowId)"
-                                            [src]="getImage('FlightImg', row.rowId)"
-                                        />
-                                    </div>
-                                    <div *ngIf="isImageExists('HotelImg')">
-                                        <img
-                                            magic="HotelImg"
-                                            class="HotelImg"
-                                            [rowId]="row.rowId"
-                                            [style.visibility]="getVisible('HotelImg', row.rowId)"
-                                            [src]="getImage('HotelImg', row.rowId)"
-                                        />
-                                    </div>
-                                    <div *ngIf="isImageExists('CarImg')">
-                                        <img
-                                            magic="CarImg"
-                                            class="CarImg"
-                                            [rowId]="row.rowId"
-                                            [style.visibility]="getVisible('CarImg', row.rowId)"
-                                            [src]="getImage('CarImg', row.rowId)"
-                                        />
-                                    </div>
-                                    <div *ngIf="isImageExists('RestoImg')">
-                                        <img
-                                            magic="RestoImg"
-                                            class="RestoImg"
-                                            [rowId]="row.rowId"
-                                            [style.visibility]="getVisible('RestoImg', row.rowId)"
-                                            [src]="getImage('RestoImg', row.rowId)"
-                                        />
-                                    </div>
-                                    <a
-                                        href="#"
-                                        magic="BEdit"
-                                        class="BEdit"
-                                        [rowId]="row.rowId"
-                                    >
-                                        {{getValue('BEdit', row.rowId)}}
-                                        </a>
-                                        <a
-                                            href="#"
-                                            magic="BDelete"
-                                            class="BDelete"
-                                            [rowId]="row.rowId"
-                                        >
-                                            {{getValue('BDelete', row.rowId)}}
-                                            </a>
-                    </form>
-                    </div>
-            </li>
-        </ul>
-        <input
-            type="button"
-            magic="BAdd"
-            class="BAdd"
-        />
-        <input
-            type="button"
-            magic="BEditDetails"
-            class="BEditDetails"
-        />
-        </div>
+                  {{getValue('DepartureDate', row.rowId)}}
+                </label>
+
+                <div *ngIf="isImageExists('Ellipse')">
+                  <img
+                    magic="Ellipse"
+                    class="Ellipse"
+                    [rowId]="row.rowId"
+                    [src]="getImage('Ellipse', row.rowId)"
+                  />
+                </div>
+
+                <div *ngIf="isImageExists('land')">
+                  <img
+                    magic="land"
+                    class="land"
+                    [rowId]="row.rowId"
+                    [src]="getImage('land', row.rowId)"
+                  />
+                </div>
+                <label
+                  magic="ArrivalDate"
+                  class="ArrivalDate"
+                  [rowId]="row.rowId"
+                >
+                  {{getValue('ArrivalDate', row.rowId)}}
+                </label>
+
+              </div>
+              <div class="icons-area">
+
+                <div *ngIf="isImageExists('FlightImg')">
+                  <img
+                    magic="FlightImg"
+                    class="FlightImg"
+                    [rowId]="row.rowId"
+                    [style.display]="getVisible('FlightImg', row.rowId)==='hidden' ? 'none' : 'block'"
+
+                    [src]="getImage('FlightImg', row.rowId)"
+                  />
+                </div>
+                <div *ngIf="isImageExists('HotelImg')">
+                  <img
+                    magic="HotelImg"
+                    class="HotelImg"
+                    [rowId]="row.rowId"
+                    [style.display]="getVisible('HotelImg', row.rowId)==='hidden' ? 'none' : 'block'"
+
+                    [src]="getImage('HotelImg', row.rowId)"
+                  />
+                </div>
+                <div *ngIf="isImageExists('CarImg')">
+                  <img
+                    magic="CarImg"
+                    class="CarImg"
+                    [rowId]="row.rowId"
+                    [style.display]="getVisible('CarImg', row.rowId)==='hidden' ? 'none' : 'block'"
+                    [src]="getImage('CarImg', row.rowId)"
+                  />
+                </div>
+                <div *ngIf="isImageExists('RestoImg')">
+                  <img
+                    magic="RestoImg"
+                    class="RestoImg"
+                    [rowId]="row.rowId"
+                    [style.display]="getVisible('RestoImg', row.rowId)==='hidden' ? 'none' : 'block'"
+
+                    [src]="getImage('RestoImg', row.rowId)"
+                  />
+                </div>
+
+              </div>
+            </div>
+
+
+          </mat-card>
+
+
         </form>
+      </div>
+    </div>
+
+<!-- //todo:what is this ?
+    <input
+      type="button"
+      magic="BEditDetails"
+      class="BEditDetails"
+    />
+-->
+  </div>
+</form>

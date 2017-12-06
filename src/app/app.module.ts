@@ -7,14 +7,14 @@ import {AppComponent} from "./app.component";
 import {DynamicModule} from "ng-dynamic-component";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {
-	MatButtonModule,
-	MatCardModule,
-	MatCheckboxModule,
-	MatChipsModule,
-	MatDatepickerModule,
-	MatDialogModule,
-	MatFormFieldModule,
-	MatInputModule
+  MatButtonModule,
+  MatCardModule,
+  MatCheckboxModule,
+  MatChipsModule,
+  MatDatepickerModule,
+  MatDialogModule,
+  MatFormFieldModule, MatIconModule,
+  MatInputModule, MatMenuModule
 } from "@angular/material";
 import {ComponentsList} from "./ComponentList";
 
@@ -40,11 +40,13 @@ const comps = ComponentsList.getAllComponents();
 		MatChipsModule,
 		MatDatepickerModule,
 		MatDialogModule,
-		MatInputModule
+		MatInputModule,
+    MatIconModule,
+    MatMenuModule
 	],
 	exports     : [FormsModule, ReactiveFormsModule],
 	providers   : [],
-	
+
 	bootstrap: [AppComponent]
 })
 export class AppModule

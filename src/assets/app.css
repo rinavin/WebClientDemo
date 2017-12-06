@@ -1,0 +1,116 @@
+body
+{
+  margin: 0;
+  background: #465786;
+  /* border: 3px solid yellow; */
+  font-family: 'Roboto', sans-serif;
+
+}
+
+
+
+.backgroundImage {height: 184px;background-repeat: no-repeat;width: 316px;background-size: cover;/* border: 2px solid yellow; */}
+
+.cards-wrapper {
+    /* border: 7px solid yellowgreen; */
+    display: inline-flex;
+    width: 100%;
+    flex-wrap: wrap;
+    padding: 4% 10% 3% 10%;
+    justify-content: left;
+    height: 100%;
+}
+
+.cards-wrapper > div, .cards-wrapper > mat-card {
+    width: 310px;
+    /* border: 5px solid red; */
+    height: 328px;
+    display: inline-flex;
+    margin: 3%;
+}
+
+mat-card.mat-card, mat-card.add-card {
+    padding: 0;
+    width: 310px;
+    height: 328px;
+    overflow: hidden;
+    /* margin-right: 50px; */
+    min-width: 310px;
+}
+
+label.DescriptionText {
+    color: white;
+    position: absolute;
+    /* border: 1px solid greenyellow; */
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+
+.details-wrapper {
+    /* border: 1px solid red; */
+    height: 144px;
+    display: flex;
+    flex-direction: column;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.flight-details {
+    /* border: 2px solid yellowgreen; */
+    flex: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.icons-area {
+    flex: 3;
+    /* border: 1px solid blue; */
+    display: flex;
+    align-items: center;
+    /* justify-content: space-evenly; */
+    padding-left: 20px;
+}
+
+label.DepartureDate, label.ArrivalDate {
+    color: #8d8d8d;
+}
+
+.cards-wrapper form {}
+
+.menu-wrapper {
+    position: absolute;
+    right: 6px;
+    top: 3px;
+    color: white;
+}
+
+.mat-menu-item a {
+    text-decoration: none;
+    color: gray;
+    position: relative;
+    top: 2px;
+}
+
+mat-card.add-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+button.BAdd {
+    /* flex: 1; */
+    background-color: #037ab2 !important;
+}
+
+.add-card > span {
+    display: block !important;
+    color: #a3a3a6;
+    margin-top: 20px;
+    font-size: 22px;
+}

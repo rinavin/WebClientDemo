@@ -8,4 +8,6 @@ import { TaskMagicService } from "../magic/src/services/task.magics.service";
 	styleUrls: ["./YourTravelRequests.component.css"],
 	templateUrl: "./YourTravelRequests.component.html"
 })
-export class YourTravelRequests extends BaseTaskMagicComponent {}
+export class YourTravelRequests extends BaseTaskMagicComponent {
+
+}
