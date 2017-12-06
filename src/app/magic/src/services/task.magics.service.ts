@@ -133,6 +133,11 @@ export class TaskMagicService {
     return "";
   }
 
+  getStyleStub(ControlsProperties: any, controlId, styleName:string) {
+    ControlsProperties = ControlsProperties.ControlsProperties;
+    return ControlsProperties[controlId].stylesMap[styleName];
+  }
+
   getClasses(controlId: string, rowId?: string): string {
     if (isNullOrUndefined(rowId))
       rowId = "0";
@@ -143,6 +148,9 @@ export class TaskMagicService {
   getStyle(controlId: string, styleName:string, rowId?: string): string {
     if (isNullOrUndefined(rowId))
       rowId = "0";
+    if (this.IsStub())
+      return this.getStyleStub(this.Records.list[rowId], controlId, styleName);
+    else
     return this.Records.list[rowId].getControlMetadata(controlId).stylesMap[styleName];
 
   }
