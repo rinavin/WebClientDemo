@@ -8,8 +8,8 @@ declare let myExtObject: any;
 @Component({
   selector: 'app-root',
   template: `
-    <!--<mga-YourTravelRequests></mga-YourTravelRequests>-->
-    <mga-YourTravel></mga-YourTravel>
+    <mga-YourTravelRequests></mga-YourTravelRequests>
+    <!--<mga-YourTravel></mga-YourTravel>-->
 
  `
 })

@@ -27,6 +27,7 @@
 
       <div *ngFor="let row of task.Records.list">
         <form [formGroup]="getFormGroupByRow(row.rowId)" *ngIf="ifRowCreated(row.rowId)">
+<!--
           <input
             hidden
             type="text"
@@ -35,6 +36,7 @@
             class="DescriptionEdit"
             [rowId]="row.rowId"
           />
+-->
           <mat-card>
             <label
               magic="DescriptionText"
