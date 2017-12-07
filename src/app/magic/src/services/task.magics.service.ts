@@ -179,9 +179,11 @@ export class TaskMagicService {
       records: this.Records,
       template: this.template,
     };
-     let text:string = "export const stubData = " + JSON.stringify(myData) ;
+     let text:string = "loadData():any   {\n" +
+       "    let stubData = " + JSON.stringify(myData) +";\n" +
+       "    this.loadStubData(stubData);}" ;
      console.log(text);
-    this.saveData(text);
+     this.saveData(text);
 
   }
 
