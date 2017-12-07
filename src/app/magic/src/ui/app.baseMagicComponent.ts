@@ -289,6 +289,11 @@ export abstract class BaseTaskMagicComponent implements OnInit, OnDestroy {
 
   public loadData()
   {
+    alert('Please, overwrite method loadData');
+  }
+
+  public loadStubData(stubData: any)
+  {
 
     this.task.Records = stubData.records;
     this.task.settemplate(stubData.template);
