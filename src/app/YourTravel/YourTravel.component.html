@@ -1,78 +1,93 @@
 <form
-    novalidate
-    [formGroup]="screenFormGroup"
+  novalidate
+  [formGroup]="screenFormGroup"
 >
-    <div
-        class="magic-container"
-        magic="YourTravel"
-        class="YourTravel"
-        [ngStyle]="{'background-image': 'url(' + getStyle('YourTravel', 'background') + ')'}"
-    >
-        <input
-            type="text"
-            formControlName="ParkOnManage"
-            magic="ParkOnManage"
-            class="ParkOnManage"
-        />
-        <label
-            magic="TravelForLabel"
-            class="TravelForLabel"
+  <div
+    class="magic-container"
+    magic="YourTravel"
+    class="YourTravel"
+    [ngStyle]="{'background-image': 'url(' + getStyle('YourTravel', 'background') + ')'}"
+  >
+    <input
+      hidden
+      type="text"
+      formControlName="ParkOnManage"
+      magic="ParkOnManage"
+      class="ParkOnManage"
+    />
+
+
+    <div class="main-menu">
+      <div
+        magic="menugroup"
+        class="menugroup"
+      >
+        <div *ngIf="isImageExists('MainHome')">
+          <img
+            magic="MainHome"
+            class="MainHome"
+            [src]="getImage('MainHome')"
+          />
+        </div>
+        <a
+          href="#"
+          magic="BPackages"
+          class="BPackages"
         >
-            {{gettext('TravelForLabel')}}
-            </label>
-            <div
-                magic="menugroup"
-                class="menugroup"
-            >
-                <div *ngIf="isImageExists('MainHome')">
-                    <img
-                        magic="MainHome"
-                        class="MainHome"
-                        [src]="getImage('MainHome')"
-                    />
-                </div>
-                <a
-                    href="#"
-                    magic="BPackages"
-                    class="BPackages"
-                >
-                    {{getValue('BPackages')}}
-                    </a>
-                    <a
-                        href="#"
-                        magic="BAirports"
-                        class="BAirports"
-                    >
-                        {{getValue('BAirports')}}
-                        </a>
-                        <a
-                            href="#"
-                            magic="BHotels"
-                            class="BHotels"
-                        >
-                            {{getValue('BHotels')}}
-                            </a>
-                            <a
-                                href="#"
-                                magic="BCarRentals"
-                                class="BCarRentals"
-                            >
-                                {{getValue('BCarRentals')}}
-                                </a>
-                                <a
-                                    href="#"
-                                    magic="BRestaurants"
-                                    class="BRestaurants"
-                                >
-                                    {{getValue('BRestaurants')}}
-                                    </a>
-                                    </div>
-                                    <ndc-dynamic
-                                        magic="Subform"
-                                        class="Subform"
-                                        [ndcDynamicComponent]="getComp('Subform')"
-                                        [ndcDynamicInputs]="getParameters('Subform')"
-                                    >
-                                        </ndc-dynamic>
-                                        </div>
-                                        </form>
+          {{getValue('BPackages')}}
+        </a>
+        <a
+          href="#"
+          magic="BAirports"
+          class="BAirports"
+        >
+          {{getValue('BAirports')}}
+        </a>
+        <a
+          href="#"
+          magic="BHotels"
+          class="BHotels"
+        >
+          {{getValue('BHotels')}}
+        </a>
+        <a
+          href="#"
+          magic="BCarRentals"
+          class="BCarRentals"
+        >
+          {{getValue('BCarRentals')}}
+        </a>
+        <a
+          href="#"
+          magic="BRestaurants"
+          class="BRestaurants"
+        >
+          {{getValue('BRestaurants')}}
+        </a>
+      </div>
+
+    </div>
+
+    <div class="main-content">
+      <div class="main-label">
+        <label
+          magic="TravelForLabel"
+          class="TravelForLabel"
+        >
+          {{gettext('TravelForLabel')}}
+        </label>
+      </div>
+
+      <div class="main-card">
+        <ndc-dynamic
+          magic="Subform"
+          class="Subform"
+          [ndcDynamicComponent]="getComp('Subform')"
+          [ndcDynamicInputs]="getParameters('Subform')"
+        >
+        </ndc-dynamic>
+        <mga-EditTravelRequestEntries></mga-EditTravelRequestEntries>
+      </div>
+    </div>
+  </div>
+</form>
