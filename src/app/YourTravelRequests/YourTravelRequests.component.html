@@ -21,22 +21,22 @@
             add
           </mat-icon>
         </button>
-          <span>Add new package</span>
+        <span>Add new package</span>
       </mat-card>
 
 
       <div *ngFor="let row of task.Records.list">
         <form [formGroup]="getFormGroupByRow(row.rowId)" *ngIf="ifRowCreated(row.rowId)">
-<!--
-          <input
-            hidden
-            type="text"
-            formControlName="DescriptionEdit"
-            magic="DescriptionEdit"
-            class="DescriptionEdit"
-            [rowId]="row.rowId"
-          />
--->
+          <!--
+                    <input
+                      hidden
+                      type="text"
+                      formControlName="DescriptionEdit"
+                      magic="DescriptionEdit"
+                      class="DescriptionEdit"
+                      [rowId]="row.rowId"
+                    />
+          -->
           <mat-card>
             <label
               magic="DescriptionText"
@@ -52,7 +52,7 @@
               </button>
               <mat-menu #menu="matMenu">
 
-                <button mat-menu-item>
+                <button magic="BEdit" [rowId]="row.rowId" mat-menu-item>
                   <mat-icon>edit</mat-icon>
                   <span>
           <a
@@ -66,7 +66,7 @@
                   </span>
                 </button>
 
-                <button mat-menu-item>
+                <button magic="BDelete" [rowId]="row.rowId" mat-menu-item>
                   <mat-icon>delete</mat-icon>
                   <span>
                       <a
@@ -188,12 +188,12 @@
       </div>
     </div>
 
-<!-- //todo:what is this ?
-    <input
-      type="button"
-      magic="BEditDetails"
-      class="BEditDetails"
-    />
--->
+    <!-- //todo:what is this ?
+        <input
+          type="button"
+          magic="BEditDetails"
+          class="BEditDetails"
+        />
+    -->
   </div>
 </form>
