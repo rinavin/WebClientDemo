@@ -8,14 +8,6 @@
     class="YourTravel"
     [ngStyle]="{'background-image': 'url(' + getStyle('YourTravel', 'background') + ')'}"
   >
-    <input
-      hidden
-      type="text"
-      formControlName="ParkOnManage"
-      magic="ParkOnManage"
-      class="ParkOnManage"
-    />
-
 
     <div class="main-menu">
       <div
@@ -79,15 +71,16 @@
       </div>
 
 
-        <ndc-dynamic
-          magic="Subform"
-          class="Subform"
-          [ndcDynamicComponent]="getComp('Subform')"
-          [ndcDynamicInputs]="getParameters('Subform')"
-        >
-        </ndc-dynamic>
-
-
+        <!--
+                <ndc-dynamic
+                  magic="Subform"
+                  class="Subform"
+                  [ndcDynamicComponent]="getComp('Subform')"
+                  [ndcDynamicInputs]="getParameters('Subform')"
+                >
+                </ndc-dynamic>
+        -->
+        <mga-EditTravelRequestEntries></mga-EditTravelRequestEntries>
 
     </div>
   </div>

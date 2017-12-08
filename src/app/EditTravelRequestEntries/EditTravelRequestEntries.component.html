@@ -1,97 +1,123 @@
-<form
-  novalidate
-  [formGroup]="screenFormGroup"
->
-  <div
-    class="magic-container"
-    magic="EditTravelRequestEntries"
-    class="EditTravelRequestEntries"
-  >
-    <div *ngIf="isImageExists('BckPckImg')">
-      <img
-        magic="BckPckImg"
-        class="BckPckImg"
-        [title]="getTitle('BckPckImg')"
-        [src]="getImage('BckPckImg')"
-      />
-    </div>
-    <label
-      magic="DescriptionScreen"
-      class="DescriptionScreen"
-      class="mgFont20 mgColor30"
-    >
-      {{getValue('DescriptionScreen')}}
-    </label>
-    <label
-      magic="DepartureDateScreen"
-      class="DepartureDateScreen"
-      class="mgFont21 mgColor30"
-    >
-      {{getValue('DepartureDateScreen')}}
-    </label>
-    <label
-      magic="ArrivalDateScreen"
-      class="ArrivalDateScreen"
-      class="mgFont21 mgColor30"
-    >
-      {{getValue('ArrivalDateScreen')}}
-    </label>
-    <div *ngIf="isImageExists('AddFlightImg')">
-      <img
-        magic="AddFlightImg"
-        class="AddFlightImg"
-        class="mgColor14"
-        [src]="getImage('AddFlightImg')"
-      />
-    </div>
-    <div *ngIf="isImageExists('AddHotelImg')">
-      <img
-        magic="AddHotelImg"
-        class="AddHotelImg"
-        class="mgColor14"
-        [src]="getImage('AddHotelImg')"
-      />
-    </div>
-    <div *ngIf="isImageExists('AddCarImg')">
-      <img
-        magic="AddCarImg"
-        class="AddCarImg"
-        class="mgColor14"
-        [src]="getImage('AddCarImg')"
-      />
-    </div>
-    <div *ngIf="isImageExists('AddRestoImg')">
-      <img
-        magic="AddRestoImg"
-        class="AddRestoImg"
-        class="mgColor14"
-        [src]="getImage('AddRestoImg')"
-      />
-    </div>
+<div class="main-card edit-card" magic="EditTravelRequestEntries">
+
+  <form novalidate [formGroup]="screenFormGroup">
+
     <div
-      magic="tmpID33"
-      class="tmpID33"
+      class="main-card-photo-header BckPckImg"
+      magic="BckPckImg"
+      [ngStyle]="{'background-image': 'url(' + getImage('BckPckImg') + ')'}"
+    >
+      <div class="picture-title-line">
+        <label
+          magic="DescriptionScreen"
+          class="DescriptionScreen mgFont20 mgColor30 main-card-label"
+        >
+          {{getValue('DescriptionScreen')}}
+        </label>
+        <div class="menu-wrapper">
+          <button mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+
+
+            <button magic="BDelete" mat-menu-item>
+              <mat-icon>delete</mat-icon>
+              <span>
+          <a
+            href="#"
+            magic="BDelete"
+            class="BDelete"
+          >
+            Delete
+            <!--{{getValue('BDelete', row.rowId)}}-->
+          </a>
+      </span>
+            </button>
+          </mat-menu>
+        </div>
+      </div>
+
+      <div class="flight-dates">
+        <label
+          magic="DepartureDateScreen"
+          class="DepartureDateScreen"
+          class="mgFont21 mgColor30"
+        >
+          {{getValue('DepartureDateScreen')}}
+        </label> -
+        <label
+          magic="ArrivalDateScreen"
+          class="ArrivalDateScreen"
+          class="mgFont21 mgColor30"
+        >
+          {{getValue('ArrivalDateScreen')}}
+
+        </label>
+
+      </div>
+
+    </div>
+
+    <div class="btn-line">
+      <div *ngIf="isImageExists('AddFlightImg')">
+        <img
+          magic="AddFlightImg"
+          class="AddFlightImg"
+          class="mgColor14"
+          [src]="getImage('AddFlightImg')"
+        />
+      </div>
+      <div *ngIf="isImageExists('AddHotelImg')">
+        <img
+          magic="AddHotelImg"
+          class="AddHotelImg"
+          class="mgColor14"
+          [src]="getImage('AddHotelImg')"
+        />
+      </div>
+      <div *ngIf="isImageExists('AddCarImg')">
+        <img
+          magic="AddCarImg"
+          class="AddCarImg"
+          class="mgColor14"
+          [src]="getImage('AddCarImg')"
+        />
+      </div>
+      <div *ngIf="isImageExists('AddRestoImg')">
+        <img
+          magic="AddRestoImg"
+          class="AddRestoImg"
+          class="mgColor14"
+          [src]="getImage('AddRestoImg')"
+        />
+      </div>
+    </div>
+
+
+  </form>
+  <div class="bottom-pane">
+    <div
+      class="list-pane"
     >
       <div
-        magic="tmpID34"
-        class="tmpID34"
+        *ngFor="let row of task.Records.list"
+        class="list-item"
       >
-      </div>
-      <ul style="list-style: none;padding: 0">
-        <li *ngFor="let row of task.Records.list">
-          <div
-            *ngIf="ifRowCreated(row.rowId)"
-            id="row"
-          >
-            <form [formGroup]="getFormGroupByRow(row.rowId)">
-              <div *ngIf="isImageExists('flight')">
-                <img
-                  magic="flight"
-                  class="flight"
-                  [rowId]="row.rowId"
-                  [src]="getImage('flight', row.rowId)"
-                />
-              </div>
+        <div
+          *ngIf="ifRowCreated(row.rowId)"
+        >
+
+          <form [formGroup]="getFormGroupByRow(row.rowId)" class="list-item-form">
+            <div *ngIf="isImageExists('flight')" class="flight-icon">
+              <img
+                magic="flight"
+                class="flight"
+                [rowId]="row.rowId"
+                [src]="getImage('flight', row.rowId)"
+              />
+            </div>
+            <div class="list-labels-wrapper">
               <label
                 magic="RDescription"
                 class="RDescription"
@@ -99,86 +125,84 @@
               >
                 {{getValue('RDescription', row.rowId)}}
               </label>
-              <div *ngIf="isImageExists('flightLogo')">
-                <img
-                  magic="flightLogo"
-                  class="flightLogo"
-                  [rowId]="row.rowId"
-                  [title]="getTitle('flightLogo', row.rowId)"
-                  [src]="getImage('flightLogo', row.rowId)"
-                />
-              </div>
+
               <label
                 magic="bottomlabel"
+
                 class="bottomlabel"
                 [rowId]="row.rowId"
               >
                 {{gettext('bottomlabel', row.rowId)}}
               </label>
-              <a
-                href="#"
-                magic="BEdit"
-                class="BEdit"
+            </div>
+            <div *ngIf="isImageExists('flightLogo')" class="airline-list-logo">
+              <img
+                magic="flightLogo"
+                class="flightLogo"
                 [rowId]="row.rowId"
-                [attr.disabled]="isDisabled('BEdit', row.rowId)"
-              >
-                {{getValue('BEdit', row.rowId)}}
-              </a>
-              <a
-                href="#"
-                magic="BDelete"
-                class="BDelete"
-                [rowId]="row.rowId"
-              >
-                {{getValue('BDelete', row.rowId)}}
-              </a>
-            </form>
-          </div>
-        </li>
-      </ul>
-      <ndc-dynamic
-        magic="SubformDetails"
-        class="SubformDetails"
-        [ndcDynamicComponent]="getComp('SubformDetails')"
-        [ndcDynamicInputs]="getParameters('SubformDetails')"
-      >
-      </ndc-dynamic>
+                [title]="getTitle('flightLogo', row.rowId)"
+                [src]="getImage('flightLogo', row.rowId)"
+              />
+            </div>
+
+
+            <div class="menu-wrapper list-menu">
+              <button mat-icon-button [matMenuTriggerFor]="menu">
+                <mat-icon>more_vert</mat-icon>
+              </button>
+              <mat-menu #menu="matMenu" class="list-menu">
+
+                <button magic="BEdit" [rowId]="row.rowId" mat-menu-item>
+                  <mat-icon>edit</mat-icon>
+                  <span>
+            <a
+              href="#"
+              magic="BEdit"
+              class="BEdit"
+              [rowId]="row.rowId"
+              [attr.disabled]="isDisabled('BEdit', row.rowId)"
+            >
+              {{getValue('BEdit', row.rowId)}}
+            </a>
+                  </span>
+                </button>
+
+                <button magic="BDelete" [rowId]="row.rowId" mat-menu-item>
+                  <mat-icon>delete</mat-icon>
+                  <span>
+            <a
+              href="#"
+              magic="BDelete"
+              class="BDelete"
+              [rowId]="row.rowId"
+            >
+              {{getValue('BDelete', row.rowId)}}
+            </a>
+
+                  </span>
+                </button>
+              </mat-menu>
+            </div>
+
+
+          </form>
+        </div>
+      </div>
+
+
     </div>
-    <input
-      type="button"
-      magic="BBack"
-      class="BBack"
-      value=&lt;&lt;
-      Back
-    />
-    <input
-      type="button"
-      magic="BAddFlight"
-      class="BAddFlight"
-      value=Add
-      Flight
-    />
-    <input
-      type="button"
-      magic="BAddRestaurant"
-      class="BAddRestaurant"
-      value=Add
-      Restaurant
-    />
-    <input
-      type="button"
-      magic="BAddHotel"
-      class="BAddHotel"
-      value=Add
-      Hotel
-    />
-    <input
-      type="button"
-      magic="BAddCar"
-      class="BAddCar"
-      value=Add
-      Car
-      Rental
-    />
+    <div class="info-pane">
+      <!--
+            <ndc-dynamic
+              magic="SubformDetails"
+              class="SubformDetails"
+              [ndcDynamicComponent]="getComp('SubformDetails')"
+              [ndcDynamicInputs]="getParameters('SubformDetails')"
+            >
+            </ndc-dynamic>
+      -->
+      <!--<mga-Hotel></mga-Hotel>-->
+      <mga-Flight1></mga-Flight1>
+    </div>
   </div>
-</form>
+</div>

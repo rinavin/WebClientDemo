@@ -2,6 +2,8 @@ import {Component, ComponentFactoryResolver, ViewContainerRef} from '@angular/co
 import {MagicEngine} from "./magic/src/services/magic.engine";
 import {ComponentsList} from './ComponentList';
 import {BaseTaskMagicComponent} from "./magic/src/ui/app.baseMagicComponent";
+import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from "@angular/material";
+import {MAT_MOMENT_DATE_FORMATS, MomentDateAdapter} from "@angular/material-moment-adapter";
 
 declare let myExtObject: any;
 
@@ -12,7 +14,9 @@ declare let myExtObject: any;
     <!--<mga-YourTravel></mga-YourTravel>-->
     <mga-EditTravelRequestEntries></mga-EditTravelRequestEntries>
 
- `
+ `,
+  providers :[
+  ]
 })
 export class AppComponent
 {//extends BaseTaskMagicComponent implements OnInit {

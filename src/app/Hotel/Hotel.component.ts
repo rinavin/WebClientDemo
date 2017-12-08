@@ -17,7 +17,7 @@ export class Hotel extends BaseTaskMagicComponent {
           "0": {
             "values": {
               "AddHotelImg": "assets/images/Travel/hotel.png",
-              "serviceAddress": "",
+              "serviceAddress": "5 Jaffa Road, Tel Aviv",
               "fromdateEdit": "   ,00     0000",
               "fromtimeEdit": "12:00 am",
               "todateEdit": "   ,00     0000",
@@ -59,7 +59,7 @@ export class Hotel extends BaseTaskMagicComponent {
         "list": [{
           "values": {
             "AddHotelImg": "assets/images/Travel/hotel.png",
-            "serviceAddress": "",
+            "serviceAddress": "5 Nowhere lane, Wisconsin",
             "fromdateEdit": "   ,00     0000",
             "fromtimeEdit": "12:00 am",
             "todateEdit": "   ,00     0000",
