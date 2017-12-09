@@ -1,0 +1,166 @@
+<form
+  novalidate
+  [formGroup]="screenFormGroup"
+  class="Rest magic-container"
+  magic="Rest"
+>
+
+  <div class="top-details-title">
+
+    <div class="hotel-title">
+      <img
+        *ngIf="isImageExists('AddFlightImg')"
+        magic="AddFlightImg"
+        class="AddFlightImg"
+        [src]="getImage('AddFlightImg')"
+      />
+
+      <label
+        magic="SelectFlightL"
+        class="SelectFlightL"
+      >
+        Restaurant Details
+      </label>
+    </div>
+    <mat-form-field
+    >
+      <mat-select
+        class="fromairportCmb"
+        magic="fromairportCmb"
+        placeholder="Select resturant"
+        [value]="getSelectedValue('fromairportCmb')"
+      >
+        <mat-option
+          *ngFor="let o of getListboxValues('fromairportCmb');"
+          [value]="o.index"
+        >
+          <mat-icon>local_dining</mat-icon>
+          {{o.realString}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="middle-details-section">
+    <div class="checkin-row">
+      <div class="checkin-details">
+
+        <div class="data-with-label">
+
+          <mat-form-field
+            class="serviceAddress">
+            <input
+              readonly
+              matInput
+              placeholder="Restaurant Address"
+              formControlName="serviceAddress"
+              magic="serviceAddress"
+            >
+          </mat-form-field>
+
+          <label
+            magic="DestinationL"
+            class="ReservationL"
+          >
+            Reservation:
+          </label>
+
+          <div class="side-by-side">
+            <mat-form-field>
+              <input
+                matInput
+                disabled
+                [matDatepicker]="fromdateEdit"
+                placeholder="Reservation Date"
+                formControlName="fromdateEdit"
+                magic="fromdateEdit"
+                class="fromdateEdit"
+              >
+              <mat-datepicker-toggle matSuffix [for]="fromdateEdit"></mat-datepicker-toggle>
+              <mat-datepicker disabled="false" #fromdateEdit></mat-datepicker>
+            </mat-form-field>
+
+            <w-mat-timepicker
+              formControlName="RestoFromTime"
+              magic="RestoFromTime"
+            >
+            </w-mat-timepicker>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="hotel-map-wrapper">
+        <div
+          class="map-image rest-image"
+          [ngStyle]="{
+                'background-image':'url('+ 'assets/images/Travel/rest.jpg' + ')'}"
+        >
+
+        </div>
+
+      </div>
+    </div>
+    <div class="imgSubForm-section">
+      <mga-LargeImage></mga-LargeImage>
+
+      <!-- todo:restore for magic-run
+            <ndc-dynamic
+              magic="SearchSubform"
+              class="SearchSubform"
+              [style.visibility]="getVisible('SearchSubform')"
+              [ndcDynamicComponent]="getComp('SearchSubform')"
+              [ndcDynamicInputs]="getParameters('SearchSubform')"
+            >
+            </ndc-dynamic>
+      -->
+
+
+    </div>
+    <div class="details-button-section">
+      <button
+        magic="BSave"
+        class="BSave"
+        [attr.disabled]="isDisabled('BSave')"
+        mat-button color="primary"
+      >
+        Save
+      </button>
+
+    </div>
+  </div>
+
+
+</form>
+
+
+<!--
+
+
+
+  <ndc-dynamic
+    magic="imgSubform"
+    class="imgSubform"
+    [ndcDynamicComponent]="getComp('imgSubform')"
+    [ndcDynamicInputs]="getParameters('imgSubform')"
+  >
+  </ndc-dynamic>
+  <input
+    type="button"
+    magic="BSave"
+    class="BSave"
+    [attr.disabled]="isDisabled('BSave')"
+    value=Ok
+  />
+
+
+-->
+
+<!--
+
+<mat-form-field>
+  <mat-select [placeholder]="'currentPlaceholder'">
+    <mat-option [value]="1">1</mat-option>
+    <mat-option [value]="2">2</mat-option>
+  </mat-select>
+</mat-form-field>
+-->

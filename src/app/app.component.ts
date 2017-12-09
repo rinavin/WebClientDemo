@@ -13,8 +13,9 @@ declare let myExtObject: any;
     <!--<mga-YourTravelRequests></mga-YourTravelRequests>-->
     <!--<mga-YourTravel></mga-YourTravel>-->
     <mga-EditTravelRequestEntries></mga-EditTravelRequestEntries>
-
- `,
+    <!--<mga-Flight1></mga-Flight1> -->
+    <!--<mga-Hotel></mga-Hotel>-->
+  `,
   providers :[
   ]
 })

@@ -6,7 +6,6 @@ body
   font-family: 'Roboto', sans-serif;
   height: 100%;
   color: #070808;
-
 }
 
 
@@ -300,6 +299,7 @@ label.main-card-label {
     flex: 55;
     /* border: 3px solid blue; */
     display: flex;
+    padding: 10px 30px 30px 40px;
 }
 
 .list-item-form {
@@ -383,22 +383,27 @@ img.flightLogo {
     margin-bottom: 30px;
     display: flex;
     justify-content: space-between;
+    padding-right: 30px;
 }
 
 form.Hotel {
     /* border: 3px solid blue; */
     display: flex;
     flex: 1;
-    box-shadow: 0px 2px 5.22px 0.78px rgba(60, 60, 60, 0.2);
     padding: 10px 10px 10px 20px;
     flex-direction: column;
-    min-width: 710px;
+    min-width: 740px;
+}
+
+form.Hotel, form.Rest, form.Flight1 {
+    box-shadow: 0px 2px 5.22px 0.78px rgba(60, 60, 60, 0.2);
+    padding: 30px 40px 0px 40px;
 }
 
 mga-hotel {
     width: 100%;
     /* border: 1px solid saddlebrown; */
-    padding: 10px 40px 30px 40px;
+    /* padding: 10px 40px 30px 40px; */
     display: flex;
     flex-direction: column;
 }
@@ -412,6 +417,7 @@ img.AddHotelImg {
 label.SelectFlightL {
     font-weight: 400;
     font-size: 18px;
+    /* border: 1px solid red; */
 }
 
 .middle-details-section {
@@ -434,9 +440,17 @@ label.SelectFlightL {
     display: flex;
 }
 
+.Rest .data-with-label {
+    min-width: 462px;
+}
+
 .checkin-details {
     flex-direction: column;
     /* display: flex; */
+}
+
+mga-edittravelrequestentries .checkin-details {
+    margin-right: 20px;
 }
 
 .data-with-label > label {
@@ -489,6 +503,10 @@ w-clock .mat-primary span.mat-button-wrapper {
     /* border: 1px solid blue; */
 }
 
+mga-edittravelrequestentries .checkin-row {
+    margin-bottom: 20px;
+}
+
 .hotel-map-wrapper {
     /* border: 1px solid red; */
     flex: 1;
@@ -496,6 +514,15 @@ w-clock .mat-primary span.mat-button-wrapper {
     padding-right: 20px;
     padding-bottom: 30px;
     min-width: 240px;
+}
+
+mga-edittravelrequestentries .hotel-map-wrapper {
+    padding-right: 0;
+    padding-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 30px;
 }
 
 .map-image {
@@ -546,6 +573,9 @@ select.HotelID {
 .details-button-section {
     display: flex;
     justify-content: flex-end;
+    height: 51px;
+    align-items: baseline;
+    /* border: 1px solid red; */
 }
 
 mga-edittravelrequestentries {
@@ -555,4 +585,55 @@ mga-edittravelrequestentries {
 
 w-mat-timepicker {
     margin-left: 30px;
+}
+
+.no-title w-mat-timepicker {
+    margin: 0;
+}
+
+img.AddFlightImg {
+    position: relative;
+    top: 3px;
+    margin-right: 14px;
+}
+
+.map-image.airport-image {
+    background-image: url('images/airport2.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 79px;
+}
+
+.data-with-label.no-title {
+    justify-content: flex-end;
+    padding-bottom: 7px;
+}
+
+.map-image.rest-image {
+    height: 170px;
+    border: 2px solid red;
+}
+
+.side-by-side {
+    display: flex;
+}
+
+input#mat-input-0 {}
+
+.Rest .serviceAddress {
+    width: calc(100% - 49px);
+}
+
+form.Rest {
+    margin-left: 50px;
+}
+
+form.Flight1 {
+    flex: 1;
+}
+
+mga-flight1 {
+    display: flex;
+    flex: 1;
 }

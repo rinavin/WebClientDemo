@@ -299,7 +299,7 @@ export abstract class BaseTaskMagicComponent implements OnInit, OnDestroy {
     this.task.settemplate(stubData.template);
     this.task.taskId = "1";
     for (let i = 0; i < this.task.Records.list.length; i++)
-      this.task.buildTableRowControls();
+      this.task.buildTableRowControls(i);
   }
 }
 

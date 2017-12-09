@@ -22,42 +22,33 @@
         Flight Details
       </label>
     </div>
-
-
-    <!--(change)="onselectionchanged($event,'HotelID')"-->
-    <!--[(value)]="getSelectedValue('HotelID')"-->
-    <!--class="HotelID-wrapper"-->
-    <!--magic="HotelID"-->
-
-
-<!--
-        <mat-form-field
-        >
-          <mat-select
-            class="HotelID"
-            placeholder="Select hotel"
-          >
-            <mat-option
-              *ngFor="let o of getListboxValues('HotelID');"
-              [value]="o.index"
-            >
-              {{o.realString}}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
--->
-
+    <mat-form-field
+      class="flightnumberEdit">
+      <input
+        readonly
+        matInput
+        placeholder="Flight #"
+        formControlName="flightnumberEdit"
+        magic="flightnumberEdit"
+      >
+    </mat-form-field>
 
   </div>
   <div class="middle-details-section">
 
+
+
+
+
+
+
+
+
+
+
     <div
       class="details-address-title">
-      <input
-        hidden
-        type="text"
-      />
-      from ... to ...
+      [airline] flight [flight no.]: [origin] to [destination]
     </div>
 
 
@@ -72,46 +63,17 @@
 
           </label>
 
-          <input
-            type="text"
-            readonly
-            formControlName="fromairportEdit"
-            magic="fromairportEdit"
-            class="fromairportEdit"
-          />
-          <input
-            type="text"
-            readonly
-            formControlName="airportNameFrom"
-            magic="airportNameFrom"
-            class="airportNameFrom"
-          />
-
-          <!--<div class="date-time-row">
-
-            <mat-form-field>
+            <mat-form-field
+              class="airportNameFrom">
               <input
+                readonly
                 matInput
-                disabled
-                [matDatepicker]="fromdateEdit"
-                placeholder="Check-in Date"
-                formControlName="fromdateEdit"
-                magic="fromdateEdit"
-                class="fromdateEdit"
+                placeholder="From airport"
+                formControlName="airportNameFrom"
+                magic="airportNameFrom"
               >
-              <mat-datepicker-toggle matSuffix [for]="fromdateEdit"></mat-datepicker-toggle>
-              <mat-datepicker disabled="false" #fromdateEdit></mat-datepicker>
             </mat-form-field>
 
-
-            <w-mat-timepicker
-              formControlName="fromtimeEdit"
-              magic="fromtimeEdit"
-            >
-            </w-mat-timepicker>
-
-
-          </div>-->
         </div>
 
         <div class="data-with-label">
@@ -123,24 +85,28 @@
             Destination:
           </label>
 
-          <input
-            type="text"
-            readonly
-            formControlName="toairportEdit"
-            magic="toairportEdit"
-            class="toairportEdit"
-          />
-          <input
-            type="text"
-            readonly
-            formControlName="airportNameTo"
-            magic="airportNameTo"
-            class="airportNameTo"
-          />
 
 
+          <mat-form-field
+            class="airportNameTo">
+            <input
+              readonly
+              matInput
+              placeholder="To airport"
+              formControlName="airportNameTo"
+              magic="airportNameTo"
+            >
+          </mat-form-field>
 
-          <div class="date-time-row">
+        </div>
+
+
+      </div>
+      <div class="checkin-row">
+        <div class="checkin-details">
+
+          <div class="data-with-label">
+
             <label
               magic="DepartureL"
               class="DepartureL"
@@ -148,6 +114,21 @@
               Departure:
             </label>
 
+            <mat-form-field>
+              <input
+                matInput
+                disabled
+                [matDatepicker]="todateTimeEdit"
+                placeholder="Departure Date"
+                formControlName="todateTimeEdit"
+                magic="todateTimeEdit"
+                class="todateTimeEdit"
+              >
+              <mat-datepicker-toggle matSuffix [for]="todateTimeEdit"></mat-datepicker-toggle>
+              <mat-datepicker disabled="false" #todateTimeEdit></mat-datepicker>
+            </mat-form-field>
+          </div>
+          <div class="data-with-label">
             <label
               magic="ArrivalL"
               class="ArrivalL"
@@ -156,68 +137,76 @@
             </label>
 
 
-            <input
-              type="text"
-              formControlName="fromdateEdit"
-              magic="fromdateEdit"
-              class="fromdateEdit"
-            />
-            <input
-              type="text"
-              formControlName="fromdateTimeEdit"
-              magic="fromdateTimeEdit"
-              class="fromdateTimeEdit"
-            />
-            <input
-              type="text"
-              formControlName="todateEdit"
-              magic="todateEdit"
-              class="todateEdit"
-            />
-            <input
-              type="text"
-              formControlName="todateTimeEdit"
-              magic="todateTimeEdit"
-              class="todateTimeEdit"
-            />
-
-            <!--
 
 
             <mat-form-field>
               <input
                 matInput
                 disabled
-                [matDatepicker]="todateEdit"
-                placeholder="Check-out Date"
-                formControlName="todateEdit"
-                magic="todateEdit"
-                class="todateEdit"
+                [matDatepicker]="fromdateTimeEdit"
+                placeholder="Arrival Date"
+                formControlName="fromdateTimeEdit"
+                magic="fromdateTimeEdit"
+                class="fromdateTimeEdit"
               >
-              <mat-datepicker-toggle matSuffix [for]="todateEdit"></mat-datepicker-toggle>
-              <mat-datepicker disabled="false" #todateEdit></mat-datepicker>
+              <mat-datepicker-toggle matSuffix [for]="fromdateTimeEdit"></mat-datepicker-toggle>
+              <mat-datepicker disabled="false" #fromdateTimeEdit></mat-datepicker>
             </mat-form-field>
 
-
-            <w-mat-timepicker
-              formControlName="totimeEdit"
-              magic="totimeEdit"
-            >
-            </w-mat-timepicker>
-
-          -->
 
           </div>
         </div>
 
-
       </div>
+
       <div class="hotel-map-wrapper">
-        <div class="map-image"></div>
+        <div
+          class="map-image airport-image"
+          [ngStyle]="{
+                'background-image':'url('+ getImage('classImg') + ')'}"
+        >
+
+        </div>
+
+
+
+        <mat-form-field
+        >
+          <mat-select
+            class="airline"
+            magic="airline"
+            placeholder="Select airline"
+            [value]="getSelectedValue('airline')"
+
+          >
+            <mat-option
+              *ngFor="let o of getListboxValues('airline');"
+              [value]="o.index"
+            >
+              {{o.realString}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+
       </div>
     </div>
     <div class="imgSubForm-section">
       <mga-LargeImage></mga-LargeImage>
+
+<!-- todo:restore for magic-run
+      <ndc-dynamic
+        magic="SearchSubform"
+        class="SearchSubform"
+        [style.visibility]="getVisible('SearchSubform')"
+        [ndcDynamicComponent]="getComp('SearchSubform')"
+        [ndcDynamicInputs]="getParameters('SearchSubform')"
+      >
+      </ndc-dynamic>
+-->
+
+
+
     </div>
     <div class="details-button-section">
       <button
