@@ -39,12 +39,25 @@ export class TaskMagicService {
     this.template = value;
   }
 
+  setStubValue(row: number, fc: FormControl, name:string){
+    if (this.IsStub())
+    {
+      try {
+        let val = this.Records.list[row].values[name];
+        fc.setValue(val);
+      }
+      catch (e){}
+    }
+  }
   buildScreenModeControls() {
     const group: FormGroup = new FormGroup({});
     for (const key in this.template) {
 
-      if (this.template[key] == '0')
-        group.addControl(key, new FormControl(''));
+      if (this.template[key] == '0') {
+        let fc = new FormControl('')
+        this.setStubValue(0, fc, key);
+        group.addControl(key, fc);
+      }
     }
 
     this.ScreenModeControls = group;
@@ -63,13 +76,16 @@ export class TaskMagicService {
   }
 
 
-  buildTableRowControls() {
+  buildTableRowControls(row: number) {
     const group: FormGroup = new FormGroup({});
 
     for (const key in this.template) {
 
-      if (this.template[key] == '1')
-        group.addControl(key, new FormControl(''));
+      if (this.template[key] == '1') {
+        let fc = new FormControl('');
+        this.setStubValue(row, fc, key);
+        group.addControl(key, fc);
+      }
     }
 
     this.rows.push(group);
@@ -83,7 +99,7 @@ export class TaskMagicService {
       this.rows.length = size;
     else {
       for (let i = this.rows.length; i < size; i++)
-        this.buildTableRowControls();
+        this.buildTableRowControls(i);
     }
 
     this.Records.updateSize(size);
