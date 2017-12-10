@@ -1,0 +1,138 @@
+/*this is a component css*/
+
+.YourTravelRequestsGenerate {
+    position: absolute;
+}
+
+.AddPlusImg {
+    position: absolute;
+    top: 1px;
+    left: 261px;
+    height: 54px;
+    width: 53px;
+}
+
+.mytable {
+    position: absolute;
+    top: 1px;
+    left: 0px;
+    height: 769px;
+    width: 255px;
+}
+
+.backgroundImage {
+    position: absolute;
+    top: 2px;
+    left: 0px;
+    height: 128px;
+    width: 217px;
+}
+
+.l_Record# {
+    position: absolute;
+    top: 5px;
+    left: 221px;
+    height: 20px;
+    width: 5px;
+}
+
+.DescriptionText {
+    position: absolute;
+    top: 12px;
+    left: 11px;
+    height: 30px;
+    width: 192px;
+}
+
+.DepartureDate {
+    position: absolute;
+    top: 133px;
+    left: 42px;
+    height: 20px;
+    width: 49px;
+}
+
+.ArrivalDate {
+    position: absolute;
+    top: 134px;
+    left: 164px;
+    height: 20px;
+    width: 49px;
+}
+
+.takeoff {
+    position: absolute;
+    top: 137px;
+    left: 7px;
+    height: 18px;
+    width: 24px;
+}
+
+.land {
+    position: absolute;
+    top: 137px;
+    left: 134px;
+    height: 18px;
+    width: 24px;
+}
+
+.Ellipse {
+    position: absolute;
+    top: 143px;
+    left: 95px;
+    height: 4px;
+    width: 28px;
+}
+
+.FlightImg {
+    position: absolute;
+    top: 158px;
+    left: 7px;
+    height: 31px;
+    width: 33px;
+}
+
+.HotelImg {
+    position: absolute;
+    top: 158px;
+    left: 43px;
+    height: 31px;
+    width: 33px;
+}
+
+.CarImg {
+    position: absolute;
+    top: 159px;
+    left: 78px;
+    height: 31px;
+    width: 33px;
+}
+
+.RestoImg {
+    position: absolute;
+    top: 159px;
+    left: 114px;
+    height: 31px;
+    width: 33px;
+}
+
+.BEdit {
+    position: absolute;
+    top: 162px;
+    left: 161px;
+    height: 12px;
+    width: 36px;
+}
+
+.BDelete {
+    position: absolute;
+    top: 175px;
+    left: 161px;
+    height: 15px;
+    width: 36px;
+}
+
+.mytable_table_row {
+    position: relative;
+    height: 192px;
+}
