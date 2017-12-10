@@ -8,12 +8,13 @@ import {GuiCommand} from "../ui/gui.command";
 @Injectable()
 export class MagicEngine {
   magic = window['magic1'];
-  isStub  = true;
+  isStub  = false;
   //TODO - unregister
   refreshDom: Subject<GuiCommand> = new Subject();
 
   startMagic() {
     if (!this.isStub) {
+
       this.magic.start(data => {
         let list: GuiCommand[];
         let obj = JSON.parse(data);
@@ -49,8 +50,18 @@ export class MagicEngine {
   }
 
   registerOpenFormCallback(cb) {
-    if (!this.isStub)
-      this.magic.registerOpenFormCallback(cb);
+    if (!this.isStub) {
+      try {
+        this.magic.registerOpenFormCallback(cb);
+      }
+      catch (e) {
+        console.log('magic engine not found');
+        console.log('moving to stub mode');
+        this.isStub = true;
+
+      }
+    }
+
   }
 
   saveData(data:string)
