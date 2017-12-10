@@ -129,7 +129,7 @@ button.BAdd {
 
 label.TravelForLabel {
     color: white;
-    height: 120px;
+    height: 80px;
     display: flex;
     align-items: flex-end;
 }
@@ -199,6 +199,7 @@ mga-yourtravel > form {
     text-align: center;
     /* flex-direction: column; */
     display: flex;
+
 }
 
 .main-card {
