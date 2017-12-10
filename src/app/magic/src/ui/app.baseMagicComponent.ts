@@ -164,6 +164,7 @@ export abstract class BaseTaskMagicComponent implements OnInit, OnDestroy {
         }
         else
           properties.properties[command.Operation] = command.str;
+
         break;
       case CommandType.SET_CLASS:
         properties = this.task.Records.list[rowId].getControlMetadata(controlId);
@@ -230,6 +231,11 @@ export abstract class BaseTaskMagicComponent implements OnInit, OnDestroy {
   getEnable(controlId, rowId?) {
     let result = this.getProperty(controlId, HtmlProperties.Enabled, rowId) == true;
     return result;
+  }
+
+  isRowSelected(controlId, rowId?) {
+    let selectedRow = this.getProperty(controlId, HtmlProperties.SelectedRow, "0") ;
+    return selectedRow == rowId;
   }
 
   isDisabled(controlId, rowId?) {

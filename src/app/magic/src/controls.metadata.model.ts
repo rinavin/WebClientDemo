@@ -153,6 +153,7 @@ export enum HtmlProperties {
   PlaceHolder="placeholder",
   Password="password",
   TabIndex="tabindex",
+  SelectedRow="selectedRow"
 }
 
 export enum HtmlClasses {
