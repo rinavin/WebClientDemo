@@ -108,7 +108,7 @@
           *ngIf="ifRowCreated(row.rowId)"
         >
 
-          <form [formGroup]="getFormGroupByRow(row.rowId)" class="list-item-form">
+          <form [formGroup]="getFormGroupByRow(row.rowId)"    [ngClass]="getTableRowClass(row.rowId)">
             <div *ngIf="isImageExists('flight')" class="flight-icon">
               <img
                 magic="flight"
@@ -192,7 +192,6 @@
 
     </div>
     <div class="info-pane">
-      <!--
             <ndc-dynamic
               magic="SubformDetails"
               class="SubformDetails"
@@ -200,10 +199,9 @@
               [ndcDynamicInputs]="getParameters('SubformDetails')"
             >
             </ndc-dynamic>
-      -->
-      <mga-Hotel></mga-Hotel>
+
+      <!--<mga-Hotel></mga-Hotel>-->
       <!--<mga-Flight1></mga-Flight1>-->
-      <!--<mga-Rest></mga-Rest>-->
     </div>
   </div>
 </div>
