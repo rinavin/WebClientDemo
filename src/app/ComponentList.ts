@@ -7,6 +7,8 @@ import { YourTravel } from "./YourTravel/YourTravel.component";
 
 import { YourTravelRequests } from "./YourTravelRequests/YourTravelRequests.component";
 
+import { YourTravelRequestsGenerate } from "./YourTravelRequestsGenerate/YourTravelRequestsGenerate.component";
+
 import { EditTravelRequestEntries } from "./EditTravelRequestEntries/EditTravelRequestEntries.component";
 
 import { Flight1 } from "./Flight1/Flight1.component";
@@ -57,6 +59,8 @@ export class ComponentsList extends ComponentListBase {
 
 		YourTravelRequests: YourTravelRequests,
 
+		YourTravelRequestsGenerate: YourTravelRequestsGenerate,
+
 		EditTravelRequestEntries: EditTravelRequestEntries,
 
 		Flight1: Flight1,
@@ -106,6 +110,8 @@ export class ComponentsList extends ComponentListBase {
 		YourTravel,
 
 		YourTravelRequests,
+
+		YourTravelRequestsGenerate,
 
 		EditTravelRequestEntries,
 
