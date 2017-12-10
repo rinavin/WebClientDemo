@@ -13,7 +13,7 @@ import { TaskMagicService } from "../magic/src/services/task.magics.service";
 export class EditTravelRequestEntries extends BaseTaskMagicComponent {
 
 
-  loadData():any   {
+  loadData(): any {
     let stubData = {
       "records": {
         "data": {
@@ -28,7 +28,7 @@ export class EditTravelRequestEntries extends BaseTaskMagicComponent {
               "AddCarImg": "assets/images/Travel/car.png",
               "AddRestoImg": "assets/images/Travel/restaurant.png",
               "flight": "assets/images/Travel/flight.png",
-              "RDescription": "01Jan BOM-JOR TG/",
+              "RDescription": "01Jan -DZX TG/",
               "flightLogo": "assets/images/Travel/airline-tg.gif",
               "BBack": "<< Back",
               "BAddFlight": "Add Flight",
@@ -74,7 +74,7 @@ export class EditTravelRequestEntries extends BaseTaskMagicComponent {
                 "properties": {
                   "image": "assets/images/Travel/airline-tg.gif",
                   "tooltip": "assets/images/Travel",
-                  "tabindex": "31"
+                  "tabindex": "18"
                 }, "classesMap": {}, "stylesMap": {}
               },
               "DescriptionScreen": {"properties": {"tabindex": "9"}, "classesMap": {}, "stylesMap": {}},
@@ -87,6 +87,7 @@ export class EditTravelRequestEntries extends BaseTaskMagicComponent {
               "BAddCar": {"properties": {"tabindex": "38"}, "classesMap": {}, "stylesMap": {}},
               "bottomlabel": {"properties": {"text": "TG/"}, "classesMap": {}, "stylesMap": {}},
               "BEdit": {"properties": {"enabled": "1", "tabindex": "32"}, "classesMap": {}, "stylesMap": {}},
+              "TableEditRequestEntries": {"properties": {"selectedRow": "0"}, "classesMap": {}, "stylesMap": {}},
               "RDescription": {"properties": {"tabindex": "17"}, "classesMap": {}, "stylesMap": {}},
               "BDelete": {"properties": {"tabindex": "33"}, "classesMap": {}, "stylesMap": {}}
             },
@@ -96,22 +97,23 @@ export class EditTravelRequestEntries extends BaseTaskMagicComponent {
             "values": {
               "flight": "assets/images/Travel/restaurant.png",
               "RDescription": "12:30-00:00 BB House",
-              "flightLogo": "assets/images/Travel/resta-Food110709_0.png",
+              "flightLogo": "assets/images/Travel/resta-takashi.png",
               "BEdit": "Edit",
               "BDelete": "Delete"
             },
             "ControlsProperties": {
               "flight": {
-                "properties": {"tabindex": "16", "image": "assets/images/Travel/restaurant.png"},
-                "classesMap": {},
-                "stylesMap": {}
+                "properties": {
+                  "tabindex": "16",
+                  "image": "assets/images/Travel/restaurant.png"
+                }, "classesMap": {}, "stylesMap": {}
               },
               "RDescription": {"properties": {"tabindex": "17"}, "classesMap": {}, "stylesMap": {}},
               "flightLogo": {
                 "properties": {
-                  "tabindex": "31",
+                  "tabindex": "18",
                   "tooltip": "assets/images/Travel",
-                  "image": "assets/images/Travel/resta-Food110709_0.png"
+                  "image": "assets/images/Travel/resta-takashi.png"
                 }, "classesMap": {}, "stylesMap": {}
               },
               "BEdit": {"properties": {"tabindex": "32", "enabled": "1"}, "classesMap": {}, "stylesMap": {}},
@@ -124,7 +126,7 @@ export class EditTravelRequestEntries extends BaseTaskMagicComponent {
             "values": {
               "flight": "assets/images/Travel/hotel.png",
               "RDescription": "01Jan-03Jan Blue",
-              "flightLogo": "assets/images/Travel/hotel-ritz.png",
+              "flightLogo": "assets/images/Travel/hotel-duxton.png",
               "BEdit": "Edit",
               "BDelete": "Delete"
             },
@@ -137,9 +139,9 @@ export class EditTravelRequestEntries extends BaseTaskMagicComponent {
               "RDescription": {"properties": {"tabindex": "17"}, "classesMap": {}, "stylesMap": {}},
               "flightLogo": {
                 "properties": {
-                  "tabindex": "31",
+                  "tabindex": "18",
                   "tooltip": "assets/images/Travel",
-                  "image": "assets/images/Travel/hotel-ritz.png"
+                  "image": "assets/images/Travel/hotel-duxton.png"
                 }, "classesMap": {}, "stylesMap": {}
               },
               "BEdit": {"properties": {"tabindex": "32", "enabled": "1"}, "classesMap": {}, "stylesMap": {}},
@@ -160,7 +162,7 @@ export class EditTravelRequestEntries extends BaseTaskMagicComponent {
             "AddCarImg": "assets/images/Travel/car.png",
             "AddRestoImg": "assets/images/Travel/restaurant.png",
             "flight": "assets/images/Travel/flight.png",
-            "RDescription": "01Jan BOM-JOR TG/",
+            "RDescription": "01Jan -DZX TG/",
             "flightLogo": "assets/images/Travel/airline-tg.gif",
             "BBack": "<< Back",
             "BAddFlight": "Add Flight",
@@ -206,7 +208,7 @@ export class EditTravelRequestEntries extends BaseTaskMagicComponent {
               "properties": {
                 "image": "assets/images/Travel/airline-tg.gif",
                 "tooltip": "assets/images/Travel",
-                "tabindex": "31"
+                "tabindex": "18"
               }, "classesMap": {}, "stylesMap": {}
             },
             "DescriptionScreen": {"properties": {"tabindex": "9"}, "classesMap": {}, "stylesMap": {}},
@@ -219,6 +221,7 @@ export class EditTravelRequestEntries extends BaseTaskMagicComponent {
             "BAddCar": {"properties": {"tabindex": "38"}, "classesMap": {}, "stylesMap": {}},
             "bottomlabel": {"properties": {"text": "TG/"}, "classesMap": {}, "stylesMap": {}},
             "BEdit": {"properties": {"enabled": "1", "tabindex": "32"}, "classesMap": {}, "stylesMap": {}},
+            "TableEditRequestEntries": {"properties": {"selectedRow": "0"}, "classesMap": {}, "stylesMap": {}},
             "RDescription": {"properties": {"tabindex": "17"}, "classesMap": {}, "stylesMap": {}},
             "BDelete": {"properties": {"tabindex": "33"}, "classesMap": {}, "stylesMap": {}}
           },
@@ -227,22 +230,23 @@ export class EditTravelRequestEntries extends BaseTaskMagicComponent {
           "values": {
             "flight": "assets/images/Travel/restaurant.png",
             "RDescription": "12:30-00:00 BB House",
-            "flightLogo": "assets/images/Travel/resta-Food110709_0.png",
+            "flightLogo": "assets/images/Travel/resta-takashi.png",
             "BEdit": "Edit",
             "BDelete": "Delete"
           },
           "ControlsProperties": {
             "flight": {
-              "properties": {"tabindex": "16", "image": "assets/images/Travel/restaurant.png"},
-              "classesMap": {},
-              "stylesMap": {}
+              "properties": {
+                "tabindex": "16",
+                "image": "assets/images/Travel/restaurant.png"
+              }, "classesMap": {}, "stylesMap": {}
             },
             "RDescription": {"properties": {"tabindex": "17"}, "classesMap": {}, "stylesMap": {}},
             "flightLogo": {
               "properties": {
-                "tabindex": "31",
+                "tabindex": "18",
                 "tooltip": "assets/images/Travel",
-                "image": "assets/images/Travel/resta-Food110709_0.png"
+                "image": "assets/images/Travel/resta-takashi.png"
               }, "classesMap": {}, "stylesMap": {}
             },
             "BEdit": {"properties": {"tabindex": "32", "enabled": "1"}, "classesMap": {}, "stylesMap": {}},
@@ -254,7 +258,7 @@ export class EditTravelRequestEntries extends BaseTaskMagicComponent {
           "values": {
             "flight": "assets/images/Travel/hotel.png",
             "RDescription": "01Jan-03Jan Blue",
-            "flightLogo": "assets/images/Travel/hotel-ritz.png",
+            "flightLogo": "assets/images/Travel/hotel-duxton.png",
             "BEdit": "Edit",
             "BDelete": "Delete"
           },
@@ -267,9 +271,9 @@ export class EditTravelRequestEntries extends BaseTaskMagicComponent {
             "RDescription": {"properties": {"tabindex": "17"}, "classesMap": {}, "stylesMap": {}},
             "flightLogo": {
               "properties": {
-                "tabindex": "31",
+                "tabindex": "18",
                 "tooltip": "assets/images/Travel",
-                "image": "assets/images/Travel/hotel-ritz.png"
+                "image": "assets/images/Travel/hotel-duxton.png"
               }, "classesMap": {}, "stylesMap": {}
             },
             "BEdit": {"properties": {"tabindex": "32", "enabled": "1"}, "classesMap": {}, "stylesMap": {}},
