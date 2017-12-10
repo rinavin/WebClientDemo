@@ -84,9 +84,9 @@ label.DepartureDate, label.ArrivalDate {
 .cards-wrapper form {}
 
 .menu-wrapper {
-    /* position: absolute; */
-    /* right: 6px; */
-    /* top: 3px; */
+     position: absolute;
+     right: 6px;
+     top: 3px;
     color: white;
 }
 
