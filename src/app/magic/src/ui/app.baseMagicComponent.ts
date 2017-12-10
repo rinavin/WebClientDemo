@@ -180,8 +180,7 @@ export abstract class BaseTaskMagicComponent implements OnInit, OnDestroy {
         let c = this.task.getFormControl(rowId, controlId);
         if (!isNullOrUndefined(c))
           c.setValue(command.str);
-        else
-          console.log("Not found control for " + controlId);
+
         break;
     }
   }
