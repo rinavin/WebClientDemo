@@ -66,7 +66,7 @@ label.DescriptionText {
     flex: 2;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    /*justify-content: space-evenly;*/
 }
 
 .icons-area {
@@ -79,7 +79,14 @@ label.DescriptionText {
 }
 
 label.DepartureDate, label.ArrivalDate {
-    color: #8d8d8d;
+  color: #8d8d8d;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+img.takeoff, img.land
+{
+  padding-left: 20px;
 }
 
 .cards-wrapper form {}
