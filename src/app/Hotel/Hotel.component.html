@@ -72,16 +72,6 @@
             Check-in
 
           </label>
-
-          <input
-            matInput
-
-            placeholder="Check-in Date"
-            magic="fromdateEdit"
-            class="fromdateEdit"
-          >
-
-
           <div class="date-time-row">
 
             <mat-form-field>
@@ -151,7 +141,14 @@
       </div>
     </div>
     <div class="imgSubForm-section">
-      <mga-LargeImage></mga-LargeImage>
+      <!--<mga-LargeImage></mga-LargeImage>-->
+      <ndc-dynamic
+        magic="imgSubform"
+        class="imgSubform"
+        [ndcDynamicComponent]="getComp('imgSubform')"
+        [ndcDynamicInputs]="getParameters('imgSubform')"
+      >
+      </ndc-dynamic>
     </div>
     <div class="details-button-section">
       <button
@@ -169,13 +166,7 @@
 
 </form>
 
-<ndc-dynamic
-  magic="imgSubform"
-  class="imgSubform"
-  [ndcDynamicComponent]="getComp('imgSubform')"
-  [ndcDynamicInputs]="getParameters('imgSubform')"
->
-</ndc-dynamic>
+
 <!--
 
 
