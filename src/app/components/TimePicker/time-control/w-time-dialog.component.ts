@@ -31,7 +31,7 @@ export class WTimeDialogComponent {
 
     private formatMinute(): string {
 
-        if (this.userTime.minute < 10) {
+        if (this.userTime.minute < 10 && this.userTime.toString().length < 2) {
 
             return '0' + String(this.userTime.minute);
         } else {

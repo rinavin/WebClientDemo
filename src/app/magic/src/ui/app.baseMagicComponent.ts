@@ -1,22 +1,24 @@
-import {ChangeDetectorRef, Component, Input, OnDestroy, OnInit, QueryList, ViewChildren} from '@angular/core';
-import {FormGroup} from '@angular/forms';
+import {ChangeDetectorRef, Component, Input, OnDestroy, OnInit, QueryList, ViewChildren} from "@angular/core";
+import {FormGroup} from "@angular/forms";
 import {TaskMagicService} from "../services/task.magics.service";
 import {isNullOrUndefined, isUndefined} from "util";
 import {ControlMetadata, HtmlProperties} from "../controls.metadata.model";
 import {Subject} from "rxjs/Subject";
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/do';
-import 'rxjs/add/operator/filter';
-import {stubData} from './data';
+import "rxjs/add/operator/map";
+import "rxjs/add/operator/do";
+import "rxjs/add/operator/filter";
 
 import {CommandType} from "./enums";
 import {GuiCommand} from "./gui.command";
 import {MagicDirectiveDirective} from "./magic-directive.directive";
-import {ComponentListBase} from '../../../ComponentListBase';
+import {ComponentListBase} from "../../../ComponentListBase";
 
+import * as moment from "moment";
+
+declare let window;
 
 @Component({
-  selector: 'task-magic',
+  selector: "task-magic",
   providers: [TaskMagicService]
 })
 
@@ -44,7 +46,7 @@ export abstract class BaseTaskMagicComponent implements OnInit, OnDestroy {
 
   ) {
     this.task.Records.createFirst();
-
+    window.moment = moment;
     // debugger;
   }
 
@@ -76,7 +78,8 @@ export abstract class BaseTaskMagicComponent implements OnInit, OnDestroy {
     this.refreshUI.complete();
     this.task.refreshDom.complete();
   }
-	public static componentListBase:ComponentListBase;
+
+  public static componentListBase: ComponentListBase;
 
   getComp(subformName: string): Component {
     if (subformName in this.subformsDict) {
@@ -127,7 +130,38 @@ export abstract class BaseTaskMagicComponent implements OnInit, OnDestroy {
     this.task.registerGetValueCallback(this.getvalueCallback);
     this.task.initTask();
     this.regUpdatesUI();
+
   }
+
+  formatDates() {
+
+    const
+      dateFields: any[] = ["todateEdit", "fromdateEdit"],
+      timeFields: any[] = ["todateTimeEdit", "fromdateTimeEdit"];
+
+    [...dateFields, ...timeFields].forEach(f => {
+
+      let
+        ctrl = this.screenFormGroup && this.screenFormGroup.controls && this.screenFormGroup.controls[f],
+        val = ctrl && ctrl.value;
+
+      if (!ctrl) return;
+
+      let params = [val];
+
+      if (~timeFields.indexOf(f)) {
+        params.push((~f.indexOf('am') || ~f.indexOf('pm')) ? "hh:mm a" : "hh:mm")
+      }
+
+      if (!moment.apply(params).isValid()) {
+        console.warn("Magic: invalid data value", val);
+      }
+      ctrl.setValue(moment.apply(params).toDate());
+
+    });
+
+  }
+
 
   getFormGroupByRow(id: string): FormGroup {
     return this.task.rows[id];
@@ -217,7 +251,7 @@ export abstract class BaseTaskMagicComponent implements OnInit, OnDestroy {
     return this.task.getClasses(controlId, rowId);
   }
 
-  getStyle(controlId: string, styleName:string, rowId?) {
+  getStyle(controlId: string, styleName: string, rowId?) {
     //return 'one two ';
     let style = this.task.getStyle(controlId, styleName, rowId)
     return style;
@@ -225,7 +259,7 @@ export abstract class BaseTaskMagicComponent implements OnInit, OnDestroy {
 
   getVisible(controlId, rowId?) {
     let vis: Boolean = this.getProperty(controlId, HtmlProperties.Visible, rowId) == true;
-    return vis ? 'visible' : 'hidden';
+    return vis ? "visible" : "hidden";
   }
 
   getEnable(controlId, rowId?) {
@@ -234,7 +268,7 @@ export abstract class BaseTaskMagicComponent implements OnInit, OnDestroy {
   }
 
   isRowSelected(controlId, rowId?) {
-    let selectedRow = this.getProperty(controlId, HtmlProperties.SelectedRow, "0") ;
+    let selectedRow = this.getProperty(controlId, HtmlProperties.SelectedRow, "0");
     return selectedRow == rowId;
   }
 
@@ -278,27 +312,26 @@ export abstract class BaseTaskMagicComponent implements OnInit, OnDestroy {
   }
 
   public onselectionchanged(event: Event, idx: string) {
-    this.task.insertEvent('selectionchanged', idx, (<any>(event.target)).selectedIndex.toString());
+    this.task.insertEvent("selectionchanged", idx, (<any>(event.target)).selectedIndex.toString());
   }
 
   oncheckchanged(event: Event, idx: string) {
-    this.task.insertEvent('selectionchanged', idx, (<any>(event.target)).checked ? "1" : "0");
+    this.task.insertEvent("selectionchanged", idx, (<any>(event.target)).checked ? "1" : "0");
   }
-  jsonData :string
-  public createData()
-  {
+
+  jsonData: string
+
+  public createData() {
 
     this.task.createData();
 
   }
 
-  public loadData()
-  {
-    alert('Please, overwrite method loadData');
+  public loadData() {
+    alert("Please, overwrite method loadData");
   }
 
-  public loadStubData(stubData: any)
-  {
+  public loadStubData(stubData: any) {
 
     this.task.Records = stubData.records;
     this.task.settemplate(stubData.template);

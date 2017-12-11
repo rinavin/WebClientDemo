@@ -21,13 +21,17 @@ export const CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR: any = {
 })
 export class WMatTimePickerComponent implements ControlValueAccessor {
 
-  onChange: any = () => {};
-  onTouched: any = () => {};
+  onChange: any = () => {
+  };
+  onTouched: any = () => {
+  };
 
-  writeValue(value: any) {
+  writeValue(date: any) {
 
-    // console.log('VALUE');
-    // console.log(value);
+    if (!date) return;
+    this.hour = date.substring(0,2);
+    this.minute = date.substring(3,5);
+    this.meridien = ~date.toLowerCase().indexOf('am') ? 'AM' : 'PM'
   }
 
   registerOnChange(fn) {

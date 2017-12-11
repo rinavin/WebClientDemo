@@ -27,12 +27,29 @@
     <!--(change)="onselectionchanged($event,'HotelID')"-->
     <!--[(value)]="getSelectedValue('HotelID')"-->
     <!--class="HotelID-wrapper"-->
-    <!--magic="HotelID"-->
 
+
+    <!--formControlName="HotelID"-->
+    <!--<select
+      magic="HotelID"
+      class="HotelID"
+      [value]="getSelectedValue('HotelID')"
+
+    >
+      <option
+        *ngFor="let o of getListboxValues('HotelID');"
+        [value]="o.index"
+      >
+        {{o.realString}}
+      </option>
+
+    </select>-->
 
     <mat-form-field
     >
       <mat-select
+        formControlName="HotelID"
+        magic="HotelID"
         class="HotelID"
         placeholder="Select hotel"
       >
@@ -72,16 +89,6 @@
             Check-in
 
           </label>
-
-          <input
-            matInput
-            disabled
-            placeholder="Check-in Date"
-            magic="fromdateEdit"
-            class="fromdateEdit"
-          >
-
-
           <div class="date-time-row">
 
             <mat-form-field>

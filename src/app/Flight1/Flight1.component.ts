@@ -1,6 +1,8 @@
-import {Component} from "@angular/core";
+import {ChangeDetectorRef, Component} from "@angular/core";
 import {BaseTaskMagicComponent} from "../magic/src/ui/app.baseMagicComponent";
 import {TaskMagicService} from "../magic/src/services/task.magics.service";
+declare let window:any;
+
 
 @Component({
   selector: "mga-Flight1",
@@ -9,6 +11,12 @@ import {TaskMagicService} from "../magic/src/services/task.magics.service";
   templateUrl: "./Flight1.component2.html"
 })
 export class Flight1 extends BaseTaskMagicComponent {
+
+  constructor(protected ref: ChangeDetectorRef,
+              protected task: TaskMagicService) {
+    super(ref, task);
+    window.Flight1 = this;
+  }
 
   loadData(): any {
     let stubData = {
@@ -149,5 +157,10 @@ export class Flight1 extends BaseTaskMagicComponent {
       }
     };
     this.loadStubData(stubData);
+  }
+
+  ngOnInit(){
+    super.ngOnInit();
+    this.formatDates();
   }
 }

@@ -42,9 +42,9 @@ export class Hotel extends BaseTaskMagicComponent {
               "AddHotelImg": "assets/images/Travel/hotel.png",
               "serviceAddress": "Duxton Hotel Perth",
               "fromdateEdit": "Mon,14 Nov 2011",
-              "fromtimeEdit": "12:00 am",
+              "fromtimeEdit": "01:00 pm",
               "todateEdit": "Wed,16 Nov 2011",
-              "totimeEdit": "12:00 am",
+              "totimeEdit": "01:00 pm",
               "HotelID": "4",
               "BSave": "Ok"
             },
@@ -84,9 +84,9 @@ export class Hotel extends BaseTaskMagicComponent {
             "AddHotelImg": "assets/images/Travel/hotel.png",
             "serviceAddress": "Duxton Hotel Perth",
             "fromdateEdit": "Mon,14 Nov 2011",
-            "fromtimeEdit": "12:00 am",
+            "fromtimeEdit": "01:00 pm",
             "todateEdit": "Wed,16 Nov 2011",
-            "totimeEdit": "12:00 am",
+            "totimeEdit": "01:00 pm",
             "HotelID": "4",
             "BSave": "Ok"
           },
@@ -133,4 +133,9 @@ export class Hotel extends BaseTaskMagicComponent {
     };
     this.loadStubData(stubData);
   }
+  ngOnInit(){
+    super.ngOnInit();
+    this.formatDates();
+  }
+
 }

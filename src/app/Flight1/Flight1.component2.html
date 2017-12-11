@@ -35,23 +35,6 @@
 
   </div>
   <div class="middle-details-section">
-
-
-
-
-
-
-
-
-
-
-
-    <div
-      class="details-address-title">
-      [airline] flight [flight no.]: [origin] to [destination]
-    </div>
-
-
     <div class="checkin-row">
       <div class="checkin-details">
         <div class="data-with-label">
@@ -63,16 +46,16 @@
 
           </label>
 
-            <mat-form-field
-              class="airportNameFrom">
-              <input
-                readonly
-                matInput
-                placeholder="From airport"
-                formControlName="airportNameFrom"
-                magic="airportNameFrom"
-              >
-            </mat-form-field>
+          <mat-form-field
+            class="airportNameFrom">
+            <input
+              readonly
+              matInput
+              placeholder="From airport"
+              formControlName="airportNameFrom"
+              magic="airportNameFrom"
+            >
+          </mat-form-field>
 
         </div>
 
@@ -84,7 +67,6 @@
           >
             Destination:
           </label>
-
 
 
           <mat-form-field
@@ -137,8 +119,6 @@
             </label>
 
 
-
-
             <mat-form-field>
               <input
                 matInput
@@ -169,7 +149,6 @@
         </div>
 
 
-
         <mat-form-field
         >
           <mat-select
@@ -194,17 +173,16 @@
     <div class="imgSubForm-section">
       <mga-LargeImage></mga-LargeImage>
 
-<!-- todo:restore for magic-run
-      <ndc-dynamic
-        magic="SearchSubform"
-        class="SearchSubform"
-        [style.visibility]="getVisible('SearchSubform')"
-        [ndcDynamicComponent]="getComp('SearchSubform')"
-        [ndcDynamicInputs]="getParameters('SearchSubform')"
-      >
-      </ndc-dynamic>
--->
-
+      <!-- todo:restore for magic-run
+            <ndc-dynamic
+              magic="SearchSubform"
+              class="SearchSubform"
+              [style.visibility]="getVisible('SearchSubform')"
+              [ndcDynamicComponent]="getComp('SearchSubform')"
+              [ndcDynamicInputs]="getParameters('SearchSubform')"
+            >
+            </ndc-dynamic>
+      -->
 
 
     </div>
