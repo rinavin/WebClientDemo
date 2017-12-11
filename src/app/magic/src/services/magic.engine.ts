@@ -8,7 +8,7 @@ import {GuiCommand} from "../ui/gui.command";
 @Injectable()
 export class MagicEngine {
   magic = window['magic1'];
-  isStub  = true;
+  isStub  = false;
   //TODO - unregister
   refreshDom: Subject<GuiCommand> = new Subject();
 
