@@ -7,6 +7,7 @@ import * as moment from "moment"
 declare let window;
 
 const dateFields = ['fromtimeEdit', 'totimeEdit'];
+
 @Component({
   selector: "mga-Hotel",
   providers: [TaskMagicService],
@@ -39,19 +40,19 @@ export class Hotel extends BaseTaskMagicComponent {
           "0": {
             "values": {
               "AddHotelImg": "assets/images/Travel/hotel.png",
-              "serviceAddress": "5 Jaffa Road, Tel Aviv",
-              "fromdateEdit": "   ,00     0000",
+              "serviceAddress": "Duxton Hotel Perth",
+              "fromdateEdit": "Mon,14 Nov 2011",
               "fromtimeEdit": "12:00 am",
-              "todateEdit": "   ,00     0000",
+              "todateEdit": "Wed,16 Nov 2011",
               "totimeEdit": "12:00 am",
-              "HotelID": "-999999",
+              "HotelID": "4",
               "BSave": "Ok"
             },
             "ControlsProperties": {
               "AddHotelImg": {
                 "properties": {
                   "image": "assets/images/Travel/hotel.png",
-                  "tabindex": "18"
+                  "tabindex": "19"
                 }, "classesMap": {}, "stylesMap": {}
               },
               "SelectFlightL": {"properties": {"text": "Hotel Details"}, "classesMap": {}, "stylesMap": {}},
@@ -65,15 +66,15 @@ export class Hotel extends BaseTaskMagicComponent {
                   }, {"index": "2", "realString": "Langham"}, {"index": "3", "realString": "Peninsula"}, {
                     "index": "4",
                     "realString": "Duxton"
-                  }, {"index": "5", "realString": "Blue"}], "selectedvalue": "-999999", "tabindex": "19"
+                  }, {"index": "5", "realString": "Blue"}], "selectedvalue": "4", "tabindex": "20"
                 }, "classesMap": {}, "stylesMap": {}
               },
-              "BSave": {"properties": {"enabled": "0", "tabindex": "29"}, "classesMap": {}, "stylesMap": {}},
-              "serviceAddress": {"properties": {"tabindex": "20"}, "classesMap": {}, "stylesMap": {}},
-              "fromdateEdit": {"properties": {"tabindex": "21"}, "classesMap": {}, "stylesMap": {}},
-              "fromtimeEdit": {"properties": {"tabindex": "22"}, "classesMap": {}, "stylesMap": {}},
-              "todateEdit": {"properties": {"tabindex": "23"}, "classesMap": {}, "stylesMap": {}},
-              "totimeEdit": {"properties": {"tabindex": "24"}, "classesMap": {}, "stylesMap": {}}
+              "BSave": {"properties": {"enabled": "1", "tabindex": "30"}, "classesMap": {}, "stylesMap": {}},
+              "serviceAddress": {"properties": {"tabindex": "21"}, "classesMap": {}, "stylesMap": {}},
+              "fromdateEdit": {"properties": {"tabindex": "22"}, "classesMap": {}, "stylesMap": {}},
+              "fromtimeEdit": {"properties": {"tabindex": "23"}, "classesMap": {}, "stylesMap": {}},
+              "todateEdit": {"properties": {"tabindex": "24"}, "classesMap": {}, "stylesMap": {}},
+              "totimeEdit": {"properties": {"tabindex": "25"}, "classesMap": {}, "stylesMap": {}}
             },
             "rowId": "0"
           }
@@ -81,19 +82,19 @@ export class Hotel extends BaseTaskMagicComponent {
         "list": [{
           "values": {
             "AddHotelImg": "assets/images/Travel/hotel.png",
-            "serviceAddress": "5 Nowhere lane, Wisconsin",
-            "fromdateEdit": "   ,00     0000",
+            "serviceAddress": "Duxton Hotel Perth",
+            "fromdateEdit": "Mon,14 Nov 2011",
             "fromtimeEdit": "12:00 am",
-            "todateEdit": "   ,00     0000",
+            "todateEdit": "Wed,16 Nov 2011",
             "totimeEdit": "12:00 am",
-            "HotelID": "-999999",
+            "HotelID": "4",
             "BSave": "Ok"
           },
           "ControlsProperties": {
             "AddHotelImg": {
               "properties": {
                 "image": "assets/images/Travel/hotel.png",
-                "tabindex": "18"
+                "tabindex": "19"
               }, "classesMap": {}, "stylesMap": {}
             },
             "SelectFlightL": {"properties": {"text": "Hotel Details"}, "classesMap": {}, "stylesMap": {}},
@@ -107,15 +108,15 @@ export class Hotel extends BaseTaskMagicComponent {
                 }, {"index": "2", "realString": "Langham"}, {"index": "3", "realString": "Peninsula"}, {
                   "index": "4",
                   "realString": "Duxton"
-                }, {"index": "5", "realString": "Blue"}], "selectedvalue": "-999999", "tabindex": "19"
+                }, {"index": "5", "realString": "Blue"}], "selectedvalue": "4", "tabindex": "20"
               }, "classesMap": {}, "stylesMap": {}
             },
-            "BSave": {"properties": {"enabled": "0", "tabindex": "29"}, "classesMap": {}, "stylesMap": {}},
-            "serviceAddress": {"properties": {"tabindex": "20"}, "classesMap": {}, "stylesMap": {}},
-            "fromdateEdit": {"properties": {"tabindex": "21"}, "classesMap": {}, "stylesMap": {}},
-            "fromtimeEdit": {"properties": {"tabindex": "22"}, "classesMap": {}, "stylesMap": {}},
-            "todateEdit": {"properties": {"tabindex": "23"}, "classesMap": {}, "stylesMap": {}},
-            "totimeEdit": {"properties": {"tabindex": "24"}, "classesMap": {}, "stylesMap": {}}
+            "BSave": {"properties": {"enabled": "1", "tabindex": "30"}, "classesMap": {}, "stylesMap": {}},
+            "serviceAddress": {"properties": {"tabindex": "21"}, "classesMap": {}, "stylesMap": {}},
+            "fromdateEdit": {"properties": {"tabindex": "22"}, "classesMap": {}, "stylesMap": {}},
+            "fromtimeEdit": {"properties": {"tabindex": "23"}, "classesMap": {}, "stylesMap": {}},
+            "todateEdit": {"properties": {"tabindex": "24"}, "classesMap": {}, "stylesMap": {}},
+            "totimeEdit": {"properties": {"tabindex": "25"}, "classesMap": {}, "stylesMap": {}}
           },
           "rowId": "0"
         }]
