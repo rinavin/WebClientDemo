@@ -298,13 +298,9 @@ export class EditTravelRequestEntries extends BaseTaskMagicComponent {
     this.loadStubData(stubData);
   }
 
-   getTableRowClass(row:string):string
-   {
-
-     console.log(row);
-      if (this.isRowSelected('TableEditRequestEntries', row))
-       return "list-item-form-selected";
-      else
-        return "list-item-form";
-   }
+  getTableRowClass(row: string): string {
+    return this.isRowSelected('TableEditRequestEntries', row) ?
+      "list-item-form-selected" :
+      "list-item-form";
+  }
 }
