@@ -606,6 +606,7 @@ select.HotelID {
     padding: 0px;
     width: 112px;
     margin-right: 20px;
+    margin-top:40px;
 }
 
 .details-button-section {
@@ -675,6 +676,13 @@ form.Flight1 {
 mga-flight1 {
     display: flex;
     flex: 1;
+}
+
+.image1, image2, image3, image4
+{
+  /*width: 80px;*/
+  height: 80px;
+
 }
 
 
