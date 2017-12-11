@@ -12,7 +12,12 @@ declare let myExtObject: any;
   template: `
     <!--<mga-YourTravelRequests></mga-YourTravelRequests>-->
     <!--<mga-YourTravel></mga-YourTravel>-->
-    <mga-EditTravelRequestEntries></mga-EditTravelRequestEntries>
+    <!--<mga-EditTravelRequestEntries></mga-EditTravelRequestEntries>-->
+    <!--<mga-Car></mga-Car>-->
+    <!--<mga-Hotel></mga-Hotel>-->
+    <!--<mga-Rest></mga-Rest>-->
+    <!--<mga-Flight1></mga-Flight1>-->
+    
     <!--<mga-Flight1></mga-Flight1> -->
     <!--<mga-Hotel></mga-Hotel>-->
   `,
