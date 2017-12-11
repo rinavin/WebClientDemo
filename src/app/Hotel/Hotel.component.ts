@@ -22,13 +22,13 @@ export class Hotel extends BaseTaskMagicComponent {
     window.Hotel = this;
     window.moment = moment;
 
-    dateFields.forEach(f=>{
-      let control = this.screenFormGroup.controls[f];
-
-      control.setValue(moment(control.value, 'hh:mm'))
-
-
-    })
+    // dateFields.forEach(f=>{
+    //   let control = this.screenFormGroup.controls[f];
+    //
+    //   control.setValue(moment(control.value, 'hh:mm'))
+    //
+    //
+    // })
 
   }
 
