@@ -1,7 +1,12 @@
-import {Component} from "@angular/core";
+import {ChangeDetectorRef, Component} from "@angular/core";
 import {BaseTaskMagicComponent} from "../magic/src/ui/app.baseMagicComponent";
 import {TaskMagicService} from "../magic/src/services/task.magics.service";
 
+import * as moment from "moment"
+
+declare let window;
+
+const dateFields = ['fromtimeEdit', 'totimeEdit'];
 @Component({
   selector: "mga-Hotel",
   providers: [TaskMagicService],
@@ -9,6 +14,23 @@ import {TaskMagicService} from "../magic/src/services/task.magics.service";
   templateUrl: "./Hotel.component.html"
 })
 export class Hotel extends BaseTaskMagicComponent {
+
+  constructor(protected ref: ChangeDetectorRef,
+              protected task: TaskMagicService) {
+    super(ref, task);
+
+    window.Hotel = this;
+    window.moment = moment;
+
+    dateFields.forEach(f=>{
+      let control = this.screenFormGroup.controls[f];
+
+      control.setValue(moment(control.value, 'hh:mm'))
+
+
+    })
+
+  }
 
   loadData(): any {
     let stubData = {

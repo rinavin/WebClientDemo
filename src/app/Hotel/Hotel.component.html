@@ -30,20 +30,20 @@
     <!--magic="HotelID"-->
 
 
-        <mat-form-field
+    <mat-form-field
+    >
+      <mat-select
+        class="HotelID"
+        placeholder="Select hotel"
+      >
+        <mat-option
+          *ngFor="let o of getListboxValues('HotelID');"
+          [value]="o.index"
         >
-          <mat-select
-            class="HotelID"
-            placeholder="Select hotel"
-          >
-            <mat-option
-              *ngFor="let o of getListboxValues('HotelID');"
-              [value]="o.index"
-            >
-              {{o.realString}}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
+          {{o.realString}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
 
 
   </div>
@@ -72,6 +72,16 @@
             Check-in
 
           </label>
+
+          <input
+            matInput
+            disabled
+            placeholder="Check-in Date"
+            magic="fromdateEdit"
+            class="fromdateEdit"
+          >
+
+
           <div class="date-time-row">
 
             <mat-form-field>

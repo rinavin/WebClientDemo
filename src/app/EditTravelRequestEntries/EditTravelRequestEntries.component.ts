@@ -301,7 +301,7 @@ export class EditTravelRequestEntries extends BaseTaskMagicComponent {
    getTableRowClass(row:string):string
    {
 
-     console.log(row);
+     // console.log(row);
       if (this.isRowSelected('TableEditRequestEntries', row))
        return "list-item-form-selected";
       else

@@ -11,7 +11,7 @@ declare let myExtObject: any;
   selector: 'app-root',
   template: `
     <!--<mga-YourTravelRequests></mga-YourTravelRequests>-->
-    <!--<mga-YourTravel></mga-YourTravel>-->
+    <mga-YourTravel></mga-YourTravel>
     <!--<mga-EditTravelRequestEntries></mga-EditTravelRequestEntries>-->
     <!--<mga-Car></mga-Car>-->
     <!--<mga-Hotel></mga-Hotel>-->
