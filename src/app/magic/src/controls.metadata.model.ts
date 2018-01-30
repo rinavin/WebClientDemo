@@ -5,9 +5,15 @@ export class ControlMetadata {
   properties: Map<HtmlProperties, any> = new Map();
   classesMap: Map<HtmlClasses, any> = new Map();
   stylesMap: Map<HtmlClasses, any> = new Map();
+  removedClass: string;
   classes: string  ;
 
   setClass(key, value) {
+    // for no-control - hold the name of the class to be removed later
+    if(this.classesMap[key] != '') {
+      this.removedClass = this.classesMap[key];
+    }
+
     this.classesMap[key] = value;
     let result = '';
 

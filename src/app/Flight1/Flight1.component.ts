@@ -161,6 +161,6 @@ export class Flight1 extends BaseTaskMagicComponent {
 
   ngOnInit(){
     super.ngOnInit();
-    this.formatDates();
+    //this.formatDates();
   }
 }

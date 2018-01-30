@@ -1,4 +1,4 @@
-import {Component, ComponentFactoryResolver, ViewContainerRef} from '@angular/core';
+import {ChangeDetectorRef, Component, ComponentFactoryResolver, OnInit, ViewContainerRef} from '@angular/core';
 import {MagicEngine} from "./magic/src/services/magic.engine";
 import {ComponentsList} from './ComponentList';
 import {BaseTaskMagicComponent} from "./magic/src/ui/app.baseMagicComponent";
@@ -10,46 +10,42 @@ declare let myExtObject: any;
 @Component({
   selector: 'app-root',
   template: `
-    <!--<mga-YourTravelRequests></mga-YourTravelRequests>-->
-    <!--<mga-YourTravel></mga-YourTravel>-->
-    <!--<mga-EditTravelRequestEntries></mga-EditTravelRequestEntries>-->
-    <!--<mga-Car></mga-Car>-->
-    <!--<mga-Hotel></mga-Hotel>-->
-    <!--<mga-Rest></mga-Rest>-->
-    <!--<mga-Flight1></mga-Flight1>-->
-    
-    <!--<mga-Flight1></mga-Flight1> -->
-    <!--<mga-Hotel></mga-Hotel>-->
-  `,
-  providers :[
-  ]
+    <ndc-dynamic [ndcDynamicComponent]="MainComp"
+                 [ndcDynamicInputs]="MainCompParameters">
+    </ndc-dynamic>
+  `
 })
-export class AppComponent
+export class AppComponent implements OnInit
 {//extends BaseTaskMagicComponent implements OnInit {
-	constructor(protected magic: MagicEngine,
-	            private componentFactoryResolver: ComponentFactoryResolver,
-	            private viewContainerRef: ViewContainerRef) {
+  private MainComp: Component;
+  private MainCompParameters: any;
 
-		this.initializeMagic();
-		BaseTaskMagicComponent.componentListBase = new ComponentsList();
+  constructor(protected magic: MagicEngine,
+              protected changeDetectorRef: ChangeDetectorRef) {
 
-		magic.startMagic();
-	}
+    this.initializeMagic();
+    BaseTaskMagicComponent.componentListBase = new ComponentsList();
+  }
 
-	initializeMagic() {
-		this.magic.registerOpenFormCallback(formName => {
-			this.InjectComponent(formName);
-		});
+  ngOnInit() {
+    this.magic.startMagic();
+  }
 
-		this.magic.registerShowMessageBox(msg => {
-			alert(msg);
-		});
-	}
+  initializeMagic() {
+    this.magic.registerOpenFormCallback((formName: string, taskId: string, taskDescription: string) => {
+      this.InjectComponent(formName, taskId, taskDescription);
+    });
 
-	private InjectComponent(formName: string) {
-		const factory = this.componentFactoryResolver.resolveComponentFactory(ComponentsList.compHash[formName]);
-		const ref     = this.viewContainerRef.createComponent(factory);
-		ref.changeDetectorRef.detectChanges();
-	}
+    this.magic.registerShowMessageBox(msg => {
+      alert(msg);
+    });
+  }
+
+  private InjectComponent(formName: string, taskId: string, taskDescription: string) {
+    this.MainComp = BaseTaskMagicComponent.componentListBase.getComponents(formName);
+    this.MainCompParameters = {myTaskId: taskId, taskDescription: taskDescription};
+
+    this.changeDetectorRef.detectChanges();
+  }
 }
 

@@ -87,7 +87,7 @@
                             />
                             <select
                                 multiple
-                                (change)="onselectionchanged($event,'FromAirportList')"
+                                (change)="onSelectionChanged($event,'FromAirportList')"
                                 value="getSelectedValue('FromAirportList')"
                                 magic="FromAirportList"
                                 class="FromAirportList"
@@ -103,7 +103,7 @@
                                     </select>
                                     <select
                                         multiple
-                                        (change)="onselectionchanged($event,'ToAirportList')"
+                                        (change)="onSelectionChanged($event,'ToAirportList')"
                                         value="getSelectedValue('ToAirportList')"
                                         magic="ToAirportList"
                                         class="ToAirportList"
@@ -141,7 +141,7 @@
                                                         />
                                                     </div>
                                                     <select
-                                                        (change)="onselectionchanged($event,'airline')"
+                                                        (change)="onSelectionChanged($event,'airline')"
                                                         value="getSelectedValue('airline')"
                                                         magic="airline"
                                                         class="airline"

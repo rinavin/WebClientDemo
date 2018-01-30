@@ -1,7 +1,8 @@
 import {NgModule} from "@angular/core";
 import {CommonModule} from "@angular/common";
 import {MagicEngine} from "./src/services/magic.engine";
-import {MagicDirectiveDirective} from "./src/ui/magic-directive.directive";
+import {MagicFullControlDirective} from "./src/ui/magic-fullcontrol-directive.directive";
+import {MagicNoControlDirective} from "./src/ui/magic-nocontrol-directive.directive";
 import {MagicDefaultValueAccessor, MagicFormControlNameDirective} from "./src/ui/magic.form-control-name.directive";
 
 import {ComponentsList} from '../ComponentList';
@@ -9,7 +10,8 @@ import {ComponentsList} from '../ComponentList';
 const comps = ComponentsList.getAllComponents();
 
 const decs = [
-  MagicDirectiveDirective,
+  MagicFullControlDirective,
+  MagicNoControlDirective,
   MagicDefaultValueAccessor,
   MagicFormControlNameDirective,
 

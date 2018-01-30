@@ -135,7 +135,7 @@ export class Hotel extends BaseTaskMagicComponent {
   }
   ngOnInit(){
     super.ngOnInit();
-    this.formatDates();
+    //this.formatDates();
   }
 
 }

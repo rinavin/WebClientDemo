@@ -4,7 +4,7 @@ import {AbstractControl, FormControl, FormGroup} from "@angular/forms";
 import {HtmlProperties, Records} from "../controls.metadata.model";
 import {isNullOrUndefined} from "util";
 import {Subject} from "rxjs/Subject";
-import {GuiCommand} from "../ui/gui.command";
+import { GuiCommand} from "@magic/gui";
 
 @Injectable()
 export class TaskMagicService {
@@ -115,11 +115,6 @@ export class TaskMagicService {
 
   }
 
-  getTaskId(parentId, subformName): string {
-    return this.magic.getTaskId(parentId, subformName);
-  }
-
-
   insertEvent(eventName: string, controlIdx: string, lineidx: string) {
     this.magic.insertEvent(this.taskId, eventName, controlIdx, lineidx);
   }
@@ -136,7 +131,7 @@ export class TaskMagicService {
     if (this.IsStub())
       return this.getPropertyStub(this.Records.list[rowId], controlId, prop);
     else
-    return this.Records.list[rowId].getProperty(controlId, prop);
+      return this.Records.list[rowId].getProperty(controlId, prop);
   }
 
   getPropertyStub(ControlsProperties: any, controlId, prop) {
@@ -167,7 +162,7 @@ export class TaskMagicService {
     if (this.IsStub())
       return this.getStyleStub(this.Records.list[rowId], controlId, styleName);
     else
-    return this.Records.list[rowId].getControlMetadata(controlId).stylesMap[styleName];
+      return this.Records.list[rowId].getControlMetadata(controlId).stylesMap[styleName];
 
   }
 
@@ -175,8 +170,8 @@ export class TaskMagicService {
     if (isNullOrUndefined(rowId))
       rowId = '0';
 
-      return this.Records.list[rowId].values[controlId];
-   // return this.Records.list[rowId].getValue(controlId);
+    return this.Records.list[rowId].values[controlId];
+    // return this.Records.list[rowId].getValue(controlId);
   }
 
   saveData(data:string)
@@ -185,21 +180,21 @@ export class TaskMagicService {
   }
 
   IsStub():boolean
-{
-  return this.magic.isStub;
+  {
+    return this.magic.isStub;
 
-}
+  }
   public createData()
   {
     let myData = {
       records: this.Records,
       template: this.template,
     };
-     let text:string = "loadData():any   {\n" +
-       "    let stubData = " + JSON.stringify(myData) +";\n" +
-       "    this.loadStubData(stubData);}" ;
-     console.log(text);
-     this.saveData(text);
+    let text:string = "loadData():any   {\n" +
+      "    let stubData = " + JSON.stringify(myData) +";\n" +
+      "    this.loadStubData(stubData);}" ;
+    console.log(text);
+    this.saveData(text);
 
   }
 

@@ -3,34 +3,28 @@
  */
 import {Injectable} from "@angular/core";
 import {Subject} from "rxjs/Subject";
-import {GuiCommand} from "../ui/gui.command";
+import {MagicBridge} from "@magic/engine";
+import {UIBridge, GuiCommand} from "@magic/gui";
+
 
 @Injectable()
 export class MagicEngine {
-  magic = window['magic1'];
+  magic = MagicBridge;
   isStub  = false;
   //TODO - unregister
   refreshDom: Subject<GuiCommand> = new Subject();
 
   startMagic() {
-    if (!this.isStub) {
-
-      this.magic.start(data => {
-        let list: GuiCommand[];
-        let obj = JSON.parse(data);
-        list = obj as GuiCommand[];
-        for (let command in list) {
-          this.refreshDom.next(list[command]);
+    this.magic.registerExecuteCommands(data => {
+      if (!this.isStub) {
+        const list = data as GuiCommand[];
+        for (let c of list) {
+          this.refreshDom.next(c);
         }
-      });
-    }
-  }
+      }
+    });
 
-  getTaskId(parentId, subformName): string {
-    if (this.isStub)
-      return "1";
-    else
-      return this.magic.getTaskId(parentId, subformName);
+    this.magic.StartMagic();
   }
 
   insertEvent(taskId, eventName, controlIdx, lineidx) {
@@ -63,11 +57,9 @@ export class MagicEngine {
     }
 
   }
-
   saveData(data:string)
   {
-    this.magic.saveData(data);
+    //this.magic.saveData(data);
   }
-
 
 }
