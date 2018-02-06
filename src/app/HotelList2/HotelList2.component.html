@@ -21,17 +21,17 @@
             <ul style="list-style: none;padding: 0">
                 <li *ngFor="let row of task.Records.list">
                     <div
-                        *ngIf="ifRowCreated(row.rowId)"
+                        *ngIf="mgIfRowCreated(row.rowId)"
                         id="row"
                     >
-                        <form [formGroup]="getFormGroupByRow(row.rowId)">
-                            <div *ngIf="isImageExists('flightLogo')">
+                        <form [formGroup]="mgGetFormGroupByRow(row.rowId)">
+                            <div *ngIf="mgIsImageExists('flightLogo')">
                                 <img
                                     magic="flightLogo"
                                     class="flightLogo"
                                     [rowId]="row.rowId"
-                                    [title]="getTitle('flightLogo', row.rowId)"
-                                    [src]="getImage('flightLogo', row.rowId)"
+                                    [title]="mgGetTitle('flightLogo', row.rowId)"
+                                    [src]="mgGetImage('flightLogo', row.rowId)"
                                 />
                             </div>
                             <label
@@ -39,14 +39,14 @@
                                 class="City"
                                 [rowId]="row.rowId"
                             >
-                                {{getValue('City', row.rowId)}}
+                                {{mgGetValue('City', row.rowId)}}
                                 </label>
-                                <div *ngIf="isImageExists('flight')">
+                                <div *ngIf="mgIsImageExists('flight')">
                                     <img
                                         magic="flight"
                                         class="flight"
                                         [rowId]="row.rowId"
-                                        [src]="getImage('flight', row.rowId)"
+                                        [src]="mgGetImage('flight', row.rowId)"
                                     />
                                 </div>
                                 <label
@@ -54,29 +54,29 @@
                                     class="RDescription"
                                     [rowId]="row.rowId"
                                 >
-                                    {{getValue('RDescription', row.rowId)}}
+                                    {{mgGetValue('RDescription', row.rowId)}}
                                     </label>
                                     <label
                                         magic="AddressEdit"
                                         class="AddressEdit"
                                         [rowId]="row.rowId"
                                     >
-                                        {{getValue('AddressEdit', row.rowId)}}
+                                        {{mgGetValue('AddressEdit', row.rowId)}}
                                         </label>
-                                        <div *ngIf="isImageExists('EditImg')">
+                                        <div *ngIf="mgIsImageExists('EditImg')">
                                             <img
                                                 magic="EditImg"
                                                 class="EditImg"
                                                 [rowId]="row.rowId"
-                                                [src]="getImage('EditImg', row.rowId)"
+                                                [src]="mgGetImage('EditImg', row.rowId)"
                                             />
                                         </div>
-                                        <div *ngIf="isImageExists('DeleteImg')">
+                                        <div *ngIf="mgIsImageExists('DeleteImg')">
                                             <img
                                                 magic="DeleteImg"
                                                 class="DeleteImg"
                                                 [rowId]="row.rowId"
-                                                [src]="getImage('DeleteImg', row.rowId)"
+                                                [src]="mgGetImage('DeleteImg', row.rowId)"
                                             />
                                         </div>
                         </form>
@@ -88,21 +88,21 @@
                 magic="BAdd"
                 class="BAdd"
             >
-                {{getValue('BAdd')}}
+                {{mgGetValue('BAdd')}}
                 </a>
                 <a
                     href="#"
                     magic="BEdit"
                     class="BEdit"
                 >
-                    {{getValue('BEdit')}}
+                    {{mgGetValue('BEdit')}}
                     </a>
                     <a
                         href="#"
                         magic="BDelete"
                         class="BDelete"
                     >
-                        {{getValue('BDelete')}}
+                        {{mgGetValue('BDelete')}}
                         </a>
                         </div>
                         </form>

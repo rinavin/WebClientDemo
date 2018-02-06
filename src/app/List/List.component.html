@@ -27,14 +27,14 @@
             />
             <select
                 multiple
-                (change)="onSelectionChanged($event,'VAirport')"
-                value="getSelectedValue('VAirport')"
+                (change)="mgOnSelectionChanged($event,'VAirport')"
+                value="mgGetSelectedValue('VAirport')"
                 magic="VAirport"
                 class="VAirport"
             >
                 <option
-                    *ngFor="let o of getListboxValues('VAirport');"
-                    [selected]="o.index == getSelectedValue('VAirport')"
+                    *ngFor="let o of mgGetListboxValues('VAirport');"
+                    [selected]="o.index == mgGetSelectedValue('VAirport')"
                     value="o.index"
                 >
                     {{o.realString}}

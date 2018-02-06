@@ -7,11 +7,11 @@
     magic="Rest"
     class="Rest"
   >
-    <div *ngIf="isImageExists('AddFlightImg')">
+    <div *ngIf="mgIsImageExists('AddFlightImg')">
       <img
         magic="AddFlightImg"
         class="AddFlightImg"
-        [src]="getImage('AddFlightImg')"
+        [src]="mgGetImage('AddFlightImg')"
       />
     </div>
     <label
@@ -20,12 +20,12 @@
     >
       Restaurant Details
     </label>
-    <div *ngIf="isImageExists('classImg')">
+    <div *ngIf="mgIsImageExists('classImg')">
       <img
         magic="classImg"
         class="classImg"
-        [style.visibility]="getVisible('classImg')"
-        [src]="getImage('classImg')"
+        [style.visibility]="mgGetVisible('classImg')"
+        [src]="mgGetImage('classImg')"
       />
     </div>
     <input
@@ -53,14 +53,14 @@
       class="fromdateEdit"
     />
     <select
-      (change)="onSelectionChanged($event,'fromairportCmb')"
-      value="getSelectedValue('fromairportCmb')"
+      (change)="mgOnSelectionChanged($event,'fromairportCmb')"
+      value="mgGetSelectedValue('fromairportCmb')"
       magic="fromairportCmb"
       class="fromairportCmb"
     >
       <option
-        *ngFor="let o of getListboxValues('fromairportCmb');"
-        [selected]="o.index == getSelectedValue('fromairportCmb')"
+        *ngFor="let o of mgGetListboxValues('fromairportCmb');"
+        [selected]="o.index == mgGetSelectedValue('fromairportCmb')"
         value="o.index"
       >
         {{o.realString}}
@@ -69,15 +69,15 @@
     <ndc-dynamic
       magic="RestoImgSubform"
       class="RestoImgSubform"
-      [ndcDynamicComponent]="getComp('RestoImgSubform')"
-      [ndcDynamicInputs]="getParameters('RestoImgSubform')"
+      [ndcDynamicComponent]="mgGetComp('RestoImgSubform')"
+      [ndcDynamicInputs]="mgGetParameters('RestoImgSubform')"
     >
     </ndc-dynamic>
     <input
       type="button"
       magic="BSave"
       class="BSave"
-      [attr.disabled]="isDisabled('BSave')"
+      [attr.disabled]="mgIsDisabled('BSave')"
       value=Ok
     />
   </div>

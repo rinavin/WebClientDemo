@@ -26,7 +26,7 @@
 
 
       <div *ngFor="let row of task.Records.list">
-        <form [formGroup]="getFormGroupByRow(row.rowId)" *ngIf="ifRowCreated(row.rowId)">
+        <form [formGroup]="mgGetFormGroupByRow(row.rowId)" *ngIf="mgIfRowCreated(row.rowId)">
           <!--
                     <input
                       hidden
@@ -43,7 +43,7 @@
               class="DescriptionText"
               [rowId]="row.rowId"
             >
-              {{getText('DescriptionText', row.rowId)}}
+              {{mgGetText('DescriptionText', row.rowId)}}
             </label>
 
             <div class="menu-wrapper">
@@ -61,7 +61,7 @@
                     class="BEdit"
                     [rowId]="row.rowId"
                   >
-                        {{getValue('BEdit', row.rowId)}}
+                        {{mgGetValue('BEdit', row.rowId)}}
                  </a>
                   </span>
                 </button>
@@ -75,7 +75,7 @@
                         class="BDelete"
                         [rowId]="row.rowId"
                       >
-                          {{getValue('BDelete', row.rowId)}}
+                          {{mgGetValue('BDelete', row.rowId)}}
                       </a>
 
                   </span>
@@ -83,9 +83,9 @@
               </mat-menu>
             </div>
             <div
-              *ngIf="isImageExists('backgroundImage')"
+              *ngIf="mgIsImageExists('backgroundImage')"
               [ngStyle]="{
-                'background-image':'url('+ getImage('backgroundImage', row.rowId) + ')'}"
+                'background-image':'url('+ mgGetImage('backgroundImage', row.rowId) + ')'}"
               magic="backgroundImage"
               class="backgroundImage md-card-image"
               [rowId]="row.rowId"
@@ -93,12 +93,12 @@
 
             <div class="details-wrapper">
               <div class="flight-details">
-                <div *ngIf="isImageExists('takeoff')">
+                <div *ngIf="mgIsImageExists('takeoff')">
                   <img
                     magic="takeoff"
                     class="takeoff"
                     [rowId]="row.rowId"
-                    [src]="getImage('takeoff', row.rowId)"
+                    [src]="mgGetImage('takeoff', row.rowId)"
                   />
                 </div>
                 <label
@@ -106,24 +106,24 @@
                   class="DepartureDate"
                   [rowId]="row.rowId"
                 >
-                  {{getValue('DepartureDate', row.rowId)}}
+                  {{mgGetValue('DepartureDate', row.rowId)}}
                 </label>
 
-                <div *ngIf="isImageExists('Ellipse')">
+                <div *ngIf="mgIsImageExists('Ellipse')">
                   <img
                     magic="Ellipse"
                     class="Ellipse"
                     [rowId]="row.rowId"
-                    [src]="getImage('Ellipse', row.rowId)"
+                    [src]="mgGetImage('Ellipse', row.rowId)"
                   />
                 </div>
 
-                <div *ngIf="isImageExists('land')">
+                <div *ngIf="mgIsImageExists('land')">
                   <img
                     magic="land"
                     class="land"
                     [rowId]="row.rowId"
-                    [src]="getImage('land', row.rowId)"
+                    [src]="mgGetImage('land', row.rowId)"
                   />
                 </div>
                 <label
@@ -131,49 +131,49 @@
                   class="ArrivalDate"
                   [rowId]="row.rowId"
                 >
-                  {{getValue('ArrivalDate', row.rowId)}}
+                  {{mgGetValue('ArrivalDate', row.rowId)}}
                 </label>
 
               </div>
               <div class="icons-area">
 
-                <div *ngIf="isImageExists('FlightImg')">
+                <div *ngIf="mgIsImageExists('FlightImg')">
                   <img
                     magic="FlightImg"
                     class="FlightImg"
                     [rowId]="row.rowId"
-                    [style.display]="getVisible('FlightImg', row.rowId)==='hidden' ? 'none' : 'block'"
+                    [style.display]="mgGetVisible('FlightImg', row.rowId)==='hidden' ? 'none' : 'block'"
 
-                    [src]="getImage('FlightImg', row.rowId)"
+                    [src]="mgGetImage('FlightImg', row.rowId)"
                   />
                 </div>
-                <div *ngIf="isImageExists('HotelImg')">
+                <div *ngIf="mgIsImageExists('HotelImg')">
                   <img
                     magic="HotelImg"
                     class="HotelImg"
                     [rowId]="row.rowId"
-                    [style.display]="getVisible('HotelImg', row.rowId)==='hidden' ? 'none' : 'block'"
+                    [style.display]="mgGetVisible('HotelImg', row.rowId)==='hidden' ? 'none' : 'block'"
 
-                    [src]="getImage('HotelImg', row.rowId)"
+                    [src]="mgGetImage('HotelImg', row.rowId)"
                   />
                 </div>
-                <div *ngIf="isImageExists('CarImg')">
+                <div *ngIf="mgIsImageExists('CarImg')">
                   <img
                     magic="CarImg"
                     class="CarImg"
                     [rowId]="row.rowId"
-                    [style.display]="getVisible('CarImg', row.rowId)==='hidden' ? 'none' : 'block'"
-                    [src]="getImage('CarImg', row.rowId)"
+                    [style.display]="mgGetVisible('CarImg', row.rowId)==='hidden' ? 'none' : 'block'"
+                    [src]="mgGetImage('CarImg', row.rowId)"
                   />
                 </div>
-                <div *ngIf="isImageExists('RestoImg')">
+                <div *ngIf="mgIsImageExists('RestoImg')">
                   <img
                     magic="RestoImg"
                     class="RestoImg"
                     [rowId]="row.rowId"
-                    [style.display]="getVisible('RestoImg', row.rowId)==='hidden' ? 'none' : 'block'"
+                    [style.display]="mgGetVisible('RestoImg', row.rowId)==='hidden' ? 'none' : 'block'"
 
-                    [src]="getImage('RestoImg', row.rowId)"
+                    [src]="mgGetImage('RestoImg', row.rowId)"
                   />
                 </div>
 

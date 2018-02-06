@@ -9,10 +9,10 @@
 
     <div class="hotel-title">
       <img
-        *ngIf="isImageExists('AddHotelImg')"
+        *ngIf="mgIsImageExists('AddHotelImg')"
         magic="AddHotelImg"
         class="AddHotelImg"
-        [src]="getImage('AddHotelImg')"
+        [src]="mgGetImage('AddHotelImg')"
       />
 
       <label
@@ -37,7 +37,7 @@
         placeholder="Select hotel"
       >
         <mat-option
-          *ngFor="let o of getListboxValues('HotelID');"
+          *ngFor="let o of mgGetListboxValues('HotelID');"
           [value]="o.index"
         >
           {{o.realString}}
@@ -145,8 +145,8 @@
       <ndc-dynamic
         magic="imgSubform"
         class="imgSubform"
-        [ndcDynamicComponent]="getComp('imgSubform')"
-        [ndcDynamicInputs]="getParameters('imgSubform')"
+        [ndcDynamicComponent]="mgGetComp('imgSubform')"
+        [ndcDynamicInputs]="mgGetParameters('imgSubform')"
       >
       </ndc-dynamic>
     </div>
@@ -154,7 +154,7 @@
       <button
         magic="BSave"
         class="BSave"
-        [attr.disabled]="isDisabled('BSave')"
+        [attr.disabled]="mgIsDisabled('BSave')"
         mat-button color="primary"
       >
         Save

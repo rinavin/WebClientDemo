@@ -7,12 +7,12 @@
         magic="YourTravelRequestsGenerate"
         class="YourTravelRequestsGenerate"
     >
-        <div *ngIf="isImageExists('AddPlusImg')">
+        <div *ngIf="mgIsImageExists('AddPlusImg')">
             <img
                 magic="AddPlusImg"
                 class="AddPlusImg"
                 class="mgColor15"
-                [src]="getImage('AddPlusImg')"
+                [src]="mgGetImage('AddPlusImg')"
             />
         </div>
         <ul
@@ -21,19 +21,19 @@
         >
             <li *ngFor="let row of task.Records.list">
                 <div
-                    *ngIf="ifRowCreated(row.rowId)"
+                    *ngIf="mgIfRowCreated(row.rowId)"
                     id="row"
                 >
                     <form
-                        [formGroup]="getFormGroupByRow(row.rowId)"
+                        [formGroup]="mgGetFormGroupByRow(row.rowId)"
                         class="mytable_table_row"
                     >
-                        <div *ngIf="isImageExists('backgroundImage')">
+                        <div *ngIf="mgIsImageExists('backgroundImage')">
                             <img
                                 magic="backgroundImage"
                                 class="backgroundImage"
                                 [rowId]="row.rowId"
-                                [src]="getImage('backgroundImage', row.rowId)"
+                                [src]="mgGetImage('backgroundImage', row.rowId)"
                             />
                         </div>
                         <label
@@ -41,87 +41,87 @@
                             class="l_Record#"
                             [rowId]="row.rowId"
                         >
-                            {{getValue('l_Record#', row.rowId)}}
+                            {{mgGetValue('l_Record#', row.rowId)}}
                             </label>
                             <label
                                 magic="DescriptionText"
                                 class="DescriptionText"
                                 [rowId]="row.rowId"
                             >
-                                {{getText('DescriptionText', row.rowId)}}
+                                {{mgGetText('DescriptionText', row.rowId)}}
                                 </label>
                                 <label
                                     magic="DepartureDate"
                                     class="DepartureDate"
                                     [rowId]="row.rowId"
                                 >
-                                    {{getValue('DepartureDate', row.rowId)}}
+                                    {{mgGetValue('DepartureDate', row.rowId)}}
                                     </label>
                                     <label
                                         magic="ArrivalDate"
                                         class="ArrivalDate"
                                         [rowId]="row.rowId"
                                     >
-                                        {{getValue('ArrivalDate', row.rowId)}}
+                                        {{mgGetValue('ArrivalDate', row.rowId)}}
                                         </label>
-                                        <div *ngIf="isImageExists('takeoff')">
+                                        <div *ngIf="mgIsImageExists('takeoff')">
                                             <img
                                                 magic="takeoff"
                                                 class="takeoff"
                                                 [rowId]="row.rowId"
-                                                [src]="getImage('takeoff', row.rowId)"
+                                                [src]="mgGetImage('takeoff', row.rowId)"
                                             />
                                         </div>
-                                        <div *ngIf="isImageExists('land')">
+                                        <div *ngIf="mgIsImageExists('land')">
                                             <img
                                                 magic="land"
                                                 class="land"
                                                 [rowId]="row.rowId"
-                                                [src]="getImage('land', row.rowId)"
+                                                [src]="mgGetImage('land', row.rowId)"
                                             />
                                         </div>
-                                        <div *ngIf="isImageExists('Ellipse')">
+                                        <div *ngIf="mgIsImageExists('Ellipse')">
                                             <img
                                                 magic="Ellipse"
                                                 class="Ellipse"
                                                 [rowId]="row.rowId"
-                                                [src]="getImage('Ellipse', row.rowId)"
+                                                [src]="mgGetImage('Ellipse', row.rowId)"
                                             />
                                         </div>
-                                        <div *ngIf="isImageExists('FlightImg')">
+                                        <div *ngIf="mgIsImageExists('FlightImg')">
                                             <img
                                                 magic="FlightImg"
                                                 class="FlightImg"
                                                 [rowId]="row.rowId"
-                                                [style.visibility]="getVisible('FlightImg', row.rowId)"
-                                                [src]="getImage('FlightImg', row.rowId)"
+                                                [style.visibility]="mgGetVisible('FlightImg', row.rowId)"
+                                                [src]="mgGetImage('FlightImg', row.rowId)"
                                             />
                                         </div>
-                                        <div *ngIf="isImageExists('HotelImg')">
+                                        <div *ngIf="mgIsImageExists('HotelImg')">
                                             <img
                                                 magic="HotelImg"
                                                 class="HotelImg"
                                                 [rowId]="row.rowId"
-                                                [style.visibility]="getVisible('HotelImg', row.rowId)"
-                                                [src]="getImage('HotelImg', row.rowId)"
+                                                [style.visibility]="mgGetVisible('HotelImg', row.rowId)"
+                                                [src]="mgGetImage('HotelImg', row.rowId)"
                                             />
                                         </div>
-                                        <div *ngIf="isImageExists('CarImg')">
+                                        <div *ngIf="mgIsImageExists('CarImg')">
                                             <img
                                                 magic="CarImg"
                                                 class="CarImg"
                                                 [rowId]="row.rowId"
-                                                [style.visibility]="getVisible('CarImg', row.rowId)"
-                                                [src]="getImage('CarImg', row.rowId)"
+                                                [style.visibility]="mgGetVisible('CarImg', row.rowId)"
+                                                [src]="mgGetImage('CarImg', row.rowId)"
                                             />
                                         </div>
-                                        <div *ngIf="isImageExists('RestoImg')">
+                                        <div *ngIf="mgIsImageExists('RestoImg')">
                                             <img
                                                 magic="RestoImg"
                                                 class="RestoImg"
                                                 [rowId]="row.rowId"
-                                                [style.visibility]="getVisible('RestoImg', row.rowId)"
-                                                [src]="getImage('RestoImg', row.rowId)"
+                                                [style.visibility]="mgGetVisible('RestoImg', row.rowId)"
+                                                [src]="mgGetImage('RestoImg', row.rowId)"
                                             />
                                         </div>
                                         <a
@@ -130,7 +130,7 @@
                                             class="BEdit"
                                             [rowId]="row.rowId"
                                         >
-                                            {{getValue('BEdit', row.rowId)}}
+                                            {{mgGetValue('BEdit', row.rowId)}}
                                             </a>
                                             <a
                                                 href="#"
@@ -138,7 +138,7 @@
                                                 class="BDelete"
                                                 [rowId]="row.rowId"
                                             >
-                                                {{getValue('BDelete', row.rowId)}}
+                                                {{mgGetValue('BDelete', row.rowId)}}
                                                 </a>
                                                 </form>
                                                 </div>

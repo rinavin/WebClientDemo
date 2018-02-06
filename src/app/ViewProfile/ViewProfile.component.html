@@ -7,18 +7,18 @@
         magic="ViewProfile"
         class="ViewProfile"
     >
-        <div *ngIf="isImageExists('profilePicture')">
+        <div *ngIf="mgIsImageExists('profilePicture')">
             <img
                 magic="profilePicture"
                 class="profilePicture"
-                [src]="getImage('profilePicture')"
+                [src]="mgGetImage('profilePicture')"
             />
         </div>
         <label
             magic="Username"
             class="Username"
         >
-            {{getValue('Username')}}
+            {{mgGetValue('Username')}}
             </label>
             <input
                 type="text"

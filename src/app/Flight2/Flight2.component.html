@@ -87,15 +87,15 @@
                             />
                             <select
                                 multiple
-                                (change)="onSelectionChanged($event,'FromAirportList')"
-                                value="getSelectedValue('FromAirportList')"
+                                (change)="mgOnSelectionChanged($event,'FromAirportList')"
+                                value="mgGetSelectedValue('FromAirportList')"
                                 magic="FromAirportList"
                                 class="FromAirportList"
-                                [style.visibility]="getVisible('FromAirportList')"
+                                [style.visibility]="mgGetVisible('FromAirportList')"
                             >
                                 <option
-                                    *ngFor="let o of getListboxValues('FromAirportList');"
-                                    [selected]="o.index == getSelectedValue('FromAirportList')"
+                                    *ngFor="let o of mgGetListboxValues('FromAirportList');"
+                                    [selected]="o.index == mgGetSelectedValue('FromAirportList')"
                                     value="o.index"
                                 >
                                     {{o.realString}}
@@ -103,15 +103,15 @@
                                     </select>
                                     <select
                                         multiple
-                                        (change)="onSelectionChanged($event,'ToAirportList')"
-                                        value="getSelectedValue('ToAirportList')"
+                                        (change)="mgOnSelectionChanged($event,'ToAirportList')"
+                                        value="mgGetSelectedValue('ToAirportList')"
                                         magic="ToAirportList"
                                         class="ToAirportList"
-                                        [style.visibility]="getVisible('ToAirportList')"
+                                        [style.visibility]="mgGetVisible('ToAirportList')"
                                     >
                                         <option
-                                            *ngFor="let o of getListboxValues('ToAirportList');"
-                                            [selected]="o.index == getSelectedValue('ToAirportList')"
+                                            *ngFor="let o of mgGetListboxValues('ToAirportList');"
+                                            [selected]="o.index == mgGetSelectedValue('ToAirportList')"
                                             value="o.index"
                                         >
                                             {{o.realString}}
@@ -133,22 +133,22 @@
                                                         magic="flightnumberEdit"
                                                         class="flightnumberEdit"
                                                     />
-                                                    <div *ngIf="isImageExists('classImg')">
+                                                    <div *ngIf="mgIsImageExists('classImg')">
                                                         <img
                                                             magic="classImg"
                                                             class="classImg"
-                                                            [src]="getImage('classImg')"
+                                                            [src]="mgGetImage('classImg')"
                                                         />
                                                     </div>
                                                     <select
-                                                        (change)="onSelectionChanged($event,'airline')"
-                                                        value="getSelectedValue('airline')"
+                                                        (change)="mgOnSelectionChanged($event,'airline')"
+                                                        value="mgGetSelectedValue('airline')"
                                                         magic="airline"
                                                         class="airline"
                                                     >
                                                         <option
-                                                            *ngFor="let o of getListboxValues('airline');"
-                                                            [selected]="o.index == getSelectedValue('airline')"
+                                                            *ngFor="let o of mgGetListboxValues('airline');"
+                                                            [selected]="o.index == mgGetSelectedValue('airline')"
                                                             value="o.index"
                                                         >
                                                             {{o.realString}}
@@ -159,7 +159,7 @@
                                                                 type="button"
                                                                 magic="BSave"
                                                                 class="BSave"
-                                                                [attr.disabled]="isDisabled('BSave')"
+                                                                [attr.disabled]="mgIsDisabled('BSave')"
                                                                 value=Ok
                                                             />
                                                             </div>

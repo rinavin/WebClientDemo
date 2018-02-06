@@ -7,11 +7,11 @@
         magic="Car"
         class="Car"
     >
-        <div *ngIf="isImageExists('AddFlightImg')">
+        <div *ngIf="mgIsImageExists('AddFlightImg')">
             <img
                 magic="AddFlightImg"
                 class="AddFlightImg"
-                [src]="getImage('AddFlightImg')"
+                [src]="mgGetImage('AddFlightImg')"
             />
         </div>
         <label
@@ -57,14 +57,14 @@
                         class="carServiceType"
                     />
                     <select
-                        (change)="onSelectionChanged($event,'fromairport')"
-                        value="getSelectedValue('fromairport')"
+                        (change)="mgOnSelectionChanged($event,'fromairport')"
+                        value="mgGetSelectedValue('fromairport')"
                         magic="fromairport"
                         class="fromairport"
                     >
                         <option
-                            *ngFor="let o of getListboxValues('fromairport');"
-                            [selected]="o.index == getSelectedValue('fromairport')"
+                            *ngFor="let o of mgGetListboxValues('fromairport');"
+                            [selected]="o.index == mgGetSelectedValue('fromairport')"
                             value="o.index"
                         >
                             {{o.realString}}
@@ -120,11 +120,11 @@
                                                 magic="Grp3"
                                                 class="Grp3"
                                             >
-                                                <div *ngIf="isImageExists('imgPicture6')">
+                                                <div *ngIf="mgIsImageExists('imgPicture6')">
                                                     <img
                                                         magic="imgPicture6"
                                                         class="imgPicture6"
-                                                        [src]="getImage('imgPicture6')"
+                                                        [src]="mgGetImage('imgPicture6')"
                                                     />
                                                 </div>
                                                 </div>
@@ -132,11 +132,11 @@
                                                     magic="Grp4"
                                                     class="Grp4"
                                                 >
-                                                    <div *ngIf="isImageExists('imgPicture7')">
+                                                    <div *ngIf="mgIsImageExists('imgPicture7')">
                                                         <img
                                                             magic="imgPicture7"
                                                             class="imgPicture7"
-                                                            [src]="getImage('imgPicture7')"
+                                                            [src]="mgGetImage('imgPicture7')"
                                                         />
                                                     </div>
                                                     </div>
@@ -144,7 +144,7 @@
                                                         type="button"
                                                         magic="BSave"
                                                         class="BSave"
-                                                        [attr.disabled]="isDisabled('BSave')"
+                                                        [attr.disabled]="mgIsDisabled('BSave')"
                                                         value=Ok
                                                     />
                                                     </div>

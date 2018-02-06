@@ -7,32 +7,32 @@
         magic="LargeImage"
         class="LargeImage"
     >
-        <div *ngIf="isImageExists('image1')">
+        <div *ngIf="mgIsImageExists('image1')">
             <img
                 magic="image1"
                 class="image1"
-                [src]="getImage('image1')"
+                [src]="mgGetImage('image1')"
             />
         </div>
-        <div *ngIf="isImageExists('image2')">
+        <div *ngIf="mgIsImageExists('image2')">
             <img
                 magic="image2"
                 class="image2"
-                [src]="getImage('image2')"
+                [src]="mgGetImage('image2')"
             />
         </div>
-        <div *ngIf="isImageExists('image3')">
+        <div *ngIf="mgIsImageExists('image3')">
             <img
                 magic="image3"
                 class="image3"
-                [src]="getImage('image3')"
+                [src]="mgGetImage('image3')"
             />
         </div>
-        <div *ngIf="isImageExists('image4')">
+        <div *ngIf="mgIsImageExists('image4')">
             <img
                 magic="image4"
                 class="image4"
-                [src]="getImage('image4')"
+                [src]="mgGetImage('image4')"
             />
         </div>
         </div>

@@ -11,13 +11,13 @@
             magic="CreateL"
             class="CreateL"
         >
-            {{getText('CreateL')}}
+            {{mgGetText('CreateL')}}
             </label>
-            <div *ngIf="isImageExists('logo')">
+            <div *ngIf="mgIsImageExists('logo')">
                 <img
                     magic="logo"
                     class="logo"
-                    [src]="getImage('logo')"
+                    [src]="mgGetImage('logo')"
                 />
             </div>
             <label
@@ -32,12 +32,12 @@
                     magic="Name"
                     class="Name"
                 />
-                <div *ngIf="isImageExists('addLogo')">
+                <div *ngIf="mgIsImageExists('addLogo')">
                     <img
                         magic="addLogo"
                         class="addLogo"
-                        [title]="getTitle('addLogo')"
-                        [src]="getImage('addLogo')"
+                        [title]="mgGetTitle('addLogo')"
+                        [src]="mgGetImage('addLogo')"
                     />
                 </div>
                 <label
@@ -52,11 +52,11 @@
                         magic="City_0001"
                         class="City_0001"
                     />
-                    <div *ngIf="isImageExists('MapImg')">
+                    <div *ngIf="mgIsImageExists('MapImg')">
                         <img
                             magic="MapImg"
                             class="MapImg"
-                            [src]="getImage('MapImg')"
+                            [src]="mgGetImage('MapImg')"
                         />
                     </div>
                     <label
@@ -71,40 +71,40 @@
                             magic="AddressEdit"
                             class="AddressEdit"
                         />
-                        <div *ngIf="isImageExists('addMap')">
+                        <div *ngIf="mgIsImageExists('addMap')">
                             <img
                                 magic="addMap"
                                 class="addMap"
-                                [title]="getTitle('addMap')"
-                                [src]="getImage('addMap')"
+                                [title]="mgGetTitle('addMap')"
+                                [src]="mgGetImage('addMap')"
                             />
                         </div>
-                        <div *ngIf="isImageExists('pic1')">
+                        <div *ngIf="mgIsImageExists('pic1')">
                             <img
                                 magic="pic1"
                                 class="pic1"
-                                [src]="getImage('pic1')"
+                                [src]="mgGetImage('pic1')"
                             />
                         </div>
-                        <div *ngIf="isImageExists('pic2')">
+                        <div *ngIf="mgIsImageExists('pic2')">
                             <img
                                 magic="pic2"
                                 class="pic2"
-                                [src]="getImage('pic2')"
+                                [src]="mgGetImage('pic2')"
                             />
                         </div>
-                        <div *ngIf="isImageExists('pic3')">
+                        <div *ngIf="mgIsImageExists('pic3')">
                             <img
                                 magic="pic3"
                                 class="pic3"
-                                [src]="getImage('pic3')"
+                                [src]="mgGetImage('pic3')"
                             />
                         </div>
-                        <div *ngIf="isImageExists('pic4')">
+                        <div *ngIf="mgIsImageExists('pic4')">
                             <img
                                 magic="pic4"
                                 class="pic4"
-                                [src]="getImage('pic4')"
+                                [src]="mgGetImage('pic4')"
                             />
                         </div>
                         <label
@@ -116,15 +116,15 @@
                             <ndc-dynamic
                                 magic="imgSubform"
                                 class="imgSubform"
-                                [ndcDynamicComponent]="getComp('imgSubform')"
-                                [ndcDynamicInputs]="getParameters('imgSubform')"
+                                [ndcDynamicComponent]="mgGetComp('imgSubform')"
+                                [ndcDynamicInputs]="mgGetParameters('imgSubform')"
                             >
                                 </ndc-dynamic>
                                 <input
                                     type="button"
                                     magic="BSave"
                                     class="BSave"
-                                    [attr.disabled]="isDisabled('BSave')"
+                                    [attr.disabled]="mgIsDisabled('BSave')"
                                     value=Ok
                                 />
                                 </div>

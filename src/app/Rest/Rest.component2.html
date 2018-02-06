@@ -9,10 +9,10 @@
 
     <div class="hotel-title">
       <img
-        *ngIf="isImageExists('AddFlightImg')"
+        *ngIf="mgIsImageExists('AddFlightImg')"
         magic="AddFlightImg"
         class="AddFlightImg"
-        [src]="getImage('AddFlightImg')"
+        [src]="mgGetImage('AddFlightImg')"
       />
 
       <label
@@ -28,10 +28,10 @@
         class="fromairportCmb"
         magic="fromairportCmb"
         placeholder="Select resturant"
-        [value]="getSelectedValue('fromairportCmb')"
+        [value]="mgGetSelectedValue('fromairportCmb')"
       >
         <mat-option
-          *ngFor="let o of getListboxValues('fromairportCmb');"
+          *ngFor="let o of mgGetListboxValues('fromairportCmb');"
           [value]="o.index"
         >
           <mat-icon>local_dining</mat-icon>
@@ -109,9 +109,9 @@
             <ndc-dynamic
               magic="SearchSubform"
               class="SearchSubform"
-              [style.visibility]="getVisible('SearchSubform')"
-              [ndcDynamicComponent]="getComp('SearchSubform')"
-              [ndcDynamicInputs]="getParameters('SearchSubform')"
+              [style.visibility]="mgGetVisible('SearchSubform')"
+              [ndcDynamicComponent]="mgGetComp('SearchSubform')"
+              [ndcDynamicInputs]="mgGetParameters('SearchSubform')"
             >
             </ndc-dynamic>
 
@@ -122,7 +122,7 @@
       <button
         magic="BSave"
         class="BSave"
-        [attr.disabled]="isDisabled('BSave')"
+        [attr.disabled]="mgIsDisabled('BSave')"
         mat-button color="primary"
       >
         Save

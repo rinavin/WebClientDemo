@@ -7,20 +7,20 @@
         magic="RicClientresourcesServe"
         class="RicClientresourcesServe"
     >
-        <div *ngIf="isImageExists('tmpID11')">
+        <div *ngIf="mgIsImageExists('tmpID11')">
             <img
                 magic="tmpID11"
                 class="tmpID11"
-                [src]="getImage('tmpID11')"
+                [src]="mgGetImage('tmpID11')"
             />
         </div>
         <ul style="list-style: none;padding: 0">
             <li *ngFor="let row of task.Records.list">
                 <div
-                    *ngIf="ifRowCreated(row.rowId)"
+                    *ngIf="mgIfRowCreated(row.rowId)"
                     id="row"
                 >
-                    <form [formGroup]="getFormGroupByRow(row.rowId)">
+                    <form [formGroup]="mgGetFormGroupByRow(row.rowId)">
                         <input
                             type="text"
                             formControlName="ID"

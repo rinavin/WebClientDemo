@@ -27,12 +27,12 @@ export class Subform {
 
   get Component() : Component
   {
-    return this.component.getComp(this.controlId);
+    return this.component.mgGetComp(this.controlId);
   }
 
   get Parameters() : any
   {
-    return this.component.getParameters(this.controlId);
+    return this.component.mgGetParameters(this.controlId);
   }
 }
 

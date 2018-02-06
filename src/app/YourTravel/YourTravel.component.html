@@ -6,7 +6,8 @@
     class="magic-container"
     magic="YourTravel"
     class="YourTravel"
-    [ngStyle]="{'background-image': 'url(' + getStyle('YourTravel', 'background') + ')'}"
+    [ngStyle]="{'background-image': 'url(' + mgGetStyle('YourTravel', 'background') + ')'}"
+    [ngStyle]="{'background-image': 'url(' + mgGetStyle('YourTravel', 'background') + ')'}"
   >
 
     <div class="main-menu">
@@ -14,11 +15,11 @@
         magic="menugroup"
         class="menugroup"
       >
-        <div *ngIf="isImageExists('MainHome')">
+        <div *ngIf="mgIsImageExists('MainHome')">
           <img
             magic="MainHome"
             class="MainHome"
-            [src]="getImage('MainHome')"
+            [src]="mgGetImage('MainHome')"
           />
         </div>
         <a
@@ -26,35 +27,35 @@
           magic="BPackages"
           class="BPackages"
         >
-          {{getValue('BPackages')}}
+          {{mgGetValue('BPackages')}}
         </a>
         <a
           href="#"
           magic="BAirports"
           class="BAirports"
         >
-          {{getValue('BAirports')}}
+          {{mgGetValue('BAirports')}}
         </a>
         <a
           href="#"
           magic="BHotels"
           class="BHotels"
         >
-          {{getValue('BHotels')}}
+          {{mgGetValue('BHotels')}}
         </a>
         <a
           href="#"
           magic="BCarRentals"
           class="BCarRentals"
         >
-          {{getValue('BCarRentals')}}
+          {{mgGetValue('BCarRentals')}}
         </a>
         <a
           href="#"
           magic="BRestaurants"
           class="BRestaurants"
         >
-          {{getValue('BRestaurants')}}
+          {{mgGetValue('BRestaurants')}}
         </a>
       </div>
 
@@ -66,7 +67,7 @@
           magic="TravelForLabel"
           class="TravelForLabel"
         >
-          {{getText('TravelForLabel')}}
+          {{mgGetText('TravelForLabel')}}
         </label>
       </div>
 
@@ -74,8 +75,8 @@
       <ndc-dynamic
         magic="Subform"
         class="Subform"
-        [ndcDynamicComponent]="getComp('Subform')"
-        [ndcDynamicInputs]="getParameters('Subform')"
+        [ndcDynamicComponent]="mgGetComp('Subform')"
+        [ndcDynamicInputs]="mgGetParameters('Subform')"
       >
       </ndc-dynamic>
 

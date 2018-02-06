@@ -9,10 +9,10 @@
 
     <div class="hotel-title">
       <img
-        *ngIf="isImageExists('AddFlightImg')"
+        *ngIf="mgIsImageExists('AddFlightImg')"
         magic="AddFlightImg"
         class="AddFlightImg"
-        [src]="getImage('AddFlightImg')"
+        [src]="mgGetImage('AddFlightImg')"
       />
 
       <label
@@ -148,7 +148,7 @@
         <div
           class="map-image airport-image"
           [ngStyle]="{
-                'background-image':'url('+ getImage('classImg') + ')'}"
+                'background-image':'url('+ mgGetImage('classImg') + ')'}"
         >
 
         </div>
@@ -161,11 +161,11 @@
             class="airline"
             magic="airline"
             placeholder="Select airline"
-            [value]="getSelectedValue('airline')"
+            [value]="mgGetSelectedValue('airline')"
 
           >
             <mat-option
-              *ngFor="let o of getListboxValues('airline');"
+              *ngFor="let o of mgGetListboxValues('airline');"
               [value]="o.index"
 
             >
@@ -182,9 +182,9 @@
       <ndc-dynamic
         magic="SearchSubform"
         class="SearchSubform"
-        [style.visibility]="getVisible('SearchSubform')"
-        [ndcDynamicComponent]="getComp('SearchSubform')"
-        [ndcDynamicInputs]="getParameters('SearchSubform')"
+        [style.visibility]="mgGetVisible('SearchSubform')"
+        [ndcDynamicComponent]="mgGetComp('SearchSubform')"
+        [ndcDynamicInputs]="mgGetParameters('SearchSubform')"
       >
       </ndc-dynamic>
 
@@ -194,7 +194,7 @@
       <button
         magic="BSave"
         class="BSave"
-        [attr.disabled]="isDisabled('BSave')"
+        [attr.disabled]="mgIsDisabled('BSave')"
         mat-button color="primary"
       >
         Save
@@ -207,34 +207,34 @@
 </form>
 
 
-<!--
 
-
-
-  <ndc-dynamic
-    magic="imgSubform"
-    class="imgSubform"
-    [ndcDynamicComponent]="getComp('imgSubform')"
-    [ndcDynamicInputs]="getParameters('imgSubform')"
-  >
-  </ndc-dynamic>
-  <input
-    type="button"
-    magic="BSave"
-    class="BSave"
-    [attr.disabled]="isDisabled('BSave')"
-    value=Ok
-  />
-
-
--->
-
-<!--
 
 <mat-form-field>
   <mat-select [placeholder]="'currentPlaceholder'">
     <mat-option [value]="1">1</mat-option>
     <mat-option [value]="2">2</mat-option>
+    <!--
+    <!--
+
+
+
+      <ndc-dynamic
+        magic="imgSubform"
+        class="imgSubform"
+        [ndcDynamicComponent]="getComp('imgSubform')"
+        [ndcDynamicInputs]="getParameters('imgSubform')"
+      >
+      </ndc-dynamic>
+      <input
+        type="button"
+        magic="BSave"
+        class="BSave"
+        [attr.disabled]="isDisabled('BSave')"
+        value=Ok
+      />
+
+
+    -->
   </mat-select>
 </mat-form-field>
 -->

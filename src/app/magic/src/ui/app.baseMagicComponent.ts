@@ -73,7 +73,7 @@ export abstract class BaseTaskMagicComponent implements OnInit, OnDestroy {
   }
   public static componentListBase:ComponentListBase;
 
-  getComp(subformName: string): Component {
+  mgGetComp(subformName: string): Component {
     if (subformName in this.subformsDict) {
       let formName: string = this.subformsDict[subformName].formName;
       return BaseTaskMagicComponent.componentListBase.getComponents(formName);
@@ -82,13 +82,12 @@ export abstract class BaseTaskMagicComponent implements OnInit, OnDestroy {
       return this.emptyComp;
   }
 
-  getParameters(subformName: string): any {
+  mgGetParameters(subformName: string): any {
     if (subformName in this.subformsDict) {
       return this.subformsDict[subformName].parameters;
     }
     else
       return "";
-
   }
 
   addSubformComp(subformControlName: string, formName: string, taskId: string, taskDescription: any) {
@@ -114,12 +113,12 @@ export abstract class BaseTaskMagicComponent implements OnInit, OnDestroy {
     this.regUpdatesUI();
   }
 
-  getFormGroupByRow(id: string): FormGroup {
+  mgGetFormGroupByRow(id: string): FormGroup {
     return this.task.rows[id];
   }
 
-  ifRowCreated(id: string): boolean {
-    let result = this.getFormGroupByRow(id);
+  mgIfRowCreated(id: string): boolean {
+    let result = this.mgGetFormGroupByRow(id);
     return !isNullOrUndefined(result);
   }
 
@@ -174,32 +173,32 @@ export abstract class BaseTaskMagicComponent implements OnInit, OnDestroy {
   }
 
 
-  getText(controlId, rowId?) {
+  mgGetText(controlId, rowId?) {
     return this.task.getProperty(controlId, HtmlProperties.Text, rowId);
   }
 
-  getImage(controlId, rowId?) {
+  mgGetImage(controlId, rowId?) {
     let result = this.task.getProperty(controlId, HtmlProperties.Image, rowId);
     return result;
 
   }
 
-  isImageExists(controlId, rowId?): boolean {
+  mgIsImageExists(controlId, rowId?): boolean {
     let result = this.task.getProperty(controlId, HtmlProperties.Image, rowId);
     return !isNullOrUndefined(result);
 
   }
 
-  getClasses(controlId, rowId?) {
+  mgGetClasses(controlId, rowId?) {
     return this.task.getClasses(controlId, rowId);
   }
 
-  getStyle(controlId: string, styleName:string, rowId?) {
+  mgGetStyle(controlId: string, styleName:string, rowId?) {
     let style = this.task.getStyle(controlId, styleName, rowId)
     return style;
   }
 
-  getVisible(controlId, rowId?) {
+  mgGetVisible(controlId, rowId?) {
     let vis: Boolean = this.getProperty(controlId, HtmlProperties.Visible, rowId);
     return vis ? 'visible' : 'hidden';
   }
@@ -213,7 +212,7 @@ export abstract class BaseTaskMagicComponent implements OnInit, OnDestroy {
     return selectedRow === rowId;
   }
 
-  isDisabled(controlId, rowId?) {
+  mgIsDisabled(controlId, rowId?) {
     let result = this.getProperty(controlId, HtmlProperties.Enabled, rowId);
     return result === "true" ? null : true;
   }
@@ -222,45 +221,44 @@ export abstract class BaseTaskMagicComponent implements OnInit, OnDestroy {
     return this.task.getProperty(controlId, prop, rowId);
   }
 
-  getTitle(controlId, rowId?) {
+  mgGetTitle(controlId, rowId?) {
     return this.task.getProperty(controlId, HtmlProperties.Tooltip, rowId);
   }
 
-  getSelectedValue(controlId, rowId?) {
+  mgGetSelectedValue(controlId, rowId?) {
     return this.task.getProperty(controlId, HtmlProperties.SelectedValue, rowId);
   }
 
-  getPlaceholder(controlId, rowId?) {
+  mgGetPlaceholder(controlId, rowId?) {
     return this.task.getProperty(controlId, HtmlProperties.PlaceHolder, rowId);
   }
 
-  getType(controlId, rowId?) {
+  mgGetType(controlId, rowId?) {
     return this.task.getProperty(controlId, HtmlProperties.Password, rowId) ? "password" : "text";
   }
 
-  getTabIndex(controlId, rowId?) {
+  mgGetTabIndex(controlId, rowId?) {
     return this.task.getProperty(controlId, HtmlProperties.TabIndex, rowId);
   }
 
-
-  getValue(controlId, rowId?) {
+  mgGetValue(controlId, rowId?) {
     let val = this.task.getValue(controlId, rowId);
     return val;
   }
 
-  getListboxValues(id) {
+  mgGetListboxValues(id) {
     return this.getProperty(id, HtmlProperties.ItemsList);
   }
 
-  public onSelectionChanged(event: Event, idx: string) {
+  public mgOnSelectionChanged(event: Event, idx: string) {
     this.task.insertEvent('selectionchanged', idx, (<any>(event.target)).selectedIndex.toString());
   }
 
-  onCheckChanged(event: Event, idx: string) {
+  mgOnCheckChanged(event: Event, idx: string) {
     this.task.insertEvent('selectionchanged', idx, (<any>(event.target)).checked ? "1" : "0");
   }
 
-  onRadioSelectionChanged(event: Event, idx: string) {
+  mgOnRadioSelectionChanged(event: Event, idx: string) {
     let result = this.task.getFormControl('0', idx);
     this.task.insertEvent('selectionchanged', idx, result.value);
   }

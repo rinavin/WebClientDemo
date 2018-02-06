@@ -7,18 +7,18 @@
         magic="Request"
         class="Request"
     >
-        <div *ngIf="isImageExists('BckImg')">
+        <div *ngIf="mgIsImageExists('BckImg')">
             <img
                 magic="BckImg"
                 class="BckImg"
-                [src]="getImage('BckImg')"
+                [src]="mgGetImage('BckImg')"
             />
         </div>
-        <div *ngIf="isImageExists('image1')">
+        <div *ngIf="mgIsImageExists('image1')">
             <img
                 magic="image1"
                 class="image1"
-                [src]="getImage('image1')"
+                [src]="mgGetImage('image1')"
             />
         </div>
         <div
