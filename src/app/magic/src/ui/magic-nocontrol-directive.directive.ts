@@ -1,6 +1,7 @@
 import {Directive, ElementRef, Input, Renderer2, ViewContainerRef } from '@angular/core';
 import {FormControl} from "@angular/forms";
 import {GuiCommand, CommandType} from "@magic/gui";
+import {GuiEvent} from "@magic/engine";
 import {ControlMetadata, HtmlProperties} from "../controls.metadata.model";
 import {MagicDirectiveBase} from "./magic-directive-base.directive";
 import {TaskMagicService} from "../services/task.magics.service";
@@ -12,7 +13,7 @@ import {TaskMagicService} from "../services/task.magics.service";
 // magic directive for no-control
 export class MagicNoControlDirective extends MagicDirectiveBase {
 
-  @Input('magicnc') set magic(val) {this.id = val};
+  @Input('magicnc') set magic(val) {this.id = val; this.selector = 'magicnc';};
 
   // CTOR
   constructor(element: ElementRef,
@@ -27,18 +28,44 @@ export class MagicNoControlDirective extends MagicDirectiveBase {
 
     if (this.htmlElement instanceof HTMLSelectElement) {
       this.htmlElement.addEventListener('change', (e) => {
-        this.task.insertEvent('selectionchanged', this.id, (<any>(event.target)).selectedIndex.toString());
+        let guiEvent: GuiEvent = new GuiEvent("selectionchanged", this.id, 0);
+        guiEvent.Value = (<any>(event.target)).selectedIndex.toString()
+        this.task.insertEvent(guiEvent);
       });
     }
 
-    if (this.htmlElement instanceof HTMLDivElement) {
+    if (this.isRadio()) {
       this.htmlElement.addEventListener('change', (e) => {
         let result = this.task.getFormControl('0', this.id);
-        this.task.insertEvent('selectionchanged', this.id, (<any>(e.target)).value);
+        let guiEvent: GuiEvent = new GuiEvent("selectionchanged", this.id, 0);
+        guiEvent.Value = (<any>(e.target)).value;
+        this.task.insertEvent(guiEvent);
       });
+    }
+
+    if(this.isTabControl()) {
+        const tabControl = this.htmlElement.children[0];
+        let guiEvent: GuiEvent = new GuiEvent("selectionchanged", this.id, 0);
+        for (var i = 0; i < tabControl.children.length; i++) {
+          tabControl.children[i].addEventListener('click', (e) => {
+            guiEvent.Value = ((<number><any>(<Element>e.currentTarget).getAttribute('layer'))-1).toString();
+            this.task.insertEvent(guiEvent);
+          });
+        }
     }
   }
 
+  // is the div a tab control
+  isTabControl() {
+    return this.htmlElement instanceof HTMLDivElement &&
+      this.htmlElement.children[0].getAttribute('magicMark')=== "magicTabControl";
+  }
+
+  // is the div a radio buttons wrapper
+  isRadio() {
+    return this.htmlElement instanceof HTMLDivElement &&
+      this.htmlElement.children[0].getAttribute('magicMark') === "magicRadio";
+  }
 
   handleCommand(command: GuiCommand) {
     super.handleCommand(command);
@@ -51,8 +78,7 @@ export class MagicNoControlDirective extends MagicDirectiveBase {
           this.htmlElement.classList.remove(controlMetadata.removedClass);
           controlMetadata.removedClass = '';
         }
-
-        this.htmlElement.classList.add(command.str);
+        this.htmlElement.classList.add(command.obj1);
         break;
 
       case  CommandType.SET_VALUE:
@@ -90,6 +116,7 @@ export class MagicNoControlDirective extends MagicDirectiveBase {
 
   // handle set-property commands
   handleSetProperty(command: GuiCommand) {
+    super.handleSetProperty(command);
     switch (command.Operation) {
       case HtmlProperties.Text:
         if (this.htmlElement instanceof HTMLLabelElement)
@@ -114,6 +141,15 @@ export class MagicNoControlDirective extends MagicDirectiveBase {
             (<HTMLSelectElement>this.htmlElement).add(elem);
           }
         }
+        else if(this.isTabControl() && this.htmlElement.children.length > 0) {
+          const tabControl = this.htmlElement.children[0];
+
+          for (var i = 0; i < tabControl.children.length; i++) {
+            if(tabControl.children[i] instanceof HTMLButtonElement) {
+              (<HTMLElement>tabControl.children[i]).innerText = command.obj1[i].realString;
+            }
+          }
+        }
         break;
 
       case HtmlProperties.Visible:
@@ -121,7 +157,7 @@ export class MagicNoControlDirective extends MagicDirectiveBase {
         break;
 
       case HtmlProperties.Enabled:
-        if (command.obj1 === "false")
+        if (command.obj1 === false)
           this.htmlElement.setAttribute("disabled", "true");
         else
           this.htmlElement.removeAttribute("disabled");
@@ -134,6 +170,28 @@ export class MagicNoControlDirective extends MagicDirectiveBase {
       case HtmlProperties.SelectedValue:
         if (this.htmlElement instanceof HTMLSelectElement)
           (<HTMLSelectElement>this.htmlElement).value = command.obj1;
+        else if(this.isTabControl()  && this.htmlElement.children.length > 0){
+          const tabControl = this.htmlElement.children[0];
+
+          for (var i = 0; i < tabControl.children.length; i++) {
+            let child = tabControl.children[i];
+            const layer = (<number><any>child.getAttribute('layer'))-1;
+
+            if(child instanceof HTMLButtonElement) {
+              // set button style
+              if ( layer == command.obj1) { // compare int to string
+                child.classList.add('tab_button_active');
+              }
+              else {
+                child.classList.remove('tab_button_active');
+              }
+            } else {
+              // not a buton - hide unselected tabpages
+              let style = (layer == command.obj1) ? 'display: inline' : 'display: none';
+              child.setAttribute('style',  style);
+            }
+          }
+        }
         break;
 
       case HtmlProperties.PlaceHolder:
@@ -145,7 +203,7 @@ export class MagicNoControlDirective extends MagicDirectiveBase {
         break;
 
       case HtmlProperties.Password:
-        if (command.obj1 === "false")
+        if (command.obj1 === false)
           this.htmlElement.setAttribute("type", "text");
         else
           this.htmlElement.setAttribute("type", "password");

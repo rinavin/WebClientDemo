@@ -3,8 +3,8 @@
  */
 import {Injectable} from "@angular/core";
 import {Subject} from "rxjs/Subject";
-import {MagicBridge} from "@magic/engine";
-import {UIBridge, GuiCommand} from "@magic/gui";
+import {MagicBridge, GuiEvent} from "@magic/engine";
+import {UIBridge, GuiCommand, GuiInteractive} from "@magic/gui";
 
 
 @Injectable()
@@ -13,6 +13,7 @@ export class MagicEngine {
   isStub  = false;
   //TODO - unregister
   refreshDom: Subject<GuiCommand> = new Subject();
+  interactiveCommands: Subject<GuiInteractive> = new Subject();
 
   startMagic() {
     this.magic.registerExecuteCommands(data => {
@@ -24,23 +25,19 @@ export class MagicEngine {
       }
     });
 
+    this.magic.registerInteractiveCallback(data => {
+      if (!this.isStub) {
+          this.interactiveCommands.next(data);
+        }
+    });
+
     this.magic.StartMagic();
   }
 
-  insertEvent(taskId, eventName, controlIdx, lineidx) {
+  insertEvent(guiEvent: GuiEvent) {
     if (!this.isStub)
-      this.magic.insertEvent(taskId, eventName, controlIdx, lineidx);
+      this.magic.insertEvent(guiEvent);
 
-  }
-
-  registerGetValueCallback(taskId, cb) {
-    if (!this.isStub)
-      this.magic.registerGetValueCallback(taskId, cb);
-  }
-
-  registerShowMessageBox(cb) {
-    if (!this.isStub)
-      this.magic.registerShowMessageBox(cb);
   }
 
   registerOpenFormCallback(cb) {

@@ -43,6 +43,8 @@ export class ControlsMetadata {
   ControlsProperties: Map<string, ControlMetadata> = new Map();
 
   rowId: string;
+  isCreated = false;
+
   get Values(){
     return this.values;
   }
@@ -68,8 +70,12 @@ export class ControlsMetadata {
       controlMetaData.controlType = obj.ControlsMetaData[controlName].Type;
     }
     for (let controlName in obj.ControlsValues) {
-      this.values[controlName] = obj.ControlsValues[controlName];
+      this.setValue(controlName, obj.ControlsValues[controlName]);
     }
+  }
+
+  setValue(controlName: string, value: any): void  {
+    this.values[controlName] = value;
   }
 
   getProperty(controlId: string, prop: HtmlProperties) {
@@ -92,6 +98,30 @@ export class ControlsMetadata {
 export class Records {
   data: Map<string, ControlsMetadata> = new Map();
   list:ControlsMetadata[]=[] ; //used for sequential access in table
+  includesFirst:boolean;
+  includesLast:boolean;
+
+
+  markRowAsCreated(row:number): void
+  {
+    if (row < this.list.length)
+      this.data[row].isCreated = true;
+  }
+
+  markRowAsNotCreated(row:number): void
+  {
+    if (row < this.list.length)
+      this.data[row].isCreated = false;
+  }
+
+  isRowCreated(row:number): boolean
+  {
+    if (row < this.list.length)
+      return this.data[row].isCreated;
+    //!!!!
+    return true;
+  }
+
 
   update(obj) {
 
@@ -159,7 +189,8 @@ export enum HtmlProperties {
   PlaceHolder="placeholder",
   Password="password",
   TabIndex="tabindex",
-  SelectedRow="selectedRow"
+  SelectedRow="selectedRow",
+  ReadOnly="readOnly"
 }
 
 export enum HtmlClasses {

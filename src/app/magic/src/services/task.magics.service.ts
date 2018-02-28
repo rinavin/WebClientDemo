@@ -4,7 +4,8 @@ import {AbstractControl, FormControl, FormGroup} from "@angular/forms";
 import {HtmlProperties, Records} from "../controls.metadata.model";
 import {isNullOrUndefined} from "util";
 import {Subject} from "rxjs/Subject";
-import { GuiCommand} from "@magic/gui";
+import { GuiCommand, GuiInteractive} from "@magic/gui";
+import {GuiEvent} from "@magic/engine";
 
 @Injectable()
 export class TaskMagicService {
@@ -13,6 +14,7 @@ export class TaskMagicService {
   rows: Array<FormGroup> = [];
   ScreenModeControls: FormGroup;
   refreshDom: Subject<GuiCommand> = new Subject();
+  interactiveCommands: Subject<GuiInteractive> = new Subject();
   protected template: { [id: string]: string; };
 
   constructor(protected magic: MagicEngine) {
@@ -105,24 +107,46 @@ export class TaskMagicService {
     this.Records.updateSize(size);
   }
 
+
+  setIncludesFirst(value: boolean): void {
+    this.Records.includesFirst = value;
+  }
+
+  setIncludesLast(value: boolean): void {
+    this.Records.includesLast = value;
+  }
+
+  markRowAsCreated(row: number): void {
+    this.Records.markRowAsCreated(row);
+  }
+
+
+  markrowAsNotCreated(row: number): void {
+    this.Records.markRowAsNotCreated(row);
+  }
+
+
   initTask() {
     this.magic.refreshDom
-      .filter(command => command.TaskTag == this.taskId)
+      .filter(command => command.TaskTag === this.taskId)
       .subscribe(command => {
         // console.log("Task " + command.TaskTag + "command " + command.CommandType);
         this.refreshDom.next(command);
       });
+    this.magic.interactiveCommands
+      .filter(command => command.TaskTag === this.taskId)
+      .subscribe(command => {
+        // console.log("Task " + command.TaskTag + "command " + command.CommandType);
+        this.interactiveCommands.next(command);
+      });
 
   }
 
-  insertEvent(eventName: string, controlIdx: string, lineidx: string) {
-    this.magic.insertEvent(this.taskId, eventName, controlIdx, lineidx);
+  insertEvent(guiEvent: GuiEvent) {
+    guiEvent.TaskID = this.taskId;
+    this.magic.insertEvent(guiEvent);
   }
 
-
-  registerGetValueCallback(cb) {
-    this.magic.registerGetValueCallback(this.taskId, cb);
-  }
 
 
   getProperty(controlId: string, prop: HtmlProperties, rowId?: string) {
@@ -130,8 +154,14 @@ export class TaskMagicService {
       rowId = "0";
     if (this.IsStub())
       return this.getPropertyStub(this.Records.list[rowId], controlId, prop);
-    else
-      return this.Records.list[rowId].getProperty(controlId, prop);
+    else {
+      let rec = this.Records.list[rowId];
+      if (isNullOrUndefined(rec))
+        debugger;
+      else
+        return this.Records.list[rowId].getProperty(controlId, prop);
+
+    }
   }
 
   getPropertyStub(ControlsProperties: any, controlId, prop) {
@@ -171,6 +201,11 @@ export class TaskMagicService {
       rowId = '0';
 
     return this.Records.list[rowId].values[controlId];
+    // return this.Records.list[rowId].getValue(controlId);
+  }
+
+  setValue(controlId: string, rowId: string, value: any): void {
+    return this.Records.list[rowId].setValue(controlId, value);
     // return this.Records.list[rowId].getValue(controlId);
   }
 

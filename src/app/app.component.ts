@@ -1,9 +1,10 @@
-import {ChangeDetectorRef, Component, ComponentFactoryResolver, OnInit, ViewContainerRef} from '@angular/core';
+import {Component, OnInit, ChangeDetectorRef} from '@angular/core';
 import {MagicEngine} from "./magic/src/services/magic.engine";
 import {ComponentsList} from './ComponentList';
 import {BaseTaskMagicComponent} from "./magic/src/ui/app.baseMagicComponent";
-import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from "@angular/material";
-import {MAT_MOMENT_DATE_FORMATS, MomentDateAdapter} from "@angular/material-moment-adapter";
+import {GuiCommand, CommandType} from "@magic/gui";
+import {GuiInteractiveExecutor} from './magic/src/ui/GuiInteractiveExecutor';
+import { Title }     from '@angular/platform-browser';
 
 declare let myExtObject: any;
 
@@ -13,18 +14,27 @@ declare let myExtObject: any;
     <ndc-dynamic [ndcDynamicComponent]="MainComp"
                  [ndcDynamicInputs]="MainCompParameters">
     </ndc-dynamic>
-  `
+    <app-magic-modal
+      *ngIf="ModalFormDefinition.comp !== null"
+      [ModalComp]="ModalFormDefinition.comp"
+      [ModalCompParameters]="ModalFormDefinition.parameters">
+    </app-magic-modal>
+ `
 })
-export class AppComponent implements OnInit
-{//extends BaseTaskMagicComponent implements OnInit {
+
+export class AppComponent implements OnInit {
   private MainComp: Component;
   private MainCompParameters: any;
 
+  private ModalFormDefinition: ModalFormDefinition = new ModalFormDefinition();
+
   constructor(protected magic: MagicEngine,
-              protected changeDetectorRef: ChangeDetectorRef) {
+              protected changeDetectorRef: ChangeDetectorRef,
+              private titleService: Title) {
 
     this.initializeMagic();
     BaseTaskMagicComponent.componentListBase = new ComponentsList();
+    this.setTitle();
   }
 
   ngOnInit() {
@@ -36,9 +46,13 @@ export class AppComponent implements OnInit
       this.InjectComponent(formName, taskId, taskDescription);
     });
 
-    this.magic.registerShowMessageBox(msg => {
-      alert(msg);
-    });
+
+    this.regUpdatesUI();
+  }
+
+  public setTitle( ) {
+    const newTitle: string = BaseTaskMagicComponent.componentListBase.getTitle();
+    this.titleService.setTitle( newTitle );
   }
 
   private InjectComponent(formName: string, taskId: string, taskDescription: string) {
@@ -47,5 +61,46 @@ export class AppComponent implements OnInit
 
     this.changeDetectorRef.detectChanges();
   }
+
+  regUpdatesUI() {
+    this.magic
+      .refreshDom
+      .filter(command => command.TaskTag === '0')
+      .subscribe(command => {
+        this.executeCommand(command);
+      });
+
+    this.magic
+      .interactiveCommands
+      .filter(command => command.TaskTag === '0')
+      .subscribe(command => {
+        let executor = new GuiInteractiveExecutor();
+        executor.command = command;
+        executor.Run();
+      });
+  }
+
+  executeCommand(command: GuiCommand): void {
+    console.log("AppComponent.executeCommand()");
+    switch (command.CommandType) {
+      case CommandType.OPEN_FORM:
+        this.ModalFormDefinition.taskId = command.stringList[0];
+        this.ModalFormDefinition.comp = BaseTaskMagicComponent.componentListBase.getComponents(command.str);
+        this.ModalFormDefinition.parameters = {myTaskId: command.stringList[0], taskDescription: command.stringList[1]};
+        this.changeDetectorRef.detectChanges();
+        break;
+
+      case CommandType.CLOSE_FORM:
+        if (command.str === this.ModalFormDefinition.taskId) {
+          this.ModalFormDefinition = new ModalFormDefinition();
+        }
+        break;
+    }
+  }
 }
 
+class ModalFormDefinition {
+  taskId: string = "";
+  comp: Component = null;
+  parameters: any = {};
+}

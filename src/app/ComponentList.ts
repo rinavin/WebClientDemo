@@ -167,4 +167,8 @@ export class ComponentsList extends ComponentListBase {
 	public static getAllComponents() {
 		return this.ComponentArray;
 	}
+	
+	public getTitle(): string {
+		return "WebClientDemo";
+	}
 }

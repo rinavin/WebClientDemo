@@ -9,7 +9,7 @@ import {TaskMagicService} from "../services/task.magics.service";
 // magic directive for full-control
 export class MagicFullControlDirective extends MagicDirectiveBase {
 
-  @Input('magic') set magic(val) {this.id = val};
+  @Input('magic') set magic(val) {this.id = val; this.selector = 'magic';};
 
   // CTOR
   constructor(element: ElementRef,

@@ -1,6 +1,7 @@
 import {ChangeDetectorRef, Component, Input, OnDestroy, OnInit, QueryList, ViewChildren} from '@angular/core';
 import {FormGroup} from '@angular/forms';
-import {GuiCommand, CommandType} from "@magic/gui";
+import {GuiCommand, CommandType, GuiInteractive} from "@magic/gui";
+import {GuiEvent} from "@magic/engine";
 import {TaskMagicService} from "../services/task.magics.service";
 import {isNullOrUndefined, isUndefined} from "util";
 import {ControlMetadata, HtmlProperties} from "../controls.metadata.model";
@@ -11,6 +12,8 @@ import 'rxjs/add/operator/filter';
 
 
 import {ComponentListBase} from '../../../ComponentListBase';
+import {GuiInteractiveExecutor} from './GuiInteractiveExecutor';
+import {ThemeModule} from './theme/theme.module';
 
 
 @Component({
@@ -24,14 +27,20 @@ export abstract class BaseTaskMagicComponent implements OnInit, OnDestroy {
   @Input() taskDescription: string;
   subformsDict: { [x: string]: SubformDefinition } = {};
   emptyComp: Component;
-
-  refreshUI: Subject<any> = new Subject();
+  oldPageSize = 0;
+  lastFocused = null;
   private _controlProperties: any;
-  protected getvalueCallback = (rowId: string, controlKey: string) => {
-    let result = this.task.getFormControl(rowId, controlKey);
-    if (!isNullOrUndefined(result))
-      return result.value;
-  };
+
+
+  protected executeInteractiveCommand(guiIntactiveCommand: GuiInteractive)
+  {
+    let executor = new GuiInteractiveExecutor();
+    executor.task = this.task;
+    executor.command = guiIntactiveCommand;
+    executor.component = this;
+    executor.Run();
+
+  }
 
   constructor(protected ref: ChangeDetectorRef,
               protected task: TaskMagicService,
@@ -68,8 +77,8 @@ export abstract class BaseTaskMagicComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.refreshUI.complete();
     this.task.refreshDom.complete();
+    this.task.interactiveCommands.complete();
   }
   public static componentListBase:ComponentListBase;
 
@@ -87,7 +96,7 @@ export abstract class BaseTaskMagicComponent implements OnInit, OnDestroy {
       return this.subformsDict[subformName].parameters;
     }
     else
-      return "";
+      return ""
   }
 
   addSubformComp(subformControlName: string, formName: string, taskId: string, taskDescription: any) {
@@ -108,7 +117,6 @@ export abstract class BaseTaskMagicComponent implements OnInit, OnDestroy {
       this.task.settemplate(this.taskDescription);
     }
     this.task.buildScreenModeControls();
-    this.task.registerGetValueCallback(this.getvalueCallback);
     this.task.initTask();
     this.regUpdatesUI();
   }
@@ -121,31 +129,89 @@ export abstract class BaseTaskMagicComponent implements OnInit, OnDestroy {
     let result = this.mgGetFormGroupByRow(id);
     return !isNullOrUndefined(result);
   }
+  refreshDataSource():void {}
+
+  getPageSize(): number
+  {
+    return 10;
+  }
+
+  resize(pageSize: number): void {
+    let guiEvent: GuiEvent = new GuiEvent("resize", "table", 0);
+    guiEvent.PageSize = pageSize;
+    this.task.insertEvent(guiEvent);
+  }
+
+
+  getRowsIfNeed(pageIndex: number, pageSize: number): void {
+    if (this.oldPageSize !== pageSize) {
+      this.resize(pageSize);
+      this.oldPageSize = pageSize;
+    }
+    if (!this.task.Records.includesLast) {
+      let guiEvent: GuiEvent = new GuiEvent("getRows", "table", 0);
+      for (let i = pageIndex * pageSize ; i < pageSize  * ( pageIndex + 1)  ; i++) {
+        if (!this.task.Records.isRowCreated(i)) {
+          guiEvent.Line = i;
+          this.task.insertEvent(guiEvent);
+          break;
+        }
+      }
+    }
+  }
+  onScrollDown() {
+    if (!this.task.Records.includesLast){
+      let guiEvent: GuiEvent = new GuiEvent("getRows", "table", 0)
+      guiEvent.Line = this.task.rows.length;
+      this.task.insertEvent(guiEvent);
+    }
+  }
 
   executeCommand(command: GuiCommand): void {
     let rowId: string = (command.line || 0).toString();
     let controlId = command.CtrlName;
 
+
     switch (command.CommandType) {
       case CommandType.REFRESH_TASK:
 
         this.task.ScreenModeControls.patchValue(this.task.ScreenControlsData.Values);
+        this.refreshDataSource();
         this.ref.detectChanges();
         break;
       case CommandType.SET_TABLE_ITEMS_COUNT:
         if (!isUndefined(command.number))
           this.task.updateTableSize(command.number);
-        this.ref.detectChanges();
+        //this.ref.detectChanges();
         break;
+
+      case CommandType.CREATE_TABLE_ROW:
+        this.task.markRowAsCreated(command.number);
+        break;
+
+      case CommandType.UNDO_CREATE_TABLE_ROW:
+        this.task.markrowAsNotCreated(command.number);
+        break;
+
+
+      case CommandType.SET_TABLE_INCLUDES_FIRST:
+        this.task.setIncludesFirst(command.Bool1);
+        break;
+      case CommandType.SET_TABLE_INCLUDES_LAST:
+        this.task.setIncludesLast(command.Bool1);
+        break;
+
 
       case CommandType.SET_PROPERTY:
         let properties: ControlMetadata;
         properties = this.task.Records.list[rowId].getControlMetadata(controlId);
         properties.properties[command.Operation] = command.obj1;
+        if (command.Operation === HtmlProperties.SelectedRow)
+          this.selectRow(command.obj1); //template method that allow overwite
         break;
       case CommandType.SET_CLASS:
         properties = this.task.Records.list[rowId].getControlMetadata(controlId);
-        properties.setClass(command.Operation, command.str);
+        properties.setClass(command.Operation, command.obj1);
         break;
 
       case CommandType.SET_STYLE:
@@ -166,15 +232,29 @@ export abstract class BaseTaskMagicComponent implements OnInit, OnDestroy {
   regUpdatesUI() {
     this.task
       .refreshDom
-      .filter(updates => updates.TaskTag == this.taskId)
+      .filter(updates => updates.TaskTag === this.taskId)
       .subscribe(command => {
         this.executeCommand(command)
       });
+    this.task
+      .interactiveCommands
+      .filter(updates => updates.TaskTag === this.taskId)
+      .subscribe(command => {
+        this.executeInteractiveCommand(command)
+      });
   }
 
-
+  selectRow(rowId: string): void {
+  }
   mgGetText(controlId, rowId?) {
     return this.task.getProperty(controlId, HtmlProperties.Text, rowId);
+  }
+
+  mgGetTabpageText(controlId, layer) {
+    const items = this.task.getProperty(controlId, HtmlProperties.ItemsList);
+    if(typeof items !== "string")
+      return items[layer-1].realString;
+    return items;
   }
 
   mgGetImage(controlId, rowId?) {
@@ -203,18 +283,18 @@ export abstract class BaseTaskMagicComponent implements OnInit, OnDestroy {
     return vis ? 'visible' : 'hidden';
   }
 
-  getEnable(controlId, rowId?) {
+  /*getEnable(controlId, rowId?) {
     return this.getProperty(controlId, HtmlProperties.Enabled, rowId);
-  }
+  }*/
 
   isRowSelected(controlId, rowId?) {
-    let selectedRow = this.getProperty(controlId, HtmlProperties.SelectedRow, "0") ;
-    return selectedRow === rowId;
+    const selectedRow = this.getProperty(controlId, HtmlProperties.SelectedRow, "0") ;
+    return selectedRow == rowId;
   }
 
   mgIsDisabled(controlId, rowId?) {
     let result = this.getProperty(controlId, HtmlProperties.Enabled, rowId);
-    return result === "true" ? null : true;
+    return result === true ? null : true;
   }
 
   getProperty(controlId: string, prop: HtmlProperties, rowId?: string) {
@@ -234,7 +314,8 @@ export abstract class BaseTaskMagicComponent implements OnInit, OnDestroy {
   }
 
   mgGetType(controlId, rowId?) {
-    return this.task.getProperty(controlId, HtmlProperties.Password, rowId) ? "password" : "text";
+    let result =  this.task.getProperty(controlId, HtmlProperties.Password, rowId) ;
+    return result ? "password" : "text"
   }
 
   mgGetTabIndex(controlId, rowId?) {
@@ -251,18 +332,38 @@ export abstract class BaseTaskMagicComponent implements OnInit, OnDestroy {
   }
 
   public mgOnSelectionChanged(event: Event, idx: string) {
-    this.task.insertEvent('selectionchanged', idx, (<any>(event.target)).selectedIndex.toString());
+    let guiEvent: GuiEvent = new GuiEvent("selectionchanged", idx, 0);
+    guiEvent.Value = (<any>(event.target)).selectedIndex.toString();
+    this.task.insertEvent(guiEvent);
+  }
+
+  public mgOnTabSelectionChanged(idx:string, layer: number) {
+    let guiEvent: GuiEvent = new GuiEvent("selectionchanged", idx, 0);
+    guiEvent.Value = (layer-1).toString();
+    this.task.insertEvent(guiEvent);
+  }
+
+  public mgIsTabPageSelected(controlId:string, layer: number) {
+    let val = this.task.getProperty(controlId, HtmlProperties.SelectedValue);
+    return val == (layer-1); // comparing string to number!
   }
 
   mgOnCheckChanged(event: Event, idx: string) {
-    this.task.insertEvent('selectionchanged', idx, (<any>(event.target)).checked ? "1" : "0");
+    let guiEvent: GuiEvent = new GuiEvent("selectionchanged", idx, 0);
+    guiEvent.Value = (<any>(event.target)).checked ? "1" : "0";
+    this.task.insertEvent(guiEvent);
   }
 
   mgOnRadioSelectionChanged(event: Event, idx: string) {
     let result = this.task.getFormControl('0', idx);
-    this.task.insertEvent('selectionchanged', idx, result.value);
+    let guiEvent: GuiEvent = new GuiEvent("selectionchanged", idx, 0);
+    guiEvent.Value = result.value;
+    this.task.insertEvent(guiEvent);
   }
-
+  mgOnPaginateChange(e)
+  {
+    this.getRowsIfNeed(e.pageIndex, e.pageSize) ;
+  }
   jsonData :string
   public createData()
   {
@@ -285,6 +386,33 @@ export abstract class BaseTaskMagicComponent implements OnInit, OnDestroy {
     for (let i = 0; i < this.task.Records.list.length; i++)
       this.task.buildTableRowControls(i);
   }
+
+  public close() {
+    this.task.insertEvent(new GuiEvent("close", null, 0));
+  }
+
+  openEditDialog(id: string, rowId: string, dim: any): void {
+    const dialog = this.GetDialog();
+    if (!this.task.getProperty(id, HtmlProperties.ReadOnly, rowId)) {
+      if (dialog != null && this.task.isTableControl(id)) {
+        let v = this.task.getValue(id, rowId);
+        ThemeModule.openEditDialog(dialog, dim, v, result => {
+           if (result != null) {
+            this.task.setValue(id, rowId, result);
+            const fc = this.task.getFormControl(rowId, id);
+            if (!isNullOrUndefined(result)) {
+              fc.setValue(result);
+            }
+          }
+        });
+      }
+    }
+  }
+
+  GetDialog(): any  {
+    return null;
+  }
+
 }
 
 interface SubformDefinition {

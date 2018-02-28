@@ -1,8 +1,11 @@
 import {ElementRef, Input, OnInit, Renderer2, ViewContainerRef} from '@angular/core';
 import {TaskMagicService} from "../services/task.magics.service";
 import {GuiCommand, CommandType} from "@magic/gui";
+import {GuiEvent} from "@magic/engine";
 import {BaseTaskMagicComponent} from "./app.baseMagicComponent";
 import {isNullOrUndefined} from "util";
+import {HtmlProperties} from '../controls.metadata.model';
+import {utils} from './utils';
 
 // base class for magic directive
 export class MagicDirectiveBase implements OnInit {
@@ -13,6 +16,7 @@ export class MagicDirectiveBase implements OnInit {
   private component: BaseTaskMagicComponent;
   private eventHandlers: { [key: string]: () => void; } = {};
   protected id: string;
+  protected selector: string;
 
   // CTOR
   constructor(private element: ElementRef,
@@ -42,13 +46,22 @@ export class MagicDirectiveBase implements OnInit {
     let events: string[] = ['click', 'dblclick',];// 'mouseenter', 'mouseleave','resize', 'load', 'unload',
     events.forEach(event => {
       this.htmlElement.addEventListener(event, (e) => {
-        this.task.insertEvent(event, this.id, this.rowId);
+        let child = utils.lookForClosestMagicControlOnLine(e, this.selector);
+        if(typeof child === "undefined") {
+          this.task.insertEvent(new GuiEvent(event, this.id, +this.rowId));
+        } else {
+          this.task.insertEvent(new GuiEvent(event, child.attributes[this.selector].value, child.attributes["ng-reflect-row-id"].value));
+        }
+        e.cancelBubble = true;
+        if (this.component.lastFocused === this.htmlElement)
+          this.component.openEditDialog(this.id, this.rowId, utils.getDimentions(this.htmlElement));
+
       });
     });
   }
 
   private OnFocus() {
-    this.task.insertEvent('focus', this.id, this.rowId);
+    this.task.insertEvent(new GuiEvent('focus', this.id, +this.rowId));
   }
 
   private IsSameElement(command) {
@@ -83,12 +96,8 @@ export class MagicDirectiveBase implements OnInit {
   protected handleCommand(command: GuiCommand) {
     switch (command.CommandType) {
 
-      case CommandType.SET_ATTRIBUTE:
-        if (command.str != "true")
-          this.renderer.removeAttribute(this.htmlElement, command.Operation);
-        else
-          this.renderer.setAttribute(this.htmlElement, command.Operation, command.str);
-
+      case CommandType.SET_PROPERTY:
+        this.handleSetProperty(command);
         break;
 
       case CommandType.CREATE_SUB_FORM:
@@ -96,9 +105,22 @@ export class MagicDirectiveBase implements OnInit {
         break;
 
       case CommandType.SET_FOCUS:
+        this.component.lastFocused = this.htmlElement;
         this.htmlElement.removeEventListener('focus', this.eventHandlers['focus']);
         this.htmlElement.focus();
         this.htmlElement.addEventListener('focus', this.eventHandlers['focus']);
+        break;
+    }
+  }
+
+  handleSetProperty(command: GuiCommand) {
+    switch (command.Operation) {
+      case HtmlProperties.ReadOnly:
+        if (command.obj1 != true)
+          this.renderer.removeAttribute(this.htmlElement, command.Operation);
+        else
+          this.renderer.setAttribute(this.htmlElement, command.Operation, command.str);
+
         break;
     }
   }
