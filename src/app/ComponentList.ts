@@ -1,174 +1,80 @@
-import { ComponentListBase } from "./ComponentListBase";
-import { Component } from "@angular/core";
+import {ComponentListBase} from './ComponentListBase';
+import {Component} from '@angular/core';
 
-import { TravelLogon } from "./TravelLogon/TravelLogon.component";
+import {YourTravel} from './YourTravel/YourTravel.component';
 
-import { YourTravel } from "./YourTravel/YourTravel.component";
+import {YourTravelRequests} from './YourTravelRequests/YourTravelRequests.component';
 
-import { YourTravelRequests } from "./YourTravelRequests/YourTravelRequests.component";
+import {YourTravelRequestsGenerate} from './YourTravelRequestsGenerate/YourTravelRequestsGenerate.component';
 
-import { YourTravelRequestsGenerate } from "./YourTravelRequestsGenerate/YourTravelRequestsGenerate.component";
+import {EditTravelRequestEntries} from './EditTravelRequestEntries/EditTravelRequestEntries.component';
 
-import { EditTravelRequestEntries } from "./EditTravelRequestEntries/EditTravelRequestEntries.component";
+import {Flight1} from './Flight1/Flight1.component';
 
-import { Flight1 } from "./Flight1/Flight1.component";
+import {Hotel} from './Hotel/Hotel.component';
 
-import { FlightlList } from "./FlightlList/FlightlList.component";
+import {Rest} from './Rest/Rest.component';
 
-import { Flight2 } from "./Flight2/Flight2.component";
+import {Car} from './Car/Car.component';
 
-import { Hotel } from "./Hotel/Hotel.component";
-
-import { HotelList1 } from "./HotelList1/HotelList1.component";
-
-import { Rest } from "./Rest/Rest.component";
-
-import { RestaurantsList } from "./RestaurantsList/RestaurantsList.component";
-
-import { Car } from "./Car/Car.component";
-
-import { CarsList } from "./CarsList/CarsList.component";
-
-import { ViewProfile } from "./ViewProfile/ViewProfile.component";
-
-import { LargeImage } from "./LargeImage/LargeImage.component";
-
-import { Request } from "./Request/Request.component";
-
-import { RicClientresourcesServe } from "./RicClientresourcesServe/RicClientresourcesServe.component";
-
-import { HotelList2 } from "./HotelList2/HotelList2.component";
-
-import { EditEntry } from "./EditEntry/EditEntry.component";
-
-import { AirportList3 } from "./AirportList3/AirportList3.component";
-
-import { Hotellist3 } from "./Hotellist3/Hotellist3.component";
-
-import { HotelList } from "./HotelList/HotelList.component";
-
-import { List } from "./List/List.component";
-
-import { BlankProgram } from "./BlankProgram/BlankProgram.component";
+import {LargeImage} from './LargeImage/LargeImage.component';
 
 export class ComponentsList extends ComponentListBase {
-	static compHash: { [x: string]: any } = {
-		TravelLogon: TravelLogon,
+  static compHash: { [x: string]: any } = {
+    YourTravel: YourTravel,
 
-		YourTravel: YourTravel,
+    YourTravelRequests: YourTravelRequests,
 
-		YourTravelRequests: YourTravelRequests,
+    YourTravelRequestsGenerate: YourTravelRequestsGenerate,
 
-		YourTravelRequestsGenerate: YourTravelRequestsGenerate,
+    EditTravelRequestEntries: EditTravelRequestEntries,
 
-		EditTravelRequestEntries: EditTravelRequestEntries,
+    Flight1: Flight1,
 
-		Flight1: Flight1,
+    Hotel: Hotel,
 
-		FlightlList: FlightlList,
+    Rest: Rest,
 
-		Flight2: Flight2,
+    Car: Car,
 
-		Hotel: Hotel,
+    LargeImage: LargeImage,
 
-		HotelList1: HotelList1,
+  };
 
-		Rest: Rest,
+  static ComponentArray: any[] = [
+    YourTravel,
 
-		RestaurantsList: RestaurantsList,
+    YourTravelRequests,
 
-		Car: Car,
+    YourTravelRequestsGenerate,
 
-		CarsList: CarsList,
+    EditTravelRequestEntries,
 
-		ViewProfile: ViewProfile,
+    Flight1,
 
-		LargeImage: LargeImage,
+    Hotel,
 
-		Request: Request,
+    Rest,
 
-		RicClientresourcesServe: RicClientresourcesServe,
+    Car,
 
-		HotelList2: HotelList2,
+    LargeImage,
 
-		EditEntry: EditEntry,
+  ];
 
-		AirportList3: AirportList3,
+  static getArray() {
+    return this.ComponentArray;
+  }
 
-		Hotellist3: Hotellist3,
+  public getComponents(name: string): Component {
+    return ComponentsList.compHash[name];
+  }
 
-		HotelList: HotelList,
+  public static getAllComponents() {
+    return this.ComponentArray;
+  }
 
-		List: List,
-
-		BlankProgram: BlankProgram
-	};
-
-	static ComponentArray: any[] = [
-		TravelLogon,
-
-		YourTravel,
-
-		YourTravelRequests,
-
-		YourTravelRequestsGenerate,
-
-		EditTravelRequestEntries,
-
-		Flight1,
-
-		FlightlList,
-
-		Flight2,
-
-		Hotel,
-
-		HotelList1,
-
-		Rest,
-
-		RestaurantsList,
-
-		Car,
-
-		CarsList,
-
-		ViewProfile,
-
-		LargeImage,
-
-		Request,
-
-		RicClientresourcesServe,
-
-		HotelList2,
-
-		EditEntry,
-
-		AirportList3,
-
-		Hotellist3,
-
-		HotelList,
-
-		List,
-
-		BlankProgram
-	];
-
-	static getArray() {
-		return this.ComponentArray;
-	}
-
-	public getComponents(name: string): Component {
-		return ComponentsList.compHash[name];
-	}
-
-	public static getAllComponents() {
-		return this.ComponentArray;
-	}
-	
-	public getTitle(): string {
-		return "WebClientDemo";
-	}
+  public getTitle(): string {
+    return 'WebClientDemo';
+  }
 }
