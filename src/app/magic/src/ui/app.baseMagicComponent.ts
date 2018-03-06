@@ -220,10 +220,10 @@ export abstract class BaseTaskMagicComponent implements OnInit, OnDestroy {
         break;
 
       case  CommandType.SET_VALUE:
-        this.task.Records.list[rowId].values[controlId] = command.str;
+        this.task.Records.list[rowId].values[controlId] = command.value;
         let c = this.task.getFormControl(rowId, controlId);
         if (!isNullOrUndefined(c))
-          c.setValue(command.str);
+          c.setValue(command.value);
 
         break;
     }
